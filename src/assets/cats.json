@@ -1,0 +1,68 @@
+[
+	{
+		"id": "0",
+		"price": 30000,
+		"img": "https://s13.stc.all.kpcdn.net/family/wp-content/uploads/2022/08/top-nevskaya-maskaradnaya-koshka-960h540-960x540.jpg",
+		"discount": 40,
+		"name": "Эверетт",
+		"age": 2,
+		"buy": "Купить",
+		"isSell": true,
+		"isFavorite": false
+	},
+	{
+		"id": "1",
+		"price": 40000,
+		"img": "https://s4.stc.all.kpcdn.net/family/wp-content/uploads/2022/08/kurilskij-bobtejl-koshka_oblogkaa_960-960x540.jpg",
+		"discount": 0,
+		"name": "Генри",
+		"age": 3,
+		"buy": "Продан",
+		"isSell": false,
+		"isFavorite": false
+	},
+	{
+		"id": "2",
+		"price": 20000,
+		"img": "https://s1.stc.all.kpcdn.net/putevoditel/projectid_103889/images/tild3161-3432-4135-b839-643164646633__960.jpg",
+		"discount": 0,
+		"name": "Чарли",
+		"age": 9,
+		"buy": "Купить",
+		"isSell": true,
+		"isFavorite": false
+	},
+	{
+		"id": "3",
+		"price": 25000,
+		"img": "https://s9.stc.all.kpcdn.net/family/wp-content/uploads/2022/05/tajskaya-koshka_oblogka_960-960x540.jpg",
+		"discount": 0,
+		"name": "Эдвин",
+		"age": 6,
+		"buy": "Купить",
+		"isSell": true,
+		"isFavorite": false
+	},
+	{
+		"id": "4",
+		"price": 30000,
+		"img": "https://s9.stc.all.kpcdn.net/family/wp-content/uploads/2022/08/shartrez-koshka-960-540-960x540.jpg",
+		"discount": 40,
+		"name": "Мигель",
+		"age": 2,
+		"buy": "Продан",
+		"isSell": false,
+		"isFavorite": false
+	},
+	{
+		"id": "5",
+		"price": 10000,
+		"img": "https://s9.stc.all.kpcdn.net/family/wp-content/uploads/2022/08/top-orientalnaya-koshka-960x540-2-960x540.jpg",
+		"discount": 0,
+		"name": "Маршалл",
+		"age": 8,
+		"buy": "Купить",
+		"isSell": true,
+		"isFavorite": false
+	}
+]

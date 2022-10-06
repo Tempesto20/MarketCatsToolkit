@@ -1,0 +1,68 @@
+#page-wrap {
+  text-align: center;
+  overflow: auto;
+  //top: 45%;
+  position: relative;
+}
+
+.bm-item {
+  display: inline-block;
+  text-decoration: none;
+  padding-top: 10px;
+  color: #ffffff;
+  transition: color 0.2s;
+}
+
+.bm-item:hover {
+  color: white;
+}
+
+.bm-burger-button {
+  // Кнопка
+  position: fixed;
+  @media (max-width: 700px) {
+
+    width: 36px;
+    height: 30px;
+    right: 36px;
+    top: 36px;
+  }
+}
+
+.bm-burger-bars {
+  //кнопка
+  background: #ffffff;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #eed5d5;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  //всплывающее меню
+  background: #000;
+  padding: 20px 20px;
+  font-size: 20px;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #ffffff;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #ffffff;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(255, 255, 255, 0.3);
+}

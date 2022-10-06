@@ -1,0 +1,59 @@
+@import '../../scss/config';
+
+.sort{
+    display: flex;
+    justify-content: row;
+    background: #E5E5E5;
+    @media (max-width: $sm) {
+        display: flex;
+        flex-direction: column; 
+    }
+}
+
+.sorting__cat {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    margin: 38px 48px 38px 120px;
+    white-space: nowrap;
+    @media (max-width: $xl) {
+        margin: 38px 48px 38px 20px;
+    }
+    @media (max-width: $lg) {
+        margin: 306px 48px 38px 20px;
+    }
+    @media (max-width: $md) {
+        font-size: 16px;
+        line-height: 18px;
+        margin: 210px 24px 38px 20px;
+    }
+    @media (max-width: $sm) {
+        margin: 200px 0px 10px 20px;
+    }
+}
+
+.catSelect {
+    max-width: 300px;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    background: #E5E5E5;
+    margin: 30px 84px 38px 0px;
+    @media (max-width: $lg) {
+        margin: 300px 84px 38px 0px;
+    }
+    @media (max-width: $md) {
+        //max-width: 100px;
+        font-size: 16px;
+        line-height: 18px;
+        margin: 200px 42px 38px 0px;
+    }
+    @media (max-width: $sm) {
+        max-width: 200px;
+        margin: 0px 0px 10px 20px;
+    }
+}
+.nice{
+    
+}
