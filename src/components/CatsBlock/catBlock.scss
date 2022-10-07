@@ -227,7 +227,20 @@
 }
 
 .buy__cat.sold {
+    position: relative;
+    margin-top: 0px ;
+    margin: auto;
+    width: 380px;
     background: #1F2021;
+    @media (max-width: $xl){
+        width: 300px;
+    }
+    @media (max-width: $lg){
+        width: 380px;
+    } 
+    @media (max-width: $sm){
+        max-width: 250px; 
+    } 
 }
 
 .byu__cat-1 {

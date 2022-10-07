@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from "react-router-dom";
 import logoSvg from '../../assets/img/svg/logo.svg';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 //import BurgerMenu from '../BurgerMenu/BurgerMenu';
@@ -23,10 +23,9 @@ function Header() {
                         
                         <div className="header__container section-container">
                             <BurgerMenu />
-
-                            <div className="header__logo">
+                            <Link to="/" className="header__logo">
                                 <img src={logoSvg} alt="" className="header__logo-1"></img>
-                            </div>
+                            </Link>
                             <nav className="js-header__nav header__nav">
                                 <ul className="header__nav-list">
                                     <li className="header__nav-item">

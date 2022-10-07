@@ -1,63 +1,62 @@
 import React from 'react';
-// import notLike from '../../assets/img/svg/like.svg';
-// import Like from '../../assets/img/svg/like2.svg';
+import clsx from 'clsx';
+import { Link } from 'react-router-dom';
+import notLike from '../../assets/img/svg/like.svg';
+import Like from '../../assets/img/svg/like2.svg';
 import line from '../../assets/img/svg/line.svg';
-import  './catBlock.scss';
+import './catBlock.scss';
 
+function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
+  const [like, setLike] = React.useState(isFavorite);
 
-function CatBlock({ img, name, price, age, discount, buy, isFavorite }) {
-  // const [like, setLike] = React.useState(nlikes);
+  const chengeLikeYes = () => {
+    setLike(true);
+  };
 
-  // let nlikes = <img src={notLike} />;
-  // let likes = <img src={Like} />;
-
-  // const likeHandler = () => {
-  //   setLike(likes);
-  // };
-
-  const cardDiscount = (
-    <div className="card__discount">
-      <p className="discount">-{discount}%</p>
-    </div>
-  );
-
-  const cardDiscountNone = <div></div>;
-
-  const catBuy = (
-    <button className="buy__cat buy">
-      {/*onClick={clickHandler}*/}
-      <p className="byu__cat-1 ">{buy}</p>
-    </button>
-  );
-
-  const catSold = (
-    <div className="buy__cat sold">
-      <a href="#!" className="byu__cat-1 ">
-        {buy}
-      </a>
-    </div>
-  );
+  const chengeLikeNo = () => {
+    setLike(false);
+  };
+  // console.log(id + ' ' + like);
+  
+  // const like = React.useEffect(()=>{
+  //   let favoriteLike = isFavorite;
+  //   console.log(favoriteLike)
+  //   favoriteLike = notLike;
+  // },[chengeLikeHandler])
 
   return (
     <div className="cards__cat">
       <div className="card">
+        {/* <Link to={`/cat/${id}`} key={id}> */}
         <div className="card__img" alt="">
           <img src={img} alt="" className="card__cat-img" />
+
+          <div className={clsx(discount !== 0 ? 'card__discount' : '')}>
+            <p className={clsx(discount !== 0 ? 'discount' : '')}>
+              {discount !== 0 ? -discount : ''}
+              {discount !== 0 ? `%` : ''}
+            </p>
+          </div>
+          <div className="card__like">
+            {/* <img src={like} alt="" onClick={chengeLikeHandler}/> */}
+
+            {!like && <img src={notLike} onClick={chengeLikeYes} alt="" />}
+            {like && <img src={Like} onClick={chengeLikeNo} alt="" />}
+          </div>
         </div>
 
-        {discount !== 0 ? cardDiscount : cardDiscountNone}
-        {/* <p>
-           {like}
-        </p>
-        <button onClick={likeHandler}> like </button> */}
-
         {/* <div className="card__like">
-          {!like && <img src={props.like} onClick={chengeLikeHamdlerYes} alt="" />}
-          {like && <img src={like2} onClick={chengeLikeHamdlerNo} alt="" />}
+          {!like && <img src={Like} onClick={chengeLikeYes} alt="" />}
+          {like && <img src={notLike} onClick={chengeLikeNo} alt="" />}
         </div> */}
 
+        {/* </Link> */}
+
         <div className="card__background">
-          <h2 className="card__title">{name}</h2>
+          <Link to={`/cat/${id}`} key={id} className="card__title">
+            {name}
+          </Link>
+
           <div className="card__cat-row">
             <img src={line} alt="" className="line"></img>
 
@@ -78,7 +77,10 @@ function CatBlock({ img, name, price, age, discount, buy, isFavorite }) {
           </div>
           <h3 className="price__cat">{price} руб.</h3>
 
-          {buy !== 'Продан' ? catBuy : catSold}
+          <button className={clsx(buy !== 'Продан' ? 'buy__cat buy' : 'buy__cat sold')}>
+            {/*onClick={clickHandler}*/}
+            <p className="byu__cat-1 ">{buy}</p>
+          </button>
         </div>
       </div>
     </div>
@@ -86,6 +88,24 @@ function CatBlock({ img, name, price, age, discount, buy, isFavorite }) {
 }
 
 export default CatBlock;
+
+//  {discount !== 0 ? cardDiscount : cardDiscountNone}
+
+// const catBuy = (
+//   <button className="buy__cat buy">
+//     {/*onClick={clickHandler}*/}
+//     <p className="byu__cat-1 ">{buy}</p>
+//   </button>
+// );
+
+// const catSold = (
+//   <div className="buy__cat sold">
+//     <a href="#!" className="byu__cat-1 ">
+//       {buy}
+//     </a>
+//   </div>
+// );
+//          {/* {buy !== 'Продан' ? catBuy : catSold} */}
 
 // <div>
 //   <img src={img} style={{ maxWidth: '250px' }} />

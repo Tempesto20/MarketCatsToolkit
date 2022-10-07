@@ -2,7 +2,9 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Cart from './Page/Cart/Cart';
+import FullCat from './Page/FullCat/FullCat';
 import Home from './Page/Home/Home';
+import NotFound from './Page/NotFound';
 
 /* import Cats from './components/Cats'; */
 
@@ -14,8 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          {/* <Route path="/pizza/:id" element={<FullPizza />} /> */}
-          {/* <Route path="*" element={<NotFound />} />  */}
+          <Route path="/cat/:id" element={<FullCat />} />
+          <Route path="*" element={<NotFound />} />
           {/*если подходящих маршрутов не нашлось */}
         </Routes>
       </div>
