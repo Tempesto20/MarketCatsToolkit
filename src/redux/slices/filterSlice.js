@@ -5,8 +5,8 @@ const initialState = {
   // categoryId: 0,
   // currentPage: 1,
   sort: {
-    name: 'взрослые',
-    sortProperty: 'age',
+    name: 'юные',
+    sortProperty: '-age',
   },
 };
 

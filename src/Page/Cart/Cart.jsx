@@ -1,28 +1,28 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setClearItems } from '../../redux/slices/cartSlice';
+import CartItem from '../../components/CartBlock/CartItem/CartItem';
+import CartEmpty from '../../components/CartBlock/CartEmpty/CartEmpty';
 
-// import { useSelector, useDispatch } from 'react-redux';
-// import { setClearItems } from '../redux/slices/cartSlice';
-// import CartItem from '../components/CartItem';
 // import CartEmpty from '../components/CartEmpty';
 // import { RootState } from '../redux/store';
 // import { CartItemSlice } from '../redux/slices/cartSlice';
+import styles from './cart.module.scss';
+const Cart = () => {
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.cartSlice.items);
+  console.log(items);
+  const totalPrice = useSelector((state) => state.cartSlice.totalPrice);
+  // console.log(totalPrice)
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+  console.log(totalPrice + ' ' + totalCount);
 
-const Cart =()=> {
-  // const dispatch = useDispatch();
-  // const items = useSelector((state:RootState) => state.cartSlice.items);
-
-  // const totalPrice = useSelector((state:RootState) => state.cartSlice.totalPrice);
-
-  // const totalCount = items.reduce((sum:number, item:CartItemSlice)=>sum + item.count,0 );
-
-  // const handlerClearItems = () => {
-  //   if(window.confirm('Отчисть корзину ?')){
-  //     dispatch(
-  //       setClearItems(),
-  //   );
-  // }
-  // };
+  const handlerClearItems = () => {
+    if (window.confirm('Отчисть корзину ?')) {
+      dispatch(setClearItems());
+    }
+  };
 
   // if(!totalPrice){
   //   //условный рендер, те если ничего не имеетв корзине, будет рендериться CartEmpty
@@ -30,7 +30,7 @@ const Cart =()=> {
   // }
 
   return (
-    <div className="container container--cart">
+    <div className={styles.container}>
       <div className="cart">
         <div className="cart__top">
           <h2 className="content__title">
@@ -94,23 +94,22 @@ const Cart =()=> {
                 strokeLinejoin="round"></path>
             </svg>
 
-            <span>Очистить корзину</span> 
+            <span onClick={handlerClearItems}>Очистить корзину</span>
           </div>
         </div>
         <div className="content__items">
-          {/* {
-            items.map(
-              (item) => <CartItem key={item.id} {...item}/>
-              )
-          } */}
+          {items.map((item) => (
+            <CartItem key={item.id} {...item} />
+          ))}
         </div>
         <div className="cart__bottom">
           <div className="cart__bottom-details">
             <span>
-              Всего пицц: <b>1 шт.</b> {/*{totalCount} */}
+              Всего котиков: <b>{totalCount} шт.</b> {/*{totalCount} */}
             </span>
             <span>
-              Сумма заказа: <b>1 ₽</b>{/*{totalPrice} */}
+              Сумма заказа: <b>{totalPrice} ₽</b>
+              {/*{totalPrice} */}
             </span>
           </div>
           <div className="cart__bottom-buttons">
@@ -139,6 +138,6 @@ const Cart =()=> {
       </div>
     </div>
   );
-}
+};
 
 export default Cart;

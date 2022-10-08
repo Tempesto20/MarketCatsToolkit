@@ -1,12 +1,21 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { CartItemSlice, setAddItem } from '../../redux/slices/cartSlice';
 import notLike from '../../assets/img/svg/like.svg';
 import Like from '../../assets/img/svg/like2.svg';
 import line from '../../assets/img/svg/line.svg';
 import './catBlock.scss';
 
 function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
+
+  const dispatch = useDispatch();
+
+  const cartItem = useSelector((state) => state.cartSlice.items).find(
+    (obj) => obj.id === id,
+  );
+console.log(cartItem)
   const [like, setLike] = React.useState(isFavorite);
 
   const chengeLikeYes = () => {
@@ -24,13 +33,26 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
   //   favoriteLike = notLike;
   // },[chengeLikeHandler])
 
+  const handlerAddItems = () => {
+    const item = {
+      id,
+      name,
+      price,
+      img,
+      count: 0,
+    };
+    dispatch(setAddItem(item));
+    //console.log(item)
+  };
+
   return (
     <div className="cards__cat">
       <div className="card">
         {/* <Link to={`/cat/${id}`} key={id}> */}
         <div className="card__img" alt="">
+        <Link to={`/cat/${id}`} key={id} >
           <img src={img} alt="" className="card__cat-img" />
-
+          </Link>
           <div className={clsx(discount !== 0 ? 'card__discount' : '')}>
             <p className={clsx(discount !== 0 ? 'discount' : '')}>
               {discount !== 0 ? -discount : ''}
@@ -77,7 +99,9 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
           </div>
           <h3 className="price__cat">{price} руб.</h3>
 
-          <button className={clsx(buy !== 'Продан' ? 'buy__cat buy' : 'buy__cat sold')}>
+          <button 
+          onClick={handlerAddItems}
+          className={clsx(buy !== 'Продан' ? 'buy__cat buy' : 'buy__cat sold')}>
             {/*onClick={clickHandler}*/}
             <p className="byu__cat-1 ">{buy}</p>
           </button>

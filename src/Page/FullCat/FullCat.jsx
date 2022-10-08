@@ -2,6 +2,10 @@ import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './fullCat.module.scss';
+
+
+// Детальный данный по котику по id 
+
 const FullCat = () => {
   // const [pizza, setPizza] = React.useState<{
   //   img: string;
@@ -13,7 +17,7 @@ const FullCat = () => {
   //   price: 0,
   // });
 
-  const [cat, setCat] = React.useState({  });
+  const [cat, setCat] = React.useState({});
   const { id } = useParams();
   //const params = useParams();
   //console.log(params);
@@ -22,7 +26,7 @@ const FullCat = () => {
   React.useEffect(() => {
     async function fetchCat() {
       try {
-        const { data } = await axios.get('https://633db211f2b0e623dc79b585.mockapi.io/cats' + id);
+        const { data } = await axios.get('https://633db211f2b0e623dc79b585.mockapi.io/cats/' + id);
         setCat(data);
       } catch (error) {
         console.log(error + 'FullCat');
@@ -41,8 +45,6 @@ const FullCat = () => {
     <div className={styles.container}>
       <img src={cat.img} alt="" />
       <h2>{cat.name}</h2>
-      {/*      <p>{pizza.sizes}</p>
-      <p>{cat.types}</p> */}
       <h4>{cat.price} P</h4>
       <Link to="/">
         <button className="button button--outline button--add">
