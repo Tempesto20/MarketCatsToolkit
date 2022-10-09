@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import cartEmpty from './empty-cart.png';
+import cartEmpty from './cat2.jpg';
 import styles from './cartEmpty.module.scss';
 
 const CartEmpty: React.FC =()=> {
@@ -11,7 +11,7 @@ const CartEmpty: React.FC =()=> {
             Корзина пустая 
           </h2>
           <p>
-            Вероятней всего, вы не выбрали любимца.
+            Вероятней всего, вы не выбрали себя любимца.
             <br />
             Для того, чтобы заказать котёнка, перейди на главную страницу.
           </p>

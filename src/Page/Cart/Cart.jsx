@@ -16,7 +16,7 @@ const Cart = () => {
   const totalPrice = useSelector((state) => state.cartSlice.totalPrice);
   // console.log(totalPrice)
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
-  console.log(totalPrice + ' ' + totalCount);
+  // console.log(totalPrice + ' ' + totalCount);
 
   const handlerClearItems = () => {
     if (window.confirm('Отчисть корзину ?')) {
@@ -24,10 +24,10 @@ const Cart = () => {
     }
   };
 
-  // if(!totalPrice){
-  //   //условный рендер, те если ничего не имеетв корзине, будет рендериться CartEmpty
-  //   return <CartEmpty />
-  // }
+  if(!totalPrice){
+    //условный рендер, те если ничего не имеетв корзине, будет рендериться CartEmpty
+    return <CartEmpty />
+  }
 
   return (
     <div className={styles.container}>

@@ -51,38 +51,3 @@ export const { setPizzas } = catsSlice.actions;
 // чтобы вытащить какие-либо ACTIONS, те reducers = actions;
 
 export default catsSlice.reducer;
-
-/*
-export const fetchPizzas = createAsyncThunk(
-  'pizzas/fetchPizzasStatus',
-  async (params: FetchPizzasProps) => {
-    const { sortBy, order, category, search, currentPage } = params;
-    const response = await axios.get(
-      `https://632c40f21aabd83739975297.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search} `,
-    );
-    //console.log(response.data);
-    return response.data as CartItemSlice[];
-  },
-);
-*/
-
-/* 
-  extraReducers: {
-    //для асинхронных экшенов и ключей
-    [fetchPizzas.pending]: (state) => {
-      //console.log(state + 'идёт отправка');
-      state.status = 'loading';
-      state.items = [];
-    },
-    [fetchPizzas.fulfilled]: (state, action) => {
-      //console.log(state + 'выполнилось');
-      state.items = action.payload;
-      state.status = 'success';
-    },
-    [fetchPizzas.rejected]: (state, action) => {
-      // console.log('была ошибка');
-      state.status = 'error';
-      state.items = [];
-    },
-  },
-*/

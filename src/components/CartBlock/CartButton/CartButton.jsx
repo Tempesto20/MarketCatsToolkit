@@ -8,8 +8,9 @@ import styles from './сartButton.module.scss';
 
 const CartButton=()=> {
     
-    const totalPrice = useSelector((state) => state.cartSlice.totalPrice);
-
+   const totalPrice = useSelector((state) => state.cartSlice.totalPrice);
+   const items = useSelector((state) => state.cartSlice.items); 
+   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
     return (
 
@@ -18,7 +19,8 @@ const CartButton=()=> {
                 <CartIcon/>
             </span>
             <span>Корзина</span>
-            <span className={styles.badge}>{totalPrice}</span> {/*{cartItemsNumber} */}
+            {/* <span className={styles.badge}>{totalCount}</span>  */}
+            <span className={styles.badge}>{totalCount} | {totalPrice}</span>
         </button>
 
     );

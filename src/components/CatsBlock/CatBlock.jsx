@@ -2,20 +2,18 @@ import React from 'react';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { CartItemSlice, setAddItem } from '../../redux/slices/cartSlice';
+import { setAddItem } from '../../redux/slices/cartSlice';
 import notLike from '../../assets/img/svg/like.svg';
 import Like from '../../assets/img/svg/like2.svg';
 import line from '../../assets/img/svg/line.svg';
 import './catBlock.scss';
 
 function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
-
   const dispatch = useDispatch();
 
-  const cartItem = useSelector((state) => state.cartSlice.items).find(
-    (obj) => obj.id === id,
-  );
-console.log(cartItem)
+  const cartItem = useSelector((state) => state.cartSlice.items);
+  //console.log(cartItem.length)
+
   const [like, setLike] = React.useState(isFavorite);
 
   const chengeLikeYes = () => {
@@ -26,14 +24,19 @@ console.log(cartItem)
     setLike(false);
   };
   // console.log(id + ' ' + like);
-  
-  // const like = React.useEffect(()=>{
-  //   let favoriteLike = isFavorite;
-  //   console.log(favoriteLike)
-  //   favoriteLike = notLike;
-  // },[chengeLikeHandler])
 
   const handlerAddItems = () => {
+    for (let i = 0; i < cartItem.length; i++) {
+      //console.log(cartItem[i].id);
+      if (cartItem[i].id !== id) {
+        //если такой id ещё НЕ имеется корзине, то добавлять
+        //console.log('если такой id ещё НЕ имеется корзине, то добавлять');
+      } else {
+        //если такой id ИМЕЕТСЯ корзине, то не добавлять
+        //console.log('не добавлять')
+        return;
+      }
+    }
     const item = {
       id,
       name,
@@ -50,8 +53,8 @@ console.log(cartItem)
       <div className="card">
         {/* <Link to={`/cat/${id}`} key={id}> */}
         <div className="card__img" alt="">
-        <Link to={`/cat/${id}`} key={id} >
-          <img src={img} alt="" className="card__cat-img" />
+          <Link to={`/cat/${id}`} key={id}>
+            <img src={img} alt="" className="card__cat-img" />
           </Link>
           <div className={clsx(discount !== 0 ? 'card__discount' : '')}>
             <p className={clsx(discount !== 0 ? 'discount' : '')}>
@@ -92,16 +95,18 @@ console.log(cartItem)
               <p className="years__cat-1">Возраст</p>
             </div>
             <div className="cat__quantity">
-              <p className="old__cat">
+              <div className="old__cat">
                 4<p className="quantity__cat">Кол-во лап</p>
-              </p>
+              </div>
             </div>
           </div>
           <h3 className="price__cat">{price} руб.</h3>
 
-          <button 
-          onClick={handlerAddItems}
-          className={clsx(buy !== 'Продан' ? 'buy__cat buy' : 'buy__cat sold')}>
+          <button
+            disabled={buy === 'Продан'}
+            //пофиксил возможность приобретения уже проданных котиков
+            onClick={handlerAddItems}
+            className={clsx(buy !== 'Продан' ? 'buy__cat buy' : 'buy__cat sold')}>
             {/*onClick={clickHandler}*/}
             <p className="byu__cat-1 ">{buy}</p>
           </button>
@@ -118,7 +123,7 @@ export default CatBlock;
 // const catBuy = (
 //   <button className="buy__cat buy">
 //     {/*onClick={clickHandler}*/}
-//     <p className="byu__cat-1 ">{buy}</p>
+//     <b className="byu__cat-1 ">{buy}</b>
 //   </button>
 // );
 
@@ -134,9 +139,9 @@ export default CatBlock;
 // <div>
 //   <img src={img} style={{ maxWidth: '250px' }} />
 //   <h1>имя {name}</h1>
-//   <p>цена {price}</p>
-//   <p>возраст {age}</p>
-//   <p>лайк {isFavorite}</p>
+//   <b>цена {price}</b>
+//   <b>возраст {age}</b>
+//   <b>лайк {isFavorite}</b>
 //   <button onClick={likeHandler}> like </button>
 //   <div style={{ backgroundColor: '#161617', maxWidth: '250px' }}>
 //     {like}

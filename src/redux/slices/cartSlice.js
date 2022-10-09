@@ -14,15 +14,8 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    /*     setAddItem(state, action) {
-      state.items.push(action.payload);
-      //state.totalPrice = [...state.items, action.payload];
-      state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.price + sum;
-      }, 0);
-    }, */
-
     setAddItem(state, action) {
+      // const findItem = state.items.find((object) => object.id === action.payload.id);
       const findItem = state.items.find((object) => object.id === action.payload.id);
       //console.log(findItem.items);
       //поиск объекта в массиве
@@ -38,24 +31,23 @@ export const cartSlice = createSlice({
           count: 1,
         });
       }
-      //   state.totalPrice = state.items.reduce((sum, obj) => {
-      //   return obj.price * obj.count + sum;
-      // }, 0);
       // state.totalPrice = calcTotalPrice(state.items);
-    },
-
-    setMinusItem(state, action) {
-      const findItem = state.items.find((object) => object.id === action.payload);
-      if (findItem) {
-        findItem.count--;
-      }
-      // state.totalPrice = calcTotalPrice(state.items);
+      state.totalPrice = state.items.reduce((sum, obj) => {
+        return obj.price * obj.count + sum;
+      }, 0);
     },
 
     setRemoveItem(state, action) {
       //console.log(action);
       state.items = state.items.filter((object) => object.id !== action.payload);
       // state.totalPrice = calcTotalPrice(state.items);
+      // state.totalPrice = state.items.reduce((sum, obj) => {
+      //   return obj.price * obj.count - sum;
+      // }, 0);
+
+      state.totalPrice = state.items.reduce((sum, obj) => {
+        return obj.price - sum;
+      }, 0);
     },
 
     setClearItems(state) {
@@ -63,30 +55,24 @@ export const cartSlice = createSlice({
       state.items = [];
       state.totalPrice = 0;
     },
-
-    /*     setPlusItem(state, action: PayloadAction<string>) {
-      //работает
-      const findItem = state.items.find((object) => object.id === action.payload);
-      if (findItem) {
-        findItem.count++;
-      }
-    }, */
   },
 });
 
 //console.log(counterSlice.actions);
 
-/* 
-Это называется СЕЛЕКТОР - нужен для того, что уменишь код в команенте jsx
-export const selectCart = (state) => state.cartSlice;
-export const selectCartItemsById =(id) => (state) => state.cartSlice.items.find((obj)=>(obj.id === id));
- */
-
-export const { setAddItem, setRemoveItem, setClearItems, setMinusItem } = cartSlice.actions;
+export const { setAddItem, setRemoveItem, setClearItems } = cartSlice.actions;
 // необходимо для импортирования этой переменной в дром файле
 // чтобы вытащить какие-либо ACTIONS, те reducers = actions;
 
 export default cartSlice.reducer;
+
+// setAddItem(state, action) {
+//   state.items.push(action.payload);
+//   //state.totalPrice = [...state.items, action.payload];
+//   state.totalPrice = state.items.reduce((sum, obj) => {
+//     return obj.price + sum;
+//   }, 0);
+// },
 
 // export type CartItemSlice = {
 //   //type - можно передать что угодно, как константа для TS
