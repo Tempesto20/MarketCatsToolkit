@@ -12,12 +12,12 @@ import './home.scss';
 
 function Home() {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = React.useState(true);
+  // const [isLoading, setIsLoading] = React.useState(true);
   const sortType = useSelector((state) => state.filterSlice.sort.sortProperty);
   const cats = useSelector((state) => state.catsSlice.items);
+  const status = useSelector((state) => state.catsSlice.status);
 
-
-  const getPizzas = async () => {
+  const getCats = async () => {
     const sortBy = sortType.replace('-', ''); //убираем минус
     const order = sortType.includes('-') ? 'asc' : 'desc'; // если есть то -, то выбираем 1 пункт
     dispatch(
@@ -29,8 +29,8 @@ function Home() {
   };
 
   React.useEffect(() => {
-    getPizzas();
-    setIsLoading(false);
+    getCats();
+    // setIsLoading(false);
   }, [sortType]);
 
   const catsArray = cats.map((items, id) => <CatBlock key={id} {...items} />);
@@ -46,7 +46,7 @@ function Home() {
         <CartButton />
       </Link>
 
-      <div className="background__cat ">{isLoading ? skeletons : catsArray}</div>
+      <div className="background__cat ">{status ? catsArray :  skeletons}</div>
     </div>
   );
 }

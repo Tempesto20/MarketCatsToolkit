@@ -1,30 +1,43 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-//createAsyncThunk
-// Это бизнес-логика, вынесли из UI - в редакс
+// Это бизнес-логика, вынес из UI - в редакс, те це UX
 //Чтобы была возможно повторного использования или исключения
-export const fetchCats = createAsyncThunk('pizzas/fetchCatsStatus', async (params) => {
+export const fetchCats = createAsyncThunk('cats/fetchCatsStatus', async (params) => {
   const { sortBy, order } = params;
   const { data } = await axios.get(
     `https://633db211f2b0e623dc79b585.mockapi.io/cats?sortBy=${sortBy}&order=${order}`,
   );
   //console.log(response.data);
+  // export const fer = data.length;
   return data;
 });
+
+// const axiosCat = axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
+//   const ret = resp.data.length;
+//   console.log(ret);
+// });
 
 // первоначальное состояние
 //Сохранение пицц в реакте
 const initialState = {
   items: [],
-  status: 'loading', // Loading | success | error
+  status: 'loading', // loading | success | error
+  axiosCat: `https://633db211f2b0e623dc79b585.mockapi.io/cats`,
 };
+
 const catsSlice = createSlice({
-  name: 'pizzas',
+  name: 'cats',
   initialState,
   reducers: {
-    setPizzas(state, action) {
+    setCats(state, action) {
       state.items = action.payload;
+    },
+    setAxios(state, action) {
+      state.axiosCat = action.axios.get(state.axiosCat).then((resp) => {
+        const ret = resp.data.length;
+        // console.log(ret);
+      });
     },
   },
 
@@ -35,7 +48,7 @@ const catsSlice = createSlice({
       state.items = [];
     });
     builder.addCase(fetchCats.fulfilled, (state, action) => {
-      //console.log(state + 'выполнилось');
+      // console.log(state + 'выполнилось');
       state.items = action.payload;
       state.status = 'success';
     });
@@ -46,7 +59,7 @@ const catsSlice = createSlice({
     });
   },
 });
-export const { setPizzas } = catsSlice.actions;
+export const { setPizzas, setAxios } = catsSlice.actions;
 // необходимо для импортирования этой переменной в дром файле
 // чтобы вытащить какие-либо ACTIONS, те reducers = actions;
 

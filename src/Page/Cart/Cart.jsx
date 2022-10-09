@@ -105,11 +105,10 @@ const Cart = () => {
         <div className="cart__bottom">
           <div className="cart__bottom-details">
             <span>
-              Всего котиков: <b>{totalCount} шт.</b> {/*{totalCount} */}
+              Всего котиков: <b>{totalCount} шт.</b> 
             </span>
             <span>
               Сумма заказа: <b>{totalPrice} ₽</b>
-              {/*{totalPrice} */}
             </span>
           </div>
           <div className="cart__bottom-buttons">

@@ -1,19 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoSvg from '../../assets/img/svg/logo.svg';
+import { fetchCats } from '../../redux/slices/catsSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 //import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import './header.scss';
+import axios from 'axios';
+import { setAxios } from '../../redux/slices/catsSlice';
 
 //import CatBlock from '../../context/CatBlock';
 const headerList = ['Main', 'Gallery', 'News', 'Profile'];
 const listLinks =["#main","#gallery","#news","https://tempesto20.github.io/Summary.github.io-/" ]
 
 function Header() {
+  const dispatch = useDispatch();
   // const catBlock = useContext(CatBlock); //вызов контекста для передачи знаечния
   // const catLength = catBlock.length;
   // //console.log(catLength);
-
+  
+  const fCats = useSelector((state)=>state.catsSlice.axiosCat);
+  console.log(dispatch(setAxios))
+  // console.log(dispatch(fetchCats))
+// const axiosCat = axios.get(fetchCats).then((resp) => {
+//    const ret = resp.data.length;
+//   console.log(ret);
+// });
   return (
     <header className="header">
       <div className="header__background">

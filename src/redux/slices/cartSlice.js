@@ -38,15 +38,12 @@ export const cartSlice = createSlice({
     },
 
     setRemoveItem(state, action) {
-      //console.log(action);
+      // console.log('state ' + ' ' + state);
+      // console.log('action ' + ' ' + action);
       state.items = state.items.filter((object) => object.id !== action.payload);
       // state.totalPrice = calcTotalPrice(state.items);
-      // state.totalPrice = state.items.reduce((sum, obj) => {
-      //   return obj.price * obj.count - sum;
-      // }, 0);
-
       state.totalPrice = state.items.reduce((sum, obj) => {
-        return obj.price - sum;
+        return obj.price * obj.count + sum;
       }, 0);
     },
 
