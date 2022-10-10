@@ -9,14 +9,15 @@ import CartButton from '../../components/CartBlock/CartButton/CartButton';
 import Skeleton from '../../components/CatsBlock/Skeleton';
 
 import './home.scss';
+import FavoriteButton from '../../components/FavoriteBlock/FavoriteButton/FavoriteButton';
 
 function Home() {
   const dispatch = useDispatch();
-  // const [isLoading, setIsLoading] = React.useState(true);
+  const [isLoading, setIsLoading] = React.useState(true);
   const sortType = useSelector((state) => state.filterSlice.sort.sortProperty);
   const cats = useSelector((state) => state.catsSlice.items);
-  const status = useSelector((state) => state.catsSlice.status);
-
+  // const status = useSelector((state) => state.catsSlice.status);
+// console.log(sortType)
   const getCats = async () => {
     const sortBy = sortType.replace('-', ''); //убираем минус
     const order = sortType.includes('-') ? 'asc' : 'desc'; // если есть то -, то выбираем 1 пункт
@@ -30,7 +31,7 @@ function Home() {
 
   React.useEffect(() => {
     getCats();
-    // setIsLoading(false);
+    setIsLoading(false);
   }, [sortType]);
 
   const catsArray = cats.map((items, id) => <CatBlock key={id} {...items} />);
@@ -45,8 +46,10 @@ function Home() {
       <Link to="/cart" className="cart">
         <CartButton />
       </Link>
-
-      <div className="background__cat ">{status ? catsArray :  skeletons}</div>
+      <Link to="/favorite" className="">
+        <FavoriteButton />
+      </Link>
+      <div className="background__cat ">{isLoading ? skeletons  :  catsArray}</div>
     </div>
   );
 }

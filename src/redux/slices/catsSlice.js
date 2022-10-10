@@ -8,22 +8,16 @@ export const fetchCats = createAsyncThunk('cats/fetchCatsStatus', async (params)
   const { data } = await axios.get(
     `https://633db211f2b0e623dc79b585.mockapi.io/cats?sortBy=${sortBy}&order=${order}`,
   );
+
   //console.log(response.data);
-  // export const fer = data.length;
   return data;
 });
-
-// const axiosCat = axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
-//   const ret = resp.data.length;
-//   console.log(ret);
-// });
 
 // первоначальное состояние
 //Сохранение пицц в реакте
 const initialState = {
   items: [],
   status: 'loading', // loading | success | error
-  axiosCat: `https://633db211f2b0e623dc79b585.mockapi.io/cats`,
 };
 
 const catsSlice = createSlice({
@@ -32,12 +26,6 @@ const catsSlice = createSlice({
   reducers: {
     setCats(state, action) {
       state.items = action.payload;
-    },
-    setAxios(state, action) {
-      state.axiosCat = action.axios.get(state.axiosCat).then((resp) => {
-        const ret = resp.data.length;
-        // console.log(ret);
-      });
     },
   },
 
@@ -59,7 +47,7 @@ const catsSlice = createSlice({
     });
   },
 });
-export const { setPizzas, setAxios } = catsSlice.actions;
+export const { setPizzas, setAxios, setCatLength } = catsSlice.actions;
 // необходимо для импортирования этой переменной в дром файле
 // чтобы вытащить какие-либо ACTIONS, те reducers = actions;
 

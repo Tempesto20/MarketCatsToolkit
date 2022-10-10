@@ -1,0 +1,32 @@
+.wrapper{
+    position: relative;
+    display: flex;
+}
+
+.cardImg{
+    position: relative;
+}
+
+
+.icon{
+    max-width: 40px;
+}
+//  background-color: #47035d;
+.count{
+    position: absolute;
+    top: 2px;
+    left: 26px;
+}
+.totalCount{
+    display: inline-flex;
+    font-size: 12px;
+    height: 20px;
+    min-width: 20px;
+    text-align: center;
+    align-items: center;
+    font-weight: bolder;
+    color: white;
+    border-radius: 20px;
+    padding: 0px 5px;
+    background-color: #47035d;
+}
