@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAddItem } from '../../redux/slices/cartSlice';
+import { setAddLike, setRemoveLike,setLike } from '../../redux/slices/favoriteSlice';
 import notLike from '../../assets/img/svg/like.svg';
 import Like from '../../assets/img/svg/like2.svg';
 import line from '../../assets/img/svg/line.svg';
@@ -12,18 +13,68 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
   const dispatch = useDispatch();
 
   const cartItem = useSelector((state) => state.cartSlice.items);
-  //console.log(cartItem.length)
+  // console.log(cartItem.length)
+  const likeItem = useSelector((state) => state.favoriteSlice.items);
+  // console.log(likeItem)
+
+  // const like = useSelector((state)=>state.favoriteSlice.isFavorite)
+  // console.log(like)
+  // let like = isFavorite;
+  // console.log(like)
+
 
   const [like, setLike] = React.useState(isFavorite);
+// console.log(like)
+  // const chengeLikeYes = () => {
+  //   setLike(true);
+  // };
 
-  const chengeLikeYes = () => {
-    setLike(true);
-  };
-
-  const chengeLikeNo = () => {
-    setLike(false);
-  };
+  // const chengeLikeNo = () => {
+  //   setLike(false);
+  // };
   // console.log(id + ' ' + like);
+
+
+
+  // for(let i=0; i<likeItem.length; i++){
+  //   console.log(likeItem[i].id)
+  //   if(likeItem[i].id === id){
+  //     likeItem[i].isFavorite = true;
+  //   } else {
+  //     likeItem[i].isFavorite = false;
+  //   }
+  // }
+
+
+
+const handlerLikeYes = () => {
+  const item = {
+    id,
+    name,
+    price,
+    img,
+    isFavorite,
+    count: 0,
+  };
+
+  // for(let i=0; i<likeItem.length; i++){
+  //   console.log(likeItem[i].id)
+  //   if(likeItem[i].id === id){
+  //      dispatch(setLike(true));
+  //   } 
+  // }
+
+  setLike(true);
+  dispatch(setAddLike(item));
+  // console.log(item)
+};
+
+
+  const handlerLikeNo = () => {
+    dispatch(setLike(false));
+    dispatch(setRemoveLike(id));
+    //console.log(item)
+  };
 
   const handlerAddItems = () => {
     for (let i = 0; i < cartItem.length; i++) {
@@ -51,7 +102,6 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
   return (
     <div className="cards__cat">
       <div className="card">
-        {/* <Link to={`/cat/${id}`} key={id}> */}
         <div className="card__img" alt="">
           <Link to={`/cat/${id}`} key={id}>
             <img src={img} alt="" className="card__cat-img" />
@@ -63,19 +113,10 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
             </p>
           </div>
           <div className="card__like">
-            {/* <img src={like} alt="" onClick={chengeLikeHandler}/> */}
-
-            {!like && <img src={notLike} onClick={chengeLikeYes} alt="" />}
-            {like && <img src={Like} onClick={chengeLikeNo} alt="" />}
+            {!like && <img src={notLike} onClick={handlerLikeYes} alt="" />}
+            {like && <img src={Like} onClick={handlerLikeNo} alt="" />}
           </div>
         </div>
-
-        {/* <div className="card__like">
-          {!like && <img src={Like} onClick={chengeLikeYes} alt="" />}
-          {like && <img src={notLike} onClick={chengeLikeNo} alt="" />}
-        </div> */}
-
-        {/* </Link> */}
 
         <div className="card__background">
           <Link to={`/cat/${id}`} key={id} className="card__title">

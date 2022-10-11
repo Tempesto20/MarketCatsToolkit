@@ -8,7 +8,7 @@ import './header.scss';
 
 //import CatBlock from '../../context/CatBlock';
 const headerList = ['Main', 'Gallery', 'News', 'Profile'];
-const listLinks =["#main","#gallery","#news","https://tempesto20.github.io/Summary.github.io-/" ]
+const listLinks =["/main","/gallery","/news","/Profile" ]
 
 function Header() {
 
@@ -39,9 +39,9 @@ function Header() {
                   {headerList.map((items, index) => {
                     return (
                       <li className="header__nav-item" key={index}>
-                        <a href={listLinks[index]} className="header__nav-link">
+                        <Link to={listLinks[index]} className="header__nav-link">
                           {items}
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}
@@ -70,6 +70,10 @@ function Header() {
 }
 
 export default Header;
+
+
+//https://tempesto20.github.io/Summary.github.io-/
+
 
 {/* <li className="header__nav-item">
 <a href="#main" className="header__nav-link">

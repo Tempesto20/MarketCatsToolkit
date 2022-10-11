@@ -12,7 +12,7 @@ import styles from './cart.module.scss';
 const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cartSlice.items);
-  console.log(items);
+  // console.log(items);
   const totalPrice = useSelector((state) => state.cartSlice.totalPrice);
   // console.log(totalPrice)
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
