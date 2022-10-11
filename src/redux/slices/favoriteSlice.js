@@ -3,9 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   totalPrice: 0,
   items: [],
-  like: false,
+  isFavorite: false,
   // totalPrice: cartData.totalPrice,
   // items: cartData.items,
+
+  //Способ решения, вытащить из массива лайки и изменить значение
 };
 //const [like, setLike] = React.useState(isFavorite);
 export const favoriteSlice = createSlice({
@@ -13,7 +15,7 @@ export const favoriteSlice = createSlice({
   initialState,
   reducers: {
     setLike(state, action) {
-      state.like = action.payload;
+      state.isFavorite = action.payload;
     },
     setAddLike(state, action) {
       const findItem = state.items.find((object) => object.id === action.payload.id);

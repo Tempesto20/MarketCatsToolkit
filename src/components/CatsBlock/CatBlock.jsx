@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAddItem } from '../../redux/slices/cartSlice';
-import { setAddLike, setRemoveLike,setLike } from '../../redux/slices/favoriteSlice';
+import { setAddLike, setRemoveLike, setLike } from '../../redux/slices/favoriteSlice';
 import notLike from '../../assets/img/svg/like.svg';
 import Like from '../../assets/img/svg/like2.svg';
 import line from '../../assets/img/svg/line.svg';
@@ -13,65 +13,33 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
   const dispatch = useDispatch();
 
   const cartItem = useSelector((state) => state.cartSlice.items);
-  // console.log(cartItem.length)
-  const likeItem = useSelector((state) => state.favoriteSlice.items);
-  // console.log(likeItem)
+  // console.log(cartItem.length);
 
-  // const like = useSelector((state)=>state.favoriteSlice.isFavorite)
-  // console.log(like)
-  // let like = isFavorite;
-  // console.log(like)
-
-
-  const [like, setLike] = React.useState(isFavorite);
-// console.log(like)
-  // const chengeLikeYes = () => {
-  //   setLike(true);
-  // };
-
-  // const chengeLikeNo = () => {
-  //   setLike(false);
-  // };
-  // console.log(id + ' ' + like);
+  const likeItem = useSelector((state) => state.favoriteSlice.items).find(
+      (obj) => obj.id === id);
+      //писк по конкретной id 
+  console.log(likeItem);
 
 
 
-  // for(let i=0; i<likeItem.length; i++){
-  //   console.log(likeItem[i].id)
-  //   if(likeItem[i].id === id){
-  //     likeItem[i].isFavorite = true;
-  //   } else {
-  //     likeItem[i].isFavorite = false;
-  //   }
-  // }
-
-
-
-const handlerLikeYes = () => {
-  const item = {
-    id,
-    name,
-    price,
-    img,
-    isFavorite,
-    count: 0,
+  const handlerLikeYes = () => {
+    const item = {
+      id,
+      name,
+      price,
+      img,
+      isFavorite: true,
+      count: 0,
+    };
+    // setLike(true); // при использовании useState
+    dispatch(setLike(true));
+    dispatch(setAddLike(item));
+    // console.log(item)
   };
 
-  // for(let i=0; i<likeItem.length; i++){
-  //   console.log(likeItem[i].id)
-  //   if(likeItem[i].id === id){
-  //      dispatch(setLike(true));
-  //   } 
-  // }
-
-  setLike(true);
-  dispatch(setAddLike(item));
-  // console.log(item)
-};
-
-
   const handlerLikeNo = () => {
-    dispatch(setLike(false));
+    // setLike(false);// при использовании useState
+    dispatch(setLike(false));  
     dispatch(setRemoveLike(id));
     //console.log(item)
   };
@@ -113,8 +81,8 @@ const handlerLikeYes = () => {
             </p>
           </div>
           <div className="card__like">
-            {!like && <img src={notLike} onClick={handlerLikeYes} alt="" />}
-            {like && <img src={Like} onClick={handlerLikeNo} alt="" />}
+            {!likeItem && <img src={notLike} onClick={handlerLikeYes} alt="" />}
+            {likeItem && <img src={Like} onClick={handlerLikeNo} alt="" />}
           </div>
         </div>
 
@@ -158,6 +126,50 @@ const handlerLikeYes = () => {
 }
 
 export default CatBlock;
+
+
+
+
+
+  // const [like, setLike] = React.useState(isFavorite);
+
+  // console.log(like)
+  // const chengeLikeYes = () => {
+  //   setLike(true);
+  // };
+
+  // const chengeLikeNo = () => {
+  //   setLike(false);
+  // };
+  // console.log(id + ' ' + like);
+
+
+
+// for(let i=0; i<likeItem.length; i++){
+//   console.log('start id' + ' ' + likeItem[i].id)
+//   console.log('start isFavorite' + ' ' +likeItem[i].isFavorite)
+//   console.log('lol-1')
+  
+//   if(likeItem[i].id === id){
+//     console.log('lol-2')
+//     likeItem[i].isFavorite = true;
+//     // console.log('finish isFavorite' + ' ' +likeItem[i].isFavorite)
+//     console.log('finish isFavorite')
+//     dispatch(setLike(true));
+//   } else {
+//   console.log('lol-3') 
+//   likeItem[i].isFavorite = true;
+//   console.log('finish isFavorite' + ' ' +likeItem[i].isFavorite)
+//  } return
+// }
+
+
+
+
+
+
+
+
 
 //  {discount !== 0 ? cardDiscount : cardDiscountNone}
 
