@@ -1,13 +1,22 @@
 .wrapper{
 
 margin: 0 auto;
-
+max-width: 1200px;
 }
-
+.background{
+    position: relative;
+}
 .img{
+    position: relative;
     max-width: 250px;
 }
 
+.like {
+    position: absolute;
+    color: red;
+    top: 0px;
+    left: 200px;
+}
 .remove{
     color: red;
 }

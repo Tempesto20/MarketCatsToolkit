@@ -18,7 +18,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
   const likeItem = useSelector((state) => state.favoriteSlice.items).find(
       (obj) => obj.id === id);
       //писк по конкретной id 
-  console.log(likeItem);
+  // console.log(likeItem);
 
 
 
