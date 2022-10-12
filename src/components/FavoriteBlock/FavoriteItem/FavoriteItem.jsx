@@ -50,7 +50,7 @@ const FavoriteItem = ({ id, name, price, img, count }) => {
     //console.log(item)
   };
 
-  const handlerRemoveItem = () => {
+  const handlerRemoveItemLikes = () => {
     if (window.confirm('Вы действительно ухотите удалить котика из списка ваших фаворитов?')) {
       dispatch(setRemoveLike(id));
     }
@@ -78,7 +78,7 @@ const FavoriteItem = ({ id, name, price, img, count }) => {
         <b>{price * count} ₽</b>
       </div>
       <div className="cart__item-remove">
-        <div onClick={handlerRemoveItem} className={styles.remove}>
+        <div onClick={handlerRemoveItemLikes} className={styles.remove}>
           Удалить из ваших фаворитов
         </div>
       </div>
