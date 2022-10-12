@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCats } from '../../redux/slices/catsSlice';
+import { setCurrentPage } from '../../redux/slices/filterSlice';
 import CatBlock from '../../components/CatsBlock/CatBlock';
 import Sort from '../../components/Sort/Sort';
 import CartButton from '../../components/CartBlock/CartButton/CartButton';
@@ -10,14 +11,22 @@ import Skeleton from '../../components/CatsBlock/Skeleton';
 
 import './home.scss';
 import FavoriteButton from '../../components/FavoriteBlock/FavoriteButton/FavoriteButton';
+import Pagination from '../../components/Pagination/Pagination';
 
 function Home() {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = React.useState(true);
   const sortType = useSelector((state) => state.filterSlice.sort.sortProperty);
+  const currentPage = useSelector((state) => state.filterSlice.currentPage);
   const cats = useSelector((state) => state.catsSlice.items);
+
   // const status = useSelector((state) => state.catsSlice.status);
-// console.log(sortType)
+  // console.log(sortType)
+
+  const onChangePageHandler = (number) => {
+    dispatch(setCurrentPage(number));
+  };
+
   const getCats = async () => {
     const sortBy = sortType.replace('-', ''); //убираем минус
     const order = sortType.includes('-') ? 'asc' : 'desc'; // если есть то -, то выбираем 1 пункт
@@ -25,6 +34,7 @@ function Home() {
       fetchCats({
         sortBy,
         order,
+        currentPage,
       }),
     );
   };
@@ -32,7 +42,7 @@ function Home() {
   React.useEffect(() => {
     getCats();
     setIsLoading(false);
-  }, [sortType]);
+  }, [sortType, currentPage]);
 
   const catsArray = cats.map((items, id) => <CatBlock key={id} {...items} />);
 
@@ -49,7 +59,8 @@ function Home() {
       <Link to="/favorite" className="">
         <FavoriteButton />
       </Link>
-      <div className="background__cat ">{isLoading ? skeletons  :  catsArray}</div>
+      <div className="background__cat ">{isLoading ? skeletons : catsArray}</div>
+      <Pagination currentPage={currentPage} onChangePage={onChangePageHandler} />
     </div>
   );
 }

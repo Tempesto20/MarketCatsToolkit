@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   // categoryId: 0,
-  // currentPage: 1,
+  currentPage: 1,
   sort: {
     name: 'юные',
     sortProperty: '-age',
@@ -23,9 +23,9 @@ const filterSlice = createSlice({
     setSortType(state, action) {
       state.sort = action.payload;
     },
-    // setCurrentPage(state, action) {
-    //   state.currentPage = action.payload;
-    // },
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload;
+    },
     // setFilters(state, action) {
     //   if (Object.keys(action.payload).length) {
     //     // state.currentPage = action.payload.currentPage;
@@ -35,14 +35,14 @@ const filterSlice = createSlice({
     //     // state.currentPage = 1;
     //     // state.categoryId = 0;
     //     state.sort = {
-    //       name: 'взрослые',
-    //       sortProperty: 'age',
+    //       name: 'юные',
+    //       sortProperty: '-age',
     //     };
     //   }
     // },
   },
 });
 
-export const { setSortType, setFilters } = filterSlice.actions;
+export const { setSortType, setCurrentPage } = filterSlice.actions;
 
 export default filterSlice.reducer;
