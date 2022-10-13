@@ -5,8 +5,8 @@ const initialState = {
   // categoryId: 0,
   currentPage: 1,
   sort: {
-    name: 'юные',
-    sortProperty: '-age',
+    name: 'сначала недорогие',
+    sortProperty: '-price',
   },
 };
 

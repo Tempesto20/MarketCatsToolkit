@@ -30,6 +30,7 @@
 }
 .card__cat-img {
     width: 380px;
+    height: 253px;
     margin-bottom: 0px;
     @media (max-width: $xl) {
         width: 300px;
@@ -46,7 +47,7 @@
 .card__discount {
     position: absolute;
     top: 34px;
-    left: 60px;
+    left: 50px;
     @media (max-width: $xl) {
         top: 14px;
         left: 30px;

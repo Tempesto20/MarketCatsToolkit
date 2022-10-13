@@ -1,68 +1,143 @@
 [
 	{
-	 "id": "0",
-	 "price": 30000,
-	 "img": "https://s13.stc.all.kpcdn.net/family/wp-content/uploads/2022/08/top-nevskaya-maskaradnaya-koshka-960h540-960x540.jpg",
-	 "discount": 40,
-	 "name": "Эверетт",
-	 "age": 2,
-	 "buy": "Купить",
-	 "isSell": true,
-	 "isFavorite": false
+	  "id": "0",
+	  "price": 30000,
+	  "img": "https://lapkins.ru/upload/uf/5f5/5f5ac46a1738e48ca1c086e67fd52b3e.jpg",
+	  "discount": 40,
+	  "name": "Эверетт",
+	  "age": 4,
+	  "buy": "Купить",
+	  "isSell": true,
+	  "isFavorite": false
 	},
 	{
-	 "id": "1",
-	 "price": 40000,
-	 "img": "https://s4.stc.all.kpcdn.net/family/wp-content/uploads/2022/08/kurilskij-bobtejl-koshka_oblogkaa_960-960x540.jpg",
-	 "discount": 0,
-	 "name": "Генри",
-	 "age": 3,
-	 "buy": "Продан",
-	 "isSell": false,
-	 "isFavorite": false
+	  "id": "1",
+	  "price": 40000,
+	  "img": "https://pro-kotikov.ru/wp-content/uploads/2018/08/265-800x423.jpg",
+	  "discount": 0,
+	  "name": "Генри",
+	  "age": 3,
+	  "buy": "Продан",
+	  "isSell": false,
+	  "isFavorite": false
 	},
 	{
-	 "id": "2",
-	 "price": 20000,
-	 "img": "https://s1.stc.all.kpcdn.net/putevoditel/projectid_103889/images/tild3161-3432-4135-b839-643164646633__960.jpg",
-	 "discount": 0,
-	 "name": "Чарли",
-	 "age": 7,
-	 "buy": "Купить",
-	 "isSell": true,
-	 "isFavorite": false
+	  "id": "2",
+	  "price": 20000,
+	  "img": "https://pro-kotikov.ru/wp-content/uploads/2018/05/3dc624b41a44f75222d1190218605699.jpg",
+	  "discount": 0,
+	  "name": "Чарли",
+	  "age": 7,
+	  "buy": "Купить",
+	  "isSell": true,
+	  "isFavorite": false
 	},
 	{
-	 "id": "3",
-	 "price": 25000,
-	 "img": "https://s9.stc.all.kpcdn.net/family/wp-content/uploads/2022/05/tajskaya-koshka_oblogka_960-960x540.jpg",
-	 "discount": 0,
-	 "name": "Эдвин",
-	 "age": 6,
-	 "buy": "Купить",
-	 "isSell": true,
-	 "isFavorite": false
+	  "id": "3",
+	  "price": 25000,
+	  "img": "https://pro-kotikov.ru/wp-content/uploads/2018/08/%D0%A4%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C-5.jpg",
+	  "discount": 0,
+	  "name": "Эдвин",
+	  "age": 6,
+	  "buy": "Купить",
+	  "isSell": true,
+	  "isFavorite": false
 	},
 	{
-	 "id": "4",
-	 "price": 30000,
-	 "img": "https://s9.stc.all.kpcdn.net/family/wp-content/uploads/2022/08/shartrez-koshka-960-540-960x540.jpg",
-	 "discount": 40,
-	 "name": "Мигель",
-	 "age": 4,
-	 "buy": "Продан",
-	 "isSell": false,
-	 "isFavorite": false
+	  "id": "4",
+	  "price": 30000,
+	  "img": "https://pro-kotikov.ru/wp-content/uploads/2018/09/norwegian-forest-cat-10.jpg",
+	  "discount": 40,
+	  "name": "Мигель",
+	  "age": 4,
+	  "buy": "Продан",
+	  "isSell": false,
+	  "isFavorite": false
 	},
 	{
-	 "id": "5",
-	 "price": 10000,
-	 "img": "https://s9.stc.all.kpcdn.net/family/wp-content/uploads/2022/08/top-orientalnaya-koshka-960x540-2-960x540.jpg",
-	 "discount": 0,
-	 "name": "Маршалл",
-	 "age": 1,
-	 "buy": "Купить",
-	 "isSell": true,
-	 "isFavorite": false
-	}
-   ]
+	  "id": "5",
+	  "price": 10000,
+	  "img": "https://pro-kotikov.ru/wp-content/uploads/2019/01/american-shorthair-cat.jpeg",
+	  "discount": 0,
+	  "name": "Маршалл",
+	  "age": 1,
+	  "buy": "Купить",
+	  "isSell": true,
+	  "isFavorite": false
+	},
+
+
+
+	{
+		"id": "6",
+		"price": 24000,
+		"img": "https://pro-kotikov.ru/wp-content/uploads/2020/09/devon-2.jpg",
+		"discount": 40,
+		"name": "Гамлет",
+		"age": 2,
+		"buy": "Купить",
+		"isSell": true,
+		"isFavorite": false
+	  },
+	  {
+		"id": "7",
+		"price": 14000,
+		"img": "https://pro-kotikov.ru/wp-content/uploads/2019/04/british-cat-mauve-photo.jpg",
+		"discount": 0,
+		"name": "Габриэль",
+		"age": 3,
+		"buy": "Продан",
+		"isSell": false,
+		"isFavorite": false
+	  },
+	  {
+		"id": "8",
+		"price": 22000,
+		"img": "https://pro-kotikov.ru/wp-content/uploads/2018/09/nibelung-11.jpg",
+		"discount": 0,
+		"name": "Джейкоб",
+		"age": 7,
+		"buy": "Купить",
+		"isSell": true,
+		"isFavorite": false
+	  },
+	  {
+		"id": "9",
+		"price": 5000,
+		"img": "https://pro-kotikov.ru/wp-content/uploads/2018/10/burman-cat-blue.jpg",
+		"discount": 0,
+		"name": "Ибрахим",
+		"age": 2,
+		"buy": "Купить",
+		"isSell": true,
+		"isFavorite": false
+	  },
+	  {
+		"id": "10",
+		"price": 50000,
+		"img": "https://pro-kotikov.ru/wp-content/uploads/2020/09/devon-5.jpg",
+		"discount": 40,
+		"name": "Алфи",
+		"age": 2,
+		"buy": "Продан",
+		"isSell": false,
+		"isFavorite": false
+	  },
+	  {
+		"id": "11",
+		"price": 70000,
+		"img": "https://pro-kotikov.ru/wp-content/uploads/2018/08/Sphynx-cat-1-e1511166214543-1024x591.jpg",
+		"discount": 0,
+		"name": "Дик",
+		"age": 1,
+		"buy": "Купить",
+		"isSell": true,
+		"isFavorite": false
+	  }
+
+  ]
+
+  // "https://lapkins.ru/upload/uf/904/904717250434990b275e174b0c8235c0.jpg"
+  // "https://lapkins.ru/upload/uf/4d7/4d7728798df9270d843b2bf11d2b6d2e.jpg"
+  // "https://lapkins.ru/upload/uf/dd4/dd40945bb325e035023770dc6cdade78.jpg"
+  // "https://lapkins.ru/upload/uf/5f5/5f5ac46a1738e48ca1c086e67fd52b3e.jpg"

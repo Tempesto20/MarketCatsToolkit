@@ -5,10 +5,10 @@ import { setSortType } from '../../redux/slices/filterSlice';
 import './sort.scss';
 
 const sortList = [
-  { name: ' взрослые', sortProperty: 'age' },
-  { name: ' юные', sortProperty: '-age' },
-  { name: ' дороже', sortProperty: 'price' },
-  { name: ' дешевле', sortProperty: '-price' },
+  { name: 'сначала взрослые', sortProperty: 'age' },
+  { name: 'сначала юные', sortProperty: '-age' },
+  { name: 'сначала дорогие', sortProperty: 'price' },
+  { name: 'сначала недорогие', sortProperty: '-price' },
 
   // { name: 'цене (DESC)', sortProperty: 'price' },
   // { name: 'цене (ASC)', sortProperty: '-price' },
@@ -45,7 +45,7 @@ const Sort = () => {
           />
         </svg>
 
-        <b>Сортировка по:</b>
+        <b>Сортировка:</b>
         <span onClick={changeHandler}>{sortType.name}</span>
         {/* {sortType.name} */}
       </div>

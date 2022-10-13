@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import logoSvg from '../../assets/img/svg/logo.svg';
 import {useSelector } from 'react-redux';
@@ -12,17 +13,14 @@ const listLinks =["/main","/gallery","/news","/Profile" ]
 
 function Header() {
 
-  const itemsCat = useSelector((state)=>state.catsSlice.items )
-  const itemsCatLength = itemsCat.length;
-  // console.log(itemsCatLength)
-// const [catR, setCatR] = React.useState([])
+const [catLength, setCatLength] = React.useState([])
 
-// React.useEffect(()=>{
-//  axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
-//   const ret = resp.data.length;
-//   setCatR(ret);
-// })
-// },[]);
+React.useEffect(()=>{
+ axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
+  const data = resp.data.length;
+  setCatLength(data);
+})
+},[]);
 
   return (
     <header className="header">
@@ -58,7 +56,7 @@ function Header() {
             <div className="header__block">
               <div className="header__search">
                 <div className="header__found">
-                  <p>Найдено {itemsCatLength} котов</p>
+                  <p>Найдено {catLength} котов</p>
                 </div>
               </div>
             </div>
@@ -70,6 +68,13 @@ function Header() {
 }
 
 export default Header;
+
+
+// Не могу брать длину массива, тк установил лимит на макс.4 на странице, те динамически бует отображаться не корректно 
+  // const itemsCat = useSelector((state)=>state.catsSlice.items )
+  // const itemsCatLength = itemsCat.length;
+  // console.log(itemsCatLength)
+
 
 
 //https://tempesto20.github.io/Summary.github.io-/
