@@ -1,7 +1,7 @@
 import React from 'react';
 //import ReactDOM from 'react-dom';
 
-import './styles.scss';
+import './burgerMenu.scss';
 import SideBar from './sidebar';
 
 function BurgerMenu() {

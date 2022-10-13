@@ -9,7 +9,7 @@ import './header.scss';
 
 //import CatBlock from '../../context/CatBlock';
 const headerList = ['Main', 'Gallery', 'News', 'Profile'];
-const listLinks =["/main","/gallery","/news","/Profile" ]
+const listLinks =["/main","/gallery","/news","/profile" ]
 
 function Header() {
 
@@ -27,12 +27,12 @@ React.useEffect(()=>{
       <div className="header__background">
         <div className="header__rgda">
           <div className="header_max">
-            <div className="header__container section-container">
+            <div className="header__container">
               <BurgerMenu />
               <Link to="/" className="header__logo">
                 <img src={logoSvg} alt="" className="header__logo-1"></img>
               </Link>
-              <nav className="js-header__nav header__nav">
+              <nav className="header__nav">
                 <ul className="header__nav-list">
                   {headerList.map((items, index) => {
                     return (

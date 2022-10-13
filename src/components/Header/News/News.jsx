@@ -1,7 +1,7 @@
 import React from "react";
-
+import styles from './news.module.scss';
 function News() {
-  return <div>News</div>;
+  return <div className={styles.wrapper}>News</div>;
 }
 
 export default News;
