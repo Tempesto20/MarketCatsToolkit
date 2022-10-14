@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
+import logoSvg from '../../assets/img/svg/logo.svg';
 
 export default (props) => {
   return (
     // Pass on our props
     <Menu {...props}>
+      <Link className="menu-item" to="/">
+        <img src={logoSvg} alt="" />
+      </Link>
+
       <Link className="menu-item" to="/main">
         Main
       </Link>

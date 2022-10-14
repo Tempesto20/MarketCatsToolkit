@@ -24,11 +24,12 @@ React.useEffect(()=>{
 
   return (
     <header className="header">
+      <BurgerMenu />
       <div className="header__background">
         <div className="header__rgda">
           <div className="header_max">
             <div className="header__container">
-              <BurgerMenu />
+              
               <Link to="/" className="header__logo">
                 <img src={logoSvg} alt="" className="header__logo-1"></img>
               </Link>
@@ -52,7 +53,7 @@ React.useEffect(()=>{
                 </div>
               </div>
             </div>
-
+            
             <div className="header__block">
               <div className="header__search">
                 <div className="header__found">
