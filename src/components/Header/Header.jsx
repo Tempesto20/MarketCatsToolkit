@@ -23,8 +23,9 @@ React.useEffect(()=>{
 },[]);
 
   return (
+    
     <header className="header">
-      <BurgerMenu />
+            <BurgerMenu />
       <div className="header__background">
         <div className="header__rgda">
           <div className="header_max">
