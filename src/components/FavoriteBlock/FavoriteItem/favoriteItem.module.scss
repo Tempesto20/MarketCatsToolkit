@@ -9,14 +9,19 @@ max-width: 1200px;
 .img{
     position: relative;
     max-width: 250px;
+    cursor: pointer;
 }
 
 .like {
+    cursor: pointer;
     position: absolute;
-    color: red;
     top: 0px;
     left: 200px;
 }
+.name{
+    cursor: pointer;
+}
 .remove{
+    cursor: pointer;
     color: red;
 }

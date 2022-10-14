@@ -69,7 +69,7 @@ const FavoriteItem = ({ id, name, price, img, count }) => {
       </div>
       <div className="cart__item-info">
       <Link to={`/cat/${id}`} key={id}>
-        <h3>{name}</h3>
+        <h3 className={styles.name}>{name}</h3>
         </Link>
         <p></p>
       </div>

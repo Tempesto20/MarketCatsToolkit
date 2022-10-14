@@ -89,6 +89,7 @@
   color: #999999;
   background-color: white;
   margin: 80px 60px 0px 0px;
+  cursor: pointer;
   @media (max-width: $xl) {
     width: 250px;
     margin: 0px 0px 0px 20px;
@@ -111,6 +112,7 @@
 }
 
 .button__batton {
+  cursor: pointer;
   font-weight: bold;
   font-size: 14px;
   line-height: 17px;
@@ -118,6 +120,7 @@
   // color: #FFFFFF;
 }
 .button-text {
+  cursor: pointer;
   font-weight: bold;
   font-size: 14px;
   line-height: 17px;
@@ -126,6 +129,7 @@
   margin: auto;
 }
 .bottom__button {
+  cursor: pointer;
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -151,6 +155,7 @@
   }
 }
 button.but {
+  cursor: pointer;
   font-weight: 600;
   color: #382b22;
   text-transform: uppercase;

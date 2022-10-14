@@ -27,6 +27,7 @@
 }
 .card__img{
     position: relative;
+    cursor: pointer;
 }
 .card__cat-img {
     width: 380px;
@@ -103,6 +104,7 @@
     }
 }
 .card__title {
+    cursor: pointer;
     font-weight: bold;
     font-size: 24px;
     line-height: 29px;
@@ -202,6 +204,7 @@
 }
 //Tempesto20
 .buy__cat {
+    cursor: pointer;
     background: #6EBBD3;
     padding: 22px 56px 22px 56px;
     border-bottom-right-radius: 10px;
@@ -231,6 +234,7 @@
 }
 
 .buy__cat.sold {
+    cursor: default;
     position: relative;
     margin-top: 0px ;
     margin: auto;
