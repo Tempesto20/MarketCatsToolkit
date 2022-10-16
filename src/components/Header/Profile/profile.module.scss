@@ -1,4 +1,212 @@
+@import '../../../scss/config';
+
+.background {
+    background: #e5e5e5;
+  }
 .wrapper{
     max-width: 1280px;
     padding-top: 0px;
+    margin: 0 auto;
 }
+
+.body{
+    display: flex;
+    padding: 50px 50px;
+    @media (max-width: $xl) {
+        display: block;
+      }
+      @media (max-width: $sm) {
+        padding: 20px 20px;
+      }
+}
+.avatar{
+    max-width: 670px;
+    height: 100%;
+
+    @media (max-width: $xl) {
+        max-width: 600px;
+      }
+      @media (max-width: $md) {
+        max-width: 500px;
+      }
+      @media (max-width: $sm) {
+        max-width: 360px;
+      }
+      @media (max-width: $ssm) {
+        max-width: 260px;
+      }
+}
+.content{
+    padding-left: 40px;
+    @media (max-width: $md) {
+        padding-left: 20px;
+      }
+      @media (max-width: $sm) {
+        padding-left: 0px;
+      }
+}
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    @media (max-width: $xl) {
+        padding-top: 20px;
+      }
+}
+.subtitle{
+    p{
+        padding-top: 6px;
+        padding-left: 10px;
+
+    }
+}
+.profession{
+    display: flex;
+}
+.location{
+    display: flex;
+}
+.mail{
+    display: flex;
+}
+.reactImg{
+    max-width: 40px;
+    height: 100%;
+    
+}
+.locationImg{
+    max-width: 40px;
+    height: 100%;
+}
+.mailImg{
+    max-width: 40px;
+    height: 100%;
+}
+.point{
+    max-width: 10px;
+    height: 100%;
+    padding-top: 6px;
+}
+.star{
+    max-width: 20px;
+    height: 100%;
+    padding-top: 6px;
+}
+.profession{
+    font-size: 20px;
+    font-weight: normal; 
+    padding-top: 10px;
+}
+.location{
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: normal; 
+}
+.mail{
+    font-size: 18px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.skills{
+padding-top: 20px;
+}
+
+
+.FrontendPrew{
+padding-top: 10px;
+padding-bottom: 10px;
+font-size: 20px;
+font-weight: bold;
+}
+
+.skillsFrontend{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    ul{
+        display: flex;
+        li{
+            font-size: 18px;
+            padding-left: 10px;
+        }
+    }
+}
+
+.OtherPrew{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.skillsOther{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    ul{
+        display: flex;
+        li{
+            font-size: 18px;
+            padding-left: 10px;
+        }
+    }
+}
+
+
+.ExperiencePrew{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.skillsExperience{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    ul{
+        display: flex;
+        li{
+            font-size: 18px;
+            padding-left: 10px;
+            padding-top: 6px;
+        }
+    }
+}
+
+
+.contacts{
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+.summer{
+    display: flex;
+    // padding-top: 40px;
+}
+.summerBody{
+    display: flex;
+}
+
+.github{
+
+}
+.hh{
+padding-left: 20px;
+}
+.habr{
+    padding-left: 20px;
+}
+
+.githubImg{
+    max-width: 50px;
+    height: 100%;
+}
+
+.hhImg{
+    max-width: 50px;
+    height: 100%;
+}
+.habrImg{
+    max-width: 50px;
+    height: 100%;
+}
+
