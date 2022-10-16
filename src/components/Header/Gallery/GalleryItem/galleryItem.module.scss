@@ -1,0 +1,87 @@
+@import '../../../../scss/config';
+
+// .background {
+//   background: #e5e5e5;
+// }
+
+// .wrapper{
+//   position: relative;
+//     max-width: 1280px;
+//     margin: 0 auto;
+// }
+
+// .header{
+//     margin: 0 auto;
+//     text-align: center;
+//     font-weight: bold;
+//     font-size: 20px;
+//     padding: 30px 30px;
+// }
+
+
+// .container {
+//   position: relative;
+//   padding: 40px;
+//   // background: #419be0;
+//   margin: 0 auto;
+//   // .slick-prev{
+//   //   color:red;
+//   //   background-color: red;
+//   // }
+//   button.slick-arrow.slick-prev{
+
+//     .slick-prev {
+//       left:   25px;
+//   }
+
+//   }
+//   button{}
+//   .slick-slider.slick-initialized{
+//   }
+// }
+
+// // .slick-slide img {
+// //   margin: auto;
+// // }
+// .containerImg{
+//   margin: 0 auto;
+//   text-align: center;
+// }
+
+.imgCat{
+  max-width: 800px;
+  height: 100%;
+  margin: 0 auto;
+  @media (max-width: $lg) {
+    max-width: 600px;
+    padding-bottom: 40px;
+}
+@media (max-width: $md) {
+  max-width: 480px;
+}
+@media (max-width: $sm) {
+  max-width: 300px;
+}
+@media (max-width: $ssm) {
+  max-width: 200px;
+}
+}
+
+// .arrow {
+//   position: absolute;
+//   color: #000000;
+//   font-size: 2.5em;
+//   font-weight: bold;
+
+//   cursor: pointer;
+// }
+
+// .nextArrow {
+//   top: 0;
+//   right: -45px;
+// }
+
+// .prevArrow {
+//   top: 0;
+//   left: -45px;
+// }

@@ -1,4 +1,100 @@
-.wrapper{
-    max-width: 1280px;
-    padding-top: 0px;
+@import '../../../scss/config';
+
+.background {
+  background: #e5e5e5;
+}
+.wrapper {
+  // padding-top: 0px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.preview {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 30px 30px;
+}
+.header {
+  display: flex;
+  @media (max-width: $md) {
+    display: block;
+  }
+}
+.headerTitle {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.mainTitle {
+  padding-bottom: 10px;
+}
+
+.mainContent {
+  p {
+    padding-bottom: 10px;
+  }
+}
+
+.headerContent {
+  font-size: 16px;
+  padding: 20px 20px;
+}
+.catMeddle {
+  width: 100%;
+  height: 100%;
+
+  @media (max-width: $xl) {
+    padding-left: 20px;
+    width: 500px;
+    height: 100%;
+  }
+  @media (max-width: $md) {
+    width: 300px;
+    height: 100%;
+  }
+  @media (max-width: $ssm) {
+    width: 260px;
+    height: 100%;
+  }
+}
+.middle {
+  display: flex;
+  flex-direction: row-reverse;
+  @media (max-width: $md) {
+    display: block;
+  }
+}
+.middleHeader {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 20px 20px;
+}
+
+.thenks {
+  @media (max-width: $md) {
+    padding-left: 20px;
+  }
+  @media (max-width: $ssm) {
+    width: 260px;
+    height: 100%;
+  }
+}
+
+.middleContent {
+  font-size: 16px;
+  padding: 20px 20px;
+  p {
+    padding-bottom: 10px;
+  }
+}
+
+.bottom {
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 30px 30px;
 }

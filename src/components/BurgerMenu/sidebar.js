@@ -11,7 +11,7 @@ export default (props) => {
         <img src={logoSvg} alt="" />
       </Link>
 
-      <Link className="menu-item" to="/main">
+      <Link className="menu-item" to="/">
         Main
       </Link>
 

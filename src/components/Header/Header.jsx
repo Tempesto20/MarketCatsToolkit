@@ -9,7 +9,7 @@ import './header.scss';
 
 //import CatBlock from '../../context/CatBlock';
 const headerList = ['Main', 'Gallery', 'News', 'Profile'];
-const listLinks =["/main","/gallery","/news","/profile" ]
+const listLinks =["/","/gallery","/news","/profile" ]
 
 function Header() {
 
