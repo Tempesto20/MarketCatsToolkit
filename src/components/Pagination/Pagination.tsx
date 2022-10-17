@@ -17,7 +17,7 @@ const Pagination: React.FC<PaginationProps> =({currentPage, onChangePage})=> {
         previousLabel="<"
         onPageChange={(number) => onChangePage(number.selected + 1)}
         pageRangeDisplayed={4} //колочиесктво отображаемых котиков на странице
-        pageCount={3} // количество страниц
+        pageCount={4} // количество страниц
         forcePage={currentPage - 1}
       />
   );

@@ -1,3 +1,167 @@
-.container{
-    padding-top: 250px;
+@import '../../scss/config';
+
+.background {
+  background: #e5e5e5;
+}
+.wrapper {
+  max-width: 1280px;
+  padding-top: 0px;
+  margin: 0 auto;
+}
+.preview {
+  margin: 0 auto;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 50px;
+}
+.container {
+  display: flex;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  @media (max-width: $lg) {
+    padding-top: 20px;
+    display: block;
+  }
+}
+
+.imgCat {
+}
+
+.img {
+  max-width: 1000px;
+  height: 100%;
+  @media (max-width: $xl) {
+    max-width: 700px;
+  }
+  @media (max-width: $lg) {
+    max-width: 500px;
+  }
+  @media (max-width: $sm) {
+    max-width: 400px;
+  }
+  @media (max-width: $sm) {
+    max-width: 260px;
+  }
+}
+.title {
+  padding-left: 30px;
+  padding-right: 20px;
+  @media (max-width: $lg) {
+    padding-left: 0px;
+    // padding-right: 20px;
+  }
+}
+.name {
+  font-size: 22px;
+  font-weight: bold;
+  @media (max-width: $lg) {
+    padding-top: 10px;
+    // padding-right: 20px;
+  }
+}
+.breed {
+  font-size: 22px;
+  font-weight: normal;
+  padding-top: 20px;
+}
+.description {
+  font-size: 20px;
+  font-weight: normal;
+  padding-top: 20px;
+}
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 40px;
+}
+
+.buttonBottom {
+  display: flex;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom:80px;
+  @media (max-width: $lg) {
+    display: block;
+    padding-top: 0px;
+  }
+}
+
+.buttonHome{
+    display: flex;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    padding: 10px;
+    background-color: rgb(180, 196, 196);
+    max-width: 260px;
+    @media (max-width: $lg) {
+        margin-top: 20px;
+        margin-left: 20px;
+      }
+}
+
+.home {
+  max-width: 40px;
+  height: 100%;
+}
+.backMenu {
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+.buttonLike{
+    display: flex;
+    margin-left: 200px;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    padding: 10px;
+    background-color: rgb(180, 196, 196);
+    max-width: 260px;
+    @media (max-width: $xl) {
+        margin-left: 100px;
+      }
+      @media (max-width: $lg) {
+        margin-top: 20px;
+        margin-left: 20px;
+      }
+}
+
+.like {
+  max-width: 40px;
+  height: 100%;
+    // padding-left: 40px;
+}
+.backFavorite {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+.buttonCart{
+    display: flex;
+    margin-left: 200px;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    padding: 10px;
+    background-color: rgb(180, 196, 196);
+    max-width: 260px;
+    @media (max-width: $xl) {
+        margin-left: 100px;
+      }
+      @media (max-width: $lg) {
+        margin-top: 20px;
+        margin-left: 20px;
+      } 
+}
+.cart {
+  max-width: 40px;
+  height: 100%;
+//   padding-left: 40px;
+}
+.backCart {
+
+  padding-top: 20px;
+  padding-left: 10px;
 }
