@@ -28,6 +28,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
       name,
       price,
       img,
+      discount,
       isFavorite: true,
       count: 0,
     };
@@ -61,6 +62,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
       name,
       price,
       img,
+      discount,
       count: 0,
     };
     dispatch(setAddItem(item));

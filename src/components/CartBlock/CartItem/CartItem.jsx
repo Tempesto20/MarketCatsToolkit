@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setRemoveItem } from '../../../redux/slices/cartSlice';
@@ -19,7 +20,7 @@ import styles from './cartItem.module.scss';
   size: number;
 }; */
 
-const CartItem = ({ id, name, price, img, count }) => {
+const CartItem = ({ id, name, price, img, count, discount }) => {
   const dispatch = useDispatch();
 
   const handlerRemoveItem = () => {
@@ -66,6 +67,14 @@ const CartItem = ({ id, name, price, img, count }) => {
             <Link to={`/cat/${id}`} key={id}>
               <img className={styles.img} src={img} alt="Pizza" />
             </Link>
+            
+            <div className={clsx(discount !== 0 ? 'card__discount' : '')}>
+            <p className={clsx(discount !== 0 ? 'discount' : '')}>
+              {discount !== 0 ? -discount : ''}
+              {discount !== 0 ? `%` : ''}
+            </p>
+          </div>
+
             <div className={styles.like}>
               {!likeItem && <img src={notLike} onClick={handlerLikeYes} alt="" />}
               {likeItem && <img src={Like} onClick={handlerLikeNo} alt="" />}
