@@ -39,12 +39,19 @@
     position: absolute;
     cursor: pointer;
     // color: red;
-    top: 0px;
-    left: 400px;    
+    top: 37px;
+    left: 380px;    
+    @media (max-width: $xl) {
+      top: 10px;
+    }
+    @media (max-width: $lg) {
+      top: 30px;
+    }
     @media (max-width: $md) {
         left: 240px;
       }
       @media (max-width: $sm) {
+        top: 10px;
         left: 280px;
       }
       @media (max-width: $ssm) {
