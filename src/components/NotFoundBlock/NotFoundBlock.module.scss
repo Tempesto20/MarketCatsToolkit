@@ -1,18 +1,87 @@
-.root{
-    text-align: center;
-    padding-top: 300px;
-    font-size: 48px;
-    //padding: 100px;
-    max-width: 750px;
+@import '../../scss/config';
+
+.background{
+    background: #e5e5e5;
+}
+
+.wrapper{
+    max-width: 1280px;
     margin: 0 auto;
-    img{
-        width: 400px;
-    }
-    span{
-        font-size: 64px;
-    }
+}
+.container{
+    text-align: center;
+    padding: 100px 100px;
+    @media (max-width: $lg) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      @media (max-width: $sm) {
+        padding-top: 60px;  
+      }
+}
+.preview{
+    font-size: 26px;
+    font-weight: bold;
+}
+.pain{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @media (max-width: $sm) {
+        padding-top: 20px;
+      }
+}
+.painImg{
+    max-width: 1000px;
+    height: 100%;
+    @media (max-width: $lg) {
+        max-width: 700px;
+      }
+      @media (max-width: $md) {
+        max-width: 540px;
+      }
+      @media (max-width: $sm) {
+        max-width: 400px;
+      }
+      @media (max-width: $ssm) {
+        max-width: 260px;
+      }
 }
 .description{
-    text-align: center;
     font-size: 40px;
+    padding-top: 40px;
+    font-weight: bold;
+    @media (max-width: $sm) {
+        padding-bottom: 60px;
+      }
 }
+
+
+.buttonHome {
+    margin: 0 auto;
+    display: flex;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+    padding: 10px;
+    background-color: rgb(180, 196, 196);
+    max-width: 260px;
+    cursor: pointer;
+    margin-top: 60px;
+    @media (max-width: $lg) {
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+    @media (max-width: $ssm) {
+        margin-left: 0px;
+      }
+  }
+  
+  .home {
+    max-width: 40px;
+    height: 100%;
+  }
+  .backHome {
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 10px;
+  }

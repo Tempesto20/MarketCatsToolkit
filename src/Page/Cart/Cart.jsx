@@ -8,8 +8,10 @@ import CartEmpty from '../../components/CartBlock/CartEmpty/CartEmpty';
 // import CartEmpty from '../components/CartEmpty';
 // import { RootState } from '../redux/store';
 // import { CartItemSlice } from '../redux/slices/cartSlice';
-import trashСan from './trashСan.svg';
-import back from './back.svg';
+import clear from './clear.svg';
+// import back from './back.svg';
+import home from './home.png';
+import cart from './cart.png';
 import styles from './cart.module.scss';
 const Cart = () => {
   const dispatch = useDispatch();
@@ -26,48 +28,53 @@ const Cart = () => {
     }
   };
 
-  if(!totalPrice){
+  if (!totalPrice) {
     //условный рендер, те если ничего не имеетв корзине, будет рендериться CartEmpty
-    return <CartEmpty />
+    return <CartEmpty />;
   }
 
   return (
-    <div className={styles.container}>
-      <div className="cart">
-        <div className="cart__top">
-          <h2 className="content__title">
-            
-            Корзина
-          </h2>
-          <div className="cart__clear">
-          <img src={trashСan} alt='' className={styles.trashСan} 
-           onClick={handlerClearItems}/>
+    <div className={styles.background}>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <h2 className={styles.preview}>Корзина</h2>
+            <div className={styles.clearContent} onClick={handlerClearItems}>
+              <img src={clear} alt="" className={styles.clear} />
 
-            <span className={styles.deleteSpan} 
-            onClick={handlerClearItems}>Очистить корзину</span>
+              <p className={styles.clearText}>Очистить корзину</p>
+            </div>
           </div>
-        </div>
-        <div className="content__items">
-          {items.map((item) => (
-            <CartItem key={item.id} {...item} />
-          ))}
-        </div>
-        <div className="cart__bottom">
-          <div className="cart__bottom-details">
-            <span>
-              Всего котиков: <b>{totalCount} шт.</b> 
-            </span>
-            <span>
-              Сумма заказа: <b>{totalPrice} ₽</b>
-            </span>
+          <div className="content__items">
+            {items.map((item) => (
+              <CartItem key={item.id} {...item} />
+            ))}
           </div>
-          <div className="cart__bottom-buttons">
-          <Link to="/" className="">
-      <img src={back} alt='' className={styles.back} />
-      <span>Вернуться назад</span>
-      </Link>
-            <div className="button pay-btn">
-              <span>Оплатить сейчас</span>
+          <div className={styles.details}>
+            <div className={styles.detailsInfo}>
+              <div className={styles.count}>
+                <p className={styles.countInfo}> Всего котиков: </p>
+                <p className={styles.totalCount}>{totalCount} шт.</p>
+              </div>
+              <div className={styles.price}>
+                <p className={styles.priceInfo}> Сумма заказа: </p>
+                <p className={styles.totalPrice}>{totalPrice} ₽</p>
+              </div>
+            </div>
+            <div className={styles.buttonBottom}>
+              <Link to="/">
+                <div className={styles.buttonHome}>
+                  <img src={home} alt="" className={styles.home} />
+                  <div className={styles.backHome}>Перейти в главное меню</div>
+                </div>
+              </Link>
+
+              <Link to="/">
+                <div className={styles.buttonCart}>
+                  <img src={cart} alt="" className={styles.cart} />
+                  <div className={styles.backCart}>Оплатить сейчас</div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
