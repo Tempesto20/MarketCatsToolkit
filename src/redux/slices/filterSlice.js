@@ -8,6 +8,10 @@ const initialState = {
     name: 'сначала взрослые',
     sortProperty: 'age',
   },
+  checkpoint: {
+    name: 'Все',
+    value: 'Купить' && 'Продан',
+  },
 };
 
 const filterSlice = createSlice({
@@ -20,6 +24,9 @@ const filterSlice = createSlice({
     // setSearchValue(state, action) {
     //   state.searchValue = action.payload;
     // },
+    setCheckpoinValue(state, action) {
+      state.checkpoint = action.payload;
+    },
     setSortType(state, action) {
       state.sort = action.payload;
     },
@@ -43,6 +50,6 @@ const filterSlice = createSlice({
   },
 });
 
-export const { setSortType, setCurrentPage } = filterSlice.actions;
+export const { setCheckpoinValue, setSortType, setCurrentPage } = filterSlice.actions;
 
 export default filterSlice.reducer;

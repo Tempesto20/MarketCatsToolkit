@@ -13,11 +13,11 @@
   border-radius: 25px;
   font-weight: bold;
   z-index: 3;
-  margin-top: 30px;
+  // margin-top: 30px;
   //margin-left: 400px;
   position: absolute; /* Фиксированное положение */
   right: 50px; /* Расстояние от правого края окна браузера */
-  //top: 20%;
+
   @media (max-width: $xl) {
     position: relative;
     margin-left: 70px;

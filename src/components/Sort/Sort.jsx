@@ -47,7 +47,6 @@ const Sort = () => {
 
         <b>Сортировка:</b>
         <span onClick={changeHandler}>{sortType.name}</span>
-        {/* {sortType.name} */}
       </div>
       {sortIsActive && (
         <div className="sort__popup">

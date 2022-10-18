@@ -4,9 +4,15 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // Это бизнес-логика, вынес из UI - в редакс, те це UX
 //Чтобы была возможно повторного использования или исключения
 export const fetchCats = createAsyncThunk('cats/fetchCatsStatus', async (params) => {
-  const { sortBy, order, currentPage } = params;
+  const {
+    sortBy,
+    order,
+    currentPage,
+    // checkpointValue,
+    checkpoint,
+  } = params;
   const { data } = await axios.get(
-    `https://633db211f2b0e623dc79b585.mockapi.io/cats?sortBy=${sortBy}&order=${order}&page=${currentPage}&limit=6`,
+    `https://633db211f2b0e623dc79b585.mockapi.io/cats?sortBy=${sortBy}&checpoint=${checkpoint}&order=${order}&page=${currentPage}&limit=6`,
   );
 
   //console.log(response.data);

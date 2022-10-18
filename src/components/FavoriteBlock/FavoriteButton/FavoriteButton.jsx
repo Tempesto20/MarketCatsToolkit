@@ -7,7 +7,7 @@ const FavoriteButton = () => {
   const items = useSelector((state) => state.favoriteSlice.items);
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
   return (
-    <div className={styles.favoriteButton}>
+    <div className={styles.wrapper}>
       <div className={styles.cardImg}>
         <img className={styles.icon} src={like} alt="" />
 

@@ -9,9 +9,10 @@ import Sort from '../../components/Sort/Sort';
 import CartButton from '../../components/CartBlock/CartButton/CartButton';
 import Skeleton from '../../components/CatsBlock/Skeleton';
 
-import './home.scss';
+import styles from './home.module.scss';
 import FavoriteButton from '../../components/FavoriteBlock/FavoriteButton/FavoriteButton';
 import Pagination from '../../components/Pagination/Pagination';
+import Checkpoint from '../../components/CheckpointBlock/Checkpoint';
 
 function Home() {
   const dispatch = useDispatch();
@@ -19,6 +20,8 @@ function Home() {
   const sortType = useSelector((state) => state.filterSlice.sort.sortProperty);
   const currentPage = useSelector((state) => state.filterSlice.currentPage);
   const cats = useSelector((state) => state.catsSlice.items);
+
+  const checkpointValue = useSelector((state) => state.filterSlice.checkpoint.value);
 
   // const status = useSelector((state) => state.catsSlice.status);
   // console.log(sortType)
@@ -30,11 +33,14 @@ function Home() {
   const getCats = async () => {
     const sortBy = sortType.replace('-', ''); //убираем минус
     const order = sortType.includes('-') ? 'asc' : 'desc'; // если есть то -, то выбираем 1 пункт
+    const checkpoint = checkpointValue;
     dispatch(
       fetchCats({
         sortBy,
         order,
         currentPage,
+        // checkpointValue,
+        checkpoint
       }),
     );
   };
@@ -42,25 +48,40 @@ function Home() {
   React.useEffect(() => {
     getCats();
     setIsLoading(false);
-  }, [sortType, currentPage]);
+  }, [sortType, currentPage,checkpointValue]);
 
   const catsArray = cats.map((items, id) => <CatBlock key={id} {...items} />);
 
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 
   return (
-    <div className="content__cat ">
-      <div className="head__cat">
-        <Sort />
+    <div className={styles.background}>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <div className={styles.sort}>
+            <Sort />
+          </div>
+          <Link to="/favorite">
+            <div className={styles.favorite}>
+              <FavoriteButton />
+            </div>
+          </Link>
+          <Link to="/cart">
+            <div className={styles.cart}>
+              <CartButton />
+            </div>
+          </Link>
+          <div className={styles.checkpoint}>
+            <Checkpoint />
+          </div>
+        </div>
+        <div className={styles.body}>
+
+          <div className={styles.content}>{isLoading ? skeletons : catsArray}</div>
+        </div>
+
+        <Pagination currentPage={currentPage} onChangePage={onChangePageHandler} />
       </div>
-      <Link to="/cart" className="cart">
-        <CartButton />
-      </Link>
-      <Link to="/favorite" className="">
-        <FavoriteButton />
-      </Link>
-      <div className="background__cat ">{isLoading ? skeletons : catsArray}</div>
-      <Pagination currentPage={currentPage} onChangePage={onChangePageHandler} />
     </div>
   );
 }
