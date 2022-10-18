@@ -30,6 +30,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
       img,
       discount,
       isFavorite: true,
+      buy,
       count: 0,
     };
     // setLike(true); // при использовании useState
@@ -63,6 +64,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
       price,
       img,
       discount,
+      buy,
       count: 0,
     };
     dispatch(setAddItem(item));

@@ -24,7 +24,7 @@ const CartItem = ({ id, name, price, img, count, discount }) => {
   const dispatch = useDispatch();
 
   const handlerRemoveItem = () => {
-    if (window.confirm('Вы действительно ухотите удалить заказ?')) {
+    if (window.confirm('Вы действительно хотите удалить котёнка из корзины?')) {
       dispatch(setRemoveItem(id));
     }
   };
@@ -58,7 +58,6 @@ const CartItem = ({ id, name, price, img, count, discount }) => {
     //console.log(item)
   };
 
-
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
@@ -67,13 +66,13 @@ const CartItem = ({ id, name, price, img, count, discount }) => {
             <Link to={`/cat/${id}`} key={id}>
               <img className={styles.img} src={img} alt="Pizza" />
             </Link>
-            
+
             <div className={clsx(discount !== 0 ? 'card__discount' : '')}>
-            <p className={clsx(discount !== 0 ? 'discount' : '')}>
-              {discount !== 0 ? -discount : ''}
-              {discount !== 0 ? `%` : ''}
-            </p>
-          </div>
+              <p className={clsx(discount !== 0 ? 'discount' : '')}>
+                {discount !== 0 ? -discount : ''}
+                {discount !== 0 ? `%` : ''}
+              </p>
+            </div>
 
             <div className={styles.like}>
               {!likeItem && <img src={notLike} onClick={handlerLikeYes} alt="" />}
@@ -91,22 +90,10 @@ const CartItem = ({ id, name, price, img, count, discount }) => {
             </div>
 
             <div className={styles.clearContent} onClick={handlerRemoveItem}>
-              <img src={clear} alt="" className={styles.clear}  />
+              <img src={clear} alt="" className={styles.clear} />
 
-              <p className={styles.clearText} >
-              Удалить из корзины
-              </p>
+              <p className={styles.clearText}>Удалить из корзины</p>
             </div>
-
-
-
-            {/* <div className={styles.remove}>
-              <div onClick={handlerRemoveItem} className={styles.removeInfo}>
-                Удалить из корзины
-              </div>
-            </div> */}
-
-
           </div>
         </div>
       </div>

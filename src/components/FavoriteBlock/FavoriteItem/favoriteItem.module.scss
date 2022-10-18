@@ -1,27 +1,147 @@
-.wrapper{
+@import '../../../scss/config';
 
-margin: 0 auto;
-max-width: 1200px;
+.wrapper{
+    position: relative;
+    margin: 0 auto;
+    max-width: 1200px;
+
 }
 .background{
-    position: relative;
+    padding: 40px 20px;
+    @media (max-width: $md) {
+       padding-left: 0px;
+      }
+    
+}
+.container{
+    display: flex;
+    @media (max-width: $sm) {
+        display: block;
+       }
 }
 .img{
     position: relative;
-    max-width: 250px;
     cursor: pointer;
+    max-width: 450px;
+    height: 100%;
+    @media (max-width: $md) {
+        max-width: 300px;
+      }
+      @media (max-width: $sm) {
+        max-width: 350px;
+      }
+      @media (max-width: $ssm) {
+        max-width: 250px;
+      }
 }
 
 .like {
-    cursor: pointer;
     position: absolute;
-    top: 0px;
-    left: 200px;
-}
-.name{
     cursor: pointer;
+    // color: red;
+    top: 37px;
+    left: 380px;    
+    @media (max-width: $xl) {
+      top: 10px;
+    }
+    @media (max-width: $lg) {
+      top: 30px;
+    }
+    @media (max-width: $md) {
+        left: 240px;
+      }
+      @media (max-width: $sm) {
+        top: 10px;
+        left: 280px;
+      }
+      @media (max-width: $ssm) {
+        left: 190px;
+      }
 }
-.remove{
+.info{
+    padding-left: 40px;
+    @media (max-width: $md) {
+        padding-left: 10px;
+      }
+}
+.nameText{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.priceText{
+
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 20px;
+
+}
+.removeInfo{
     cursor: pointer;
-    color: red;
+    padding-top: 220px;
 }
+
+
+.clearContent{
+    display: flex;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    box-shadow: 12px 12px 2px 1px rgba(220, 210, 22, 0.2);
+    padding: 20px;
+    background-color: #e5e5e5;
+    max-width: 220px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-top: 160px;
+    cursor: pointer;
+    @media (max-width: $md) {
+        margin-top: 20px;
+      }
+}
+.cart {
+  max-width: 30px;
+  height: 100%;
+}
+.clearText {
+  padding-top: 10px;
+  padding-right: 20px;
+  white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+// .wrapper{
+
+// margin: 0 auto;
+// max-width: 1200px;
+// }
+// .background{
+//     position: relative;
+// }
+// .img{
+//     position: relative;
+//     max-width: 250px;
+//     cursor: pointer;
+// }
+
+// .like {
+//     cursor: pointer;
+//     position: absolute;
+//     top: 0px;
+//     left: 200px;
+// }
+// .name{
+//     cursor: pointer;
+// }
+// .remove{
+//     cursor: pointer;
+//     color: red;
+// }

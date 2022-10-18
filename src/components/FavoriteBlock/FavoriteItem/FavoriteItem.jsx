@@ -1,10 +1,12 @@
 import React from 'react';
+import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import { setRemoveLike } from '../../../redux/slices/favoriteSlice';
+import { setAddItem } from '../../../redux/slices/cartSlice';
 import { setAddLike, setRemoveLike, setLike } from '../../../redux/slices/favoriteSlice';
 import notLike from '../../../assets/img/svg/like.svg';
 import Like from '../../../assets/img/svg/like2.svg';
+import cart from './cart.png';
 
 import styles from './favoriteItem.module.scss';
 //import { CartItemSlice } from '../redux/slices/cartSlice';
@@ -18,9 +20,11 @@ import styles from './favoriteItem.module.scss';
   size: number;
 }; */
 
-const FavoriteItem = ({ id, name, price, img, count }) => {
+const FavoriteItem = ({ id, name, price, img, count, discount, buy }) => {
   const dispatch = useDispatch();
-
+  console.log(buy);
+  const cartItem = useSelector((state) => state.cartSlice.items);
+  // console.log(cartItem.length);
   const likeItem = useSelector((state) => state.favoriteSlice.items).find((obj) => obj.id === id);
   //писк по конкретной id
   // console.log(likeItem);
@@ -50,36 +54,76 @@ const FavoriteItem = ({ id, name, price, img, count }) => {
     //console.log(item)
   };
 
-  const handlerRemoveItemLikes = () => {
-    if (window.confirm('Вы действительно ухотите удалить котика из списка ваших фаворитов?')) {
-      dispatch(setRemoveLike(id));
+  const handlerAddItems = () => {
+    for (let i = 0; i < cartItem.length; i++) {
+      //console.log(cartItem[i].id);
+      if (cartItem[i].id !== id) {
+        //если такой id ещё НЕ имеется корзине, то добавлять
+        //console.log('если такой id ещё НЕ имеется корзине, то добавлять');
+      } else {
+        //если такой id ИМЕЕТСЯ корзине, то не добавлять
+        //console.log('не добавлять')
+        return;
+      }
     }
+    const item = {
+      id,
+      name,
+      price,
+      img,
+      discount,
+      buy,
+      count: 0,
+    };
+    // if (window.confirm('Добавить котёнка в корзину?')) {
+    dispatch(setAddItem(item));
+    //console.log(item)
+    // }
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.background}>
-      <Link to={`/cat/${id}`} key={id}>
-        <img className={styles.img} src={img} alt="Cat" />
-        </Link>
-        <div className={styles.like}>
-          {!likeItem && <img src={notLike} onClick={handlerLikeYes} alt="" />}
-          {likeItem && <img src={Like} onClick={handlerLikeNo} alt="" />}
-        </div>
-      </div>
-      <div className="cart__item-info">
-      <Link to={`/cat/${id}`} key={id}>
-        <h3 className={styles.name}>{name}</h3>
-        </Link>
-        <p></p>
-      </div>
-      <div className="cart__item-count"></div>
-      <div className="cart__item-price">
-        <b>{price * count} ₽</b>
-      </div>
-      <div className="cart__item-remove">
-        <div onClick={handlerRemoveItemLikes} className={styles.remove}>
-          Удалить из ваших фаворитов
+    <div className={styles.background}>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <div className="cart__item-img">
+            <Link to={`/cat/${id}`} key={id}>
+              <img className={styles.img} src={img} alt="Pizza" />
+            </Link>
+
+            <div className={clsx(discount !== 0 ? 'card__discount' : '')}>
+              <p className={clsx(discount !== 0 ? 'discount' : '')}>
+                {discount !== 0 ? -discount : ''}
+                {discount !== 0 ? `%` : ''}
+              </p>
+            </div>
+
+            <div className={styles.like}>
+              {!likeItem && <img src={notLike} onClick={handlerLikeYes} alt="" />}
+              {likeItem && <img src={Like} onClick={handlerLikeNo} alt="" />}
+            </div>
+          </div>
+          <div className={styles.info}>
+            <div className={styles.name}>
+              <Link to={`/cat/${id}`} key={id}>
+                <h3 className={styles.nameText}>{name}</h3>
+              </Link>
+            </div>
+            <div className={styles.price}>
+              <p className={styles.priceText}>{price * count} ₽</p>
+            </div>
+            {buy !== 'Продан' ? (
+              <div
+                className={styles.clearContent}
+                // className={` ${buy !== 'Продан' ? (styles.clearContent) : (' ')}`}
+                onClick={handlerAddItems}>
+                <img src={cart} alt="" className={styles.cart} />
+
+                <p className={styles.clearText}>Добавить в корзину</p>
+              </div>
+            ) : (
+              ''
+            )}
+          </div>
         </div>
       </div>
     </div>

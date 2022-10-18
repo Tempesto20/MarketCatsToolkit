@@ -1,15 +1,141 @@
-.wrapper{
-    // background-color: red;
-    // padding-top: 300px;
+@import '../../scss/config';
+.background {
+  background: #e5e5e5;
 }
-.trashСan{
-    cursor: pointer;
-    width: 30px;
+
+.wrapper {
+  max-width: 1280px;
+  padding-top: 0px;
+  margin: 0 auto;
 }
-.deleteSpan{
-    cursor: pointer;
+.container {
+  padding: 60px 20px;
 }
-.back{
-    cursor: pointer;
-    width: 20px;
+.clearContent {
+  display: flex;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  padding: 10px;
+  background-color: rgb(180, 196, 196);
+  max-width: 210px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.clear {
+  cursor: pointer;
+  max-width: 30px;
+  height: 100%;
+}
+.clearText {
+  cursor: pointer;
+  padding-top: 10px;
+
+}
+
+// .back {
+//   cursor: pointer;
+//   width: 20px;
+// }
+
+.details {
+  // display: flex;
+  // padding-top: 20px;
+  // font-size: 18px;
+}
+.detailsInfo {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+}
+
+.count {
+  display: flex;
+  font-size: 16px;
+}
+.countInfo {
+  padding-top: 2px;
+}
+.totalCount {
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 10px;
+}
+.price {
+  display: flex;
+  font-size: 16px;
+  padding-top: 10px;
+}
+.priceInfo {
+  padding-top: 2px;
+}
+.totalPrice {
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.buttonBottom {
+  display: flex;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  @media (max-width: $lg) {
+    display: block;
+    padding-top: 0px;
+  }
+}
+
+.buttonHome {
+  display: flex;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  padding: 10px;
+  background-color: rgb(180, 196, 196);
+  max-width: 260px;
+  cursor: pointer;
+  @media (max-width: $lg) {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}
+
+.home {
+  max-width: 40px;
+  height: 100%;
+}
+.backHome {
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.buttonCart {
+  display: flex;
+  margin-left: 200px;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  padding: 10px;
+  background-color: rgb(180, 196, 196);
+  max-width: 260px;
+  cursor: pointer;
+  @media (max-width: $xl) {
+    margin-left: 100px;
+  }
+  @media (max-width: $lg) {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+}
+.cart {
+  max-width: 40px;
+  height: 100%;
+  //   padding-left: 40px;
+}
+.backCart {
+  padding-top: 20px;
+  padding-left: 10px;
 }
