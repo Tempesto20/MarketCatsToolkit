@@ -33,7 +33,7 @@
   max-width: 1000px;
   height: 100%;
   @media (max-width: $xl) {
-    max-width: 700px;
+    max-width: 600px;
   }
   @media (max-width: $lg) {
     max-width: 500px;
@@ -41,7 +41,7 @@
   @media (max-width: $sm) {
     max-width: 400px;
   }
-  @media (max-width: $sm) {
+  @media (max-width: $ssm) {
     max-width: 260px;
   }
 }
@@ -65,16 +65,36 @@
   font-size: 22px;
   font-weight: normal;
   padding-top: 20px;
+  @media (max-width: $xl) {
+    padding-top: 10px;
+  }
+  @media (max-width: $lg) {
+    padding-top: 20px;
+  }
 }
 .description {
   font-size: 20px;
   font-weight: normal;
   padding-top: 20px;
+  @media (max-width: $xl) {
+    font-size: 16px;
+    padding-top: 0px;
+  }
+  @media (max-width: $lg) {
+    font-size: 20px;
+    padding-top: 20px;
+  }
 }
 .price {
   font-size: 18px;
   font-weight: bold;
   padding-top: 40px;
+  @media (max-width: $xl) { 
+    padding-top: 10px;
+  }
+  @media (max-width: $lg) { 
+    padding-top: 40px;
+  }
 }
 
 .buttonBottom {
