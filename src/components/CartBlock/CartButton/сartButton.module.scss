@@ -2,20 +2,6 @@
 
 .button {
   cursor: pointer;
-
-  // font: inherit;
-  // border: none;
-  // background-color: #47035d;
-  // color: white;
-  // padding: 0.5rem 3rem;
-  // display: flex;
-  // justify-content: space-around;
-  // align-items: center;
-  // border-radius: 25px;
-  // font-weight: bold;
-  // z-index: 3;
-  // margin-top: 30px;
-  //margin-left: 400px;
   display: flex;
   border: 1px solid #000000;
   border-radius: 50px;
@@ -28,11 +14,6 @@
   @media (max-width: $xl) {
     left: 20px;
   }
-// @media (max-width: $sm) {
-//   padding: 0.5rem 1.5rem;
-//   margin-left: 60px;
-  
-// }
 }
 
 .button:hover,
@@ -42,9 +23,6 @@
 
 .icon {
   max-width: 40px;
-  // width: 1.5rem;
-  // height: 1.5rem;
-  // margin-right: 1rem;
 }
 
 .title{
@@ -60,8 +38,6 @@
   padding: 10px 10px;
   border-radius: 30px;
   text-align: center;
-
-  // margin-left: 1.5rem;
   font-weight: bold;
 }
 
@@ -70,24 +46,3 @@
   background-color: #6d0d8d;
 }
 
-// .bump {
-//   animation: bump 300ms ease-out;
-// }
-
-// @keyframes bump {
-//   0% {
-//     transform: scale(1);
-//   }
-//   10% {
-//     transform: scale(0.9);
-//   }
-//   30% {
-//     transform: scale(1.1);
-//   }
-//   50% {
-//     transform: scale(1.15);
-//   }
-//   100% {
-//     transform: scale(1);
-//   }
-// }

@@ -6,10 +6,9 @@ const initialState = {
   isFavorite: false,
   // totalPrice: cartData.totalPrice,
   // items: cartData.items,
-
   //Способ решения, вытащить из массива лайки и изменить значение
 };
-//const [like, setLike] = React.useState(isFavorite);
+
 export const favoriteSlice = createSlice({
   name: 'favorite',
   initialState,
