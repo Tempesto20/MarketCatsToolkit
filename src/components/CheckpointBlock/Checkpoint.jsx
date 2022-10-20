@@ -1,47 +1,53 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCheckpoinValue } from '../../redux/slices/filterSlice';
+import { setIsSell } from '../../redux/slices/filterSlice';
 import styles from './checkpoint.module.scss';
 
 const checkpointList = [
-  { name: 'Все', value: 'Купить' && 'Продан' },
-  { name: 'В наличии', value: 'Купить' },
-  { name: 'Отсутсвуют в продаже', value: 'Продан' },
+  { name: 'Все', value: 0 },
+  { name: 'В наличии', value: 1 },
+  { name: 'Отсутсвуют в продаже', value: 2 },
 ];
 
 function Checkpoint() {
   const dispatch = useDispatch();
+  // const [value, setValue] = React.useState(0);
+  const sell = useSelector((state) => state.filterSlice.sell.value);
+  // console.log(checked);
+  // const arr = useSelector((state) => state.catsSlice.items);
+  // console.log(arr);
 
-  const checkpointValue = useSelector((state) => state.filterSlice.checkpoint);
-  console.log(checkpointValue);
-  const arr = useSelector((state) => state.catsSlice.items);
-  console.log(arr);
 
   const checkboxHandler = (event) => {
-    console.log(event.target.value);
-    dispatch(setCheckpoinValue(event.target.value));
+    // console.log(event.target.value);
+    dispatch(setIsSell(event.target.value));
   };
 
+ 
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <p>Группировать по:</p>
 
-          <div className={styles.eventList} onChange={checkboxHandler}>
+          <div
+            className={styles.eventList}
+            // onChange={checkboxHandler}
+          >
             {checkpointList.map((item, index) => {
               return (
-                <div>
-                <input type="radio" 
-                name={item.name} 
-                value={item.value} 
-                checked 
-                />
-                <label for={item.name} key={index}>{item.name}</label>
-              </div>
+                <div className={styles.eventList} key={index} >
+                  
+                  <label htmlFor={item.name}><input
+                    type="radio"
+                    name="radio"
+                    value={item.value}
+                    onChange={checkboxHandler}
+                    checked={sell === item.value ? true : sell}
+                  />{item.name}</label>
+                </div>
               );
             })}
-          
           </div>
         </div>
       </div>
@@ -51,58 +57,31 @@ function Checkpoint() {
 
 export default Checkpoint;
 
-{/* <div>
-<input type="radio" id="huey" name="drone" value="huey" checked />
-<label for="huey">Huey</label>
-</div>
-<div>
-<input type="radio" id="huey" name="drone" value="huey" checked />
-<label for="huey">Huey</label>
-</div> */}
 
+// import React from 'react';
+// import './categories.scss';
 
-{/* <div className={styles.eventTitle} key={index} name={item.name}>
-                  <input
-                    value={item.value}
-                    type="radio"
-                    checked
-                    // onClick={(items) => checkboxHandler(items)}
-                  />
-                  <label className={styles.subtitle} for={item.name}>
-                    {item.name}
-                  </label>
-                </div> */}
+// const categories = ['Все', 'В наличии', 'Отсутсвуют в продаже'];
 
+// const Checkpoint = ({ valueCategories, onCategoriesHandler }) => {
 
+//   return (
+//     <div className="categories">
+//       <ul>
+//         {categories.map((items, index) => {
+//           return (
+//             <li
+//               key={index}
+//               onClick={() => onCategoriesHandler(index)}
+//               //анонимный онклик - anonim onClick
+//               className={valueCategories === index ? 'active' : ''}>
+//               {items} {/* посомтреть номер объекта {index}*/}
+//             </li>
+//           );
+//         })}
+//       </ul>
+//     </div>
+//   );
+// };
 
-
-
-
-
-{
-  /* <div className={styles.eventList} onChange={checkboxHandler}>
-<label className={styles.eventTitle}>
-  <input value={all} type="checkbox" ></input>
-  <span className={styles.subtitle}>Все</span>
-</label>
-<label className={styles.eventTitle}>
-  <input value={more} type="checkbox" ></input>
-  <span className={styles.subtitle}>В наличии</span>
-</label>
-<label className={styles.eventTitle}>
-  <input value={less} type="checkbox"     ></input>
-  <span className={styles.subtitle}>Отсутсвуют в продаже</span>
-</label>
-</div> */
-}
-
-{
-  /* <div>
-<input type="checkbox" id="scales" name="scales" checked />
-<label for="scales">Scales</label>
-</div>
-<div>
-<input type="checkbox" id="scales" name="scales" checked />
-<label for="scales">Scales</label>
-</div> */
-}
+// export default Checkpoint;

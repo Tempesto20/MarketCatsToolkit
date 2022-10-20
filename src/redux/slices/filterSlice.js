@@ -3,29 +3,31 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   // categoryId: 0,
+  // sell: 0,
   currentPage: 1,
+  sell: {
+    name: 'Все',
+    value: 0,
+  },
   sort: {
     name: 'сначала взрослые',
     sortProperty: 'age',
   },
-  checkpoint: {
-    name: 'Все',
-    value: 'Купить' && 'Продан',
-  },
+  // checkpoint: {
+  //   name: 'Отсутсвуют в продаже',
+  //   buy: 'Продан',
+
+  //   // name: 'Отсутсвуют в продаже',
+  //   // isSell: false,
+  // },
 };
 
 const filterSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
-    // setCategoryId(state, action) {
-    //   state.categoryId = action.payload;
-    // },
-    // setSearchValue(state, action) {
-    //   state.searchValue = action.payload;
-    // },
-    setCheckpoinValue(state, action) {
-      state.checkpoint = action.payload;
+    setIsSell(state, action) {
+      state.sell = action.payload;
     },
     setSortType(state, action) {
       state.sort = action.payload;
@@ -50,6 +52,6 @@ const filterSlice = createSlice({
   },
 });
 
-export const { setCheckpoinValue, setSortType, setCurrentPage } = filterSlice.actions;
+export const { setIsSell, setSortType, setCurrentPage } = filterSlice.actions;
 
 export default filterSlice.reducer;

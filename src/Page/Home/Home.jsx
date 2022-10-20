@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCats } from '../../redux/slices/catsSlice';
-import { setCurrentPage } from '../../redux/slices/filterSlice';
+import { setCurrentPage,setIsSell } from '../../redux/slices/filterSlice';
 import CatBlock from '../../components/CatsBlock/CatBlock';
 import Sort from '../../components/Sort/Sort';
 import CartButton from '../../components/CartBlock/CartButton/CartButton';
@@ -21,10 +21,15 @@ function Home() {
   const currentPage = useSelector((state) => state.filterSlice.currentPage);
   const cats = useSelector((state) => state.catsSlice.items);
 
-  const checkpointValue = useSelector((state) => state.filterSlice.checkpoint.value);
+  const sell = useSelector((state) => state.filterSlice.sell);
 
   // const status = useSelector((state) => state.catsSlice.status);
-  // console.log(sortType)
+  // console.log(sell)
+
+  // const onCategoriesHandler = React.useCallback((index) => {
+  //   dispatch(setIsSell(index));
+  // }, [dispatch]);
+
 
   const onChangePageHandler = (number) => {
     dispatch(setCurrentPage(number));
@@ -33,14 +38,14 @@ function Home() {
   const getCats = async () => {
     const sortBy = sortType.replace('-', ''); //убираем минус
     const order = sortType.includes('-') ? 'asc' : 'desc'; // если есть то -, то выбираем 1 пункт
-    const checkpoint = checkpointValue;
+    const isSell = sell > 0 ? `isSell=${sell}` : ''; //сортировка
     dispatch(
       fetchCats({
         sortBy,
         order,
         currentPage,
-        // checkpointValue,
-        checkpoint
+        isSell,
+        // checkpointBuy
       }),
     );
   };
@@ -48,7 +53,7 @@ function Home() {
   React.useEffect(() => {
     getCats();
     setIsLoading(false);
-  }, [sortType, currentPage,checkpointValue]);
+  }, [sortType, currentPage,sell]);
 
   const catsArray = cats.map((items, id) => <CatBlock key={id} {...items} />);
 
@@ -72,7 +77,9 @@ function Home() {
             </div>
           </Link>
           <div className={styles.checkpoint}>
-            <Checkpoint />
+            <Checkpoint 
+            // valueCategories={sell} onCategoriesHandler={onCategoriesHandler} 
+            />
           </div>
         </div>
         <div className={styles.body}>

@@ -9,7 +9,7 @@ import Like from '../../assets/img/svg/like2.svg';
 import line from '../../assets/img/svg/line.svg';
 import './catBlock.scss';
 
-function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
+function CatBlock({ id, img, name, price, age, discount, buy, isFavorite,isSell }) {
   const dispatch = useDispatch();
 
   const cartItem = useSelector((state) => state.cartSlice.items);
@@ -18,7 +18,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
   const likeItem = useSelector((state) => state.favoriteSlice.items).find(
       (obj) => obj.id === id);
       //писк по конкретной id при добавлении в фавориты
-  console.log(likeItem);
+  // console.log(likeItem);
 
 
 
@@ -31,6 +31,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
       discount,
       isFavorite: true,
       buy,
+      isSell,
       count: 0,
     };
     // setLike(true); // при использовании useState
@@ -65,6 +66,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite }) {
       img,
       discount,
       buy,
+      isSell,
       count: 0,
     };
     dispatch(setAddItem(item));

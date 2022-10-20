@@ -1,8 +1,8 @@
 @import '../../scss/config';
 
-.sort{
+.sortCheck{
     position: absolute;
-    left: 300px;
+    left: 0px;
     z-index: 2;
     @media (max-width: $sm) {
         display: flex;
@@ -15,7 +15,7 @@
 .transform{
     transform: rotate(180deg);
     }
-    .sort {
+    .sortCheck {
     //   position: relative;
       &__label {
         display: block;

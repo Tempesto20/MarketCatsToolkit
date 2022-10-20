@@ -8,11 +8,11 @@ export const fetchCats = createAsyncThunk('cats/fetchCatsStatus', async (params)
     sortBy,
     order,
     currentPage,
-    // checkpointValue,
-    checkpoint,
+    // checkpointBuy,
+    isSell,
   } = params;
   const { data } = await axios.get(
-    `https://633db211f2b0e623dc79b585.mockapi.io/cats?sortBy=${sortBy}&checpoint=${checkpoint}&order=${order}&page=${currentPage}&limit=6`,
+    `https://633db211f2b0e623dc79b585.mockapi.io/cats?page=${currentPage}&limit=6&${isSell}&sortBy=${sortBy}&order=${order}`,
   );
 
   //console.log(response.data);
