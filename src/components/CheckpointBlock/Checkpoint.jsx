@@ -26,8 +26,9 @@ function Checkpoint() {
  
   return (
     <div className={styles.background}>
+      <div className={styles.container}>
       <div className={styles.wrapper}>
-        <div className={styles.container}>
+        
           <p>Группировать по:</p>
 
           <div
@@ -36,16 +37,17 @@ function Checkpoint() {
           >
             {checkpointList.map((item, index) => {
               return (
-                <div className={styles.eventList} key={index} >
-                  
-                  <label htmlFor={item.name}><input
+                <label className={styles.eventTitle} key={index} >
+                  <input
                     type="radio"
                     name="radio"
                     value={item.value}
                     onChange={checkboxHandler}
                     checked={sell === item.value ? true : sell}
-                  />{item.name}</label>
-                </div>
+                    className={styles.subtitle}
+                  />
+                  {item.name}
+                </label>
               );
             })}
           </div>
@@ -57,31 +59,4 @@ function Checkpoint() {
 
 export default Checkpoint;
 
-
-// import React from 'react';
-// import './categories.scss';
-
-// const categories = ['Все', 'В наличии', 'Отсутсвуют в продаже'];
-
-// const Checkpoint = ({ valueCategories, onCategoriesHandler }) => {
-
-//   return (
-//     <div className="categories">
-//       <ul>
-//         {categories.map((items, index) => {
-//           return (
-//             <li
-//               key={index}
-//               onClick={() => onCategoriesHandler(index)}
-//               //анонимный онклик - anonim onClick
-//               className={valueCategories === index ? 'active' : ''}>
-//               {items} {/* посомтреть номер объекта {index}*/}
-//             </li>
-//           );
-//         })}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default Checkpoint;
+{/* <label htmlFor={item.name} className={styles.subtitle}>{item.name}</label> */}

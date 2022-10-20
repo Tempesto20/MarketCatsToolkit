@@ -2,33 +2,37 @@
 
 .button {
   cursor: pointer;
-  font: inherit;
-  border: none;
-  background-color: #47035d;
-  color: white;
-  padding: 0.5rem 3rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 25px;
-  font-weight: bold;
-  z-index: 3;
+
+  // font: inherit;
+  // border: none;
+  // background-color: #47035d;
+  // color: white;
+  // padding: 0.5rem 3rem;
+  // display: flex;
+  // justify-content: space-around;
+  // align-items: center;
+  // border-radius: 25px;
+  // font-weight: bold;
+  // z-index: 3;
   // margin-top: 30px;
   //margin-left: 400px;
+  display: flex;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  padding: 10px;
+  background-color: #c8c8c8;
+  max-width: 220px;
   position: absolute; /* Фиксированное положение */
   right: 50px; /* Расстояние от правого края окна браузера */
-
+  // max-width: 290px;
   @media (max-width: $xl) {
-    position: relative;
-    margin-left: 70px;
-    margin-top: 0px;
-    margin-bottom: 40px;
-}
-@media (max-width: $sm) {
-  padding: 0.5rem 1.5rem;
-  margin-left: 60px;
+    left: 20px;
+  }
+// @media (max-width: $sm) {
+//   padding: 0.5rem 1.5rem;
+//   margin-left: 60px;
   
-}
+// }
 }
 
 .button:hover,
@@ -37,16 +41,27 @@
 }
 
 .icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 1rem;
+  max-width: 40px;
+  // width: 1.5rem;
+  // height: 1.5rem;
+  // margin-right: 1rem;
 }
 
+.title{
+
+  font-weight: bold;
+  color: white;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .badge {
-  background-color: #a715d7;
-  padding: 0.2rem 1rem;
-  border-radius: 20px;
-  margin-left: 1.5rem;
+  background-color: #E5E5E5;
+  padding: 10px 10px;
+  border-radius: 30px;
+  text-align: center;
+
+  // margin-left: 1.5rem;
   font-weight: bold;
 }
 
@@ -55,24 +70,24 @@
   background-color: #6d0d8d;
 }
 
-.bump {
-  animation: bump 300ms ease-out;
-}
+// .bump {
+//   animation: bump 300ms ease-out;
+// }
 
-@keyframes bump {
-  0% {
-    transform: scale(1);
-  }
-  10% {
-    transform: scale(0.9);
-  }
-  30% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+// @keyframes bump {
+//   0% {
+//     transform: scale(1);
+//   }
+//   10% {
+//     transform: scale(0.9);
+//   }
+//   30% {
+//     transform: scale(1.1);
+//   }
+//   50% {
+//     transform: scale(1.15);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }

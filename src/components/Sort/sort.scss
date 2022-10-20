@@ -4,9 +4,12 @@
     position: absolute;
     left: 300px;
     z-index: 2;
+    @media (max-width: $xl) {
+      padding-top: 90px;
+    }
     @media (max-width: $sm) {
-        display: flex;
-        flex-direction: column; 
+      left: 20px;
+      margin-top: 150px;
     }
 }
 

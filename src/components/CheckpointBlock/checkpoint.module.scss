@@ -1,22 +1,31 @@
-.background{
-    background: #b3a0a0;
+@import '../../scss/config';
+
+.background {
+  background: #b3a0a0;
 }
-.wrapper{
-    position: absolute;
-    max-width: 400px;
-    left: 0px;
-    border: 1px solid #000000;
-    border-radius: 50px;
-    box-shadow: 12px 12px 2px 1px rgba(220, 210, 22, 0.2);
-    padding: 20px 20px;
-    margin-left: 20px;
+.wrapper {
+  position: absolute;
+  max-width: 400px;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  box-shadow: 12px 12px 2px 1px rgba(220, 210, 22, 0.2);
+  padding: 20px 20px;
+  margin-left: 20px;
+  z-index: 2;
+  left: 0px;
+
 }
-.eventList{
-    display: block;
+.container{
+  @media (max-width: $xl) {
+    padding-top: 90px;
+  }
 }
-.eventTitle{
-    display: flex;
+.eventList {
+  display: block;
 }
-.subtitle{
-    padding-left: 10px;
+.eventTitle {
+  display: block;
+}
+.subtitle {
+  margin-right: 10px;
 }

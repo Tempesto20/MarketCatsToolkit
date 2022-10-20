@@ -78,7 +78,6 @@ function Home() {
           </Link>
           <div className={styles.checkpoint}>
             <Checkpoint 
-            // valueCategories={sell} onCategoriesHandler={onCategoriesHandler} 
             />
           </div>
         </div>

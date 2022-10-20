@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import CartIcon from './CartIcon';
+import cart from './cartB.png';
 import styles from './сartButton.module.scss';
    
 
@@ -10,18 +11,16 @@ const CartButton=()=> {
     
    const totalPrice = useSelector((state) => state.cartSlice.totalPrice);
    const items = useSelector((state) => state.cartSlice.items); 
-   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+//    const totalCount = items.reduce((sum, item) => sum + item.count, 0);
 
     return (
 
-        <button className={styles.button} > {/*onClick={props.onClick} */}
-            <span className={styles.icon}>
-                <CartIcon/>
-            </span>
-            <span>Корзина</span>
+        <div className={styles.button} > {/*onClick={props.onClick} */}
+            <img src={cart} className={styles.icon} />
+            <p className={styles.title}>Корзина</p>
             {/* <span className={styles.badge}>{totalCount}</span>  */}
-            <span className={styles.badge}>{totalCount} | {totalPrice}</span>
-        </button>
+            <span className={styles.badge}> {totalPrice}</span>
+        </div>
 
     );
 }

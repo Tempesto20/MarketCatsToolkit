@@ -1,6 +1,15 @@
+@import '../../../scss/config';
 .wrapper{
     position: absolute;
     right: 400px;
+    padding-top: 10px;
+    @media (max-width: $xl) {
+        left: 300px;
+      }
+      @media (max-width: $ssm) {
+        left: 250px;
+        
+      }
 }
 
 .cardImg{

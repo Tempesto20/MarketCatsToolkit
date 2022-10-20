@@ -31,7 +31,6 @@
 .clearText {
   cursor: pointer;
   padding-top: 10px;
-
 }
 
 // .back {
@@ -48,6 +47,9 @@
   padding-top: 40px;
   padding-bottom: 40px;
   padding-left: 20px;
+  @media (max-width: $ssm) {
+    padding-left: 0px;
+  }
 }
 
 .count {
@@ -100,6 +102,9 @@
     margin-top: 20px;
     margin-left: 20px;
   }
+  @media (max-width: $ssm) {
+    margin-left: 0px;
+  }
 }
 
 .home {
@@ -128,6 +133,9 @@
   @media (max-width: $lg) {
     margin-top: 20px;
     margin-left: 20px;
+  }
+  @media (max-width: $ssm) {
+    margin-left: 0px;
   }
 }
 .cart {
