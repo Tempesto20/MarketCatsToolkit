@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCats } from '../../redux/slices/catsSlice';
-import { setCurrentPage,setIsSell } from '../../redux/slices/filterSlice';
+import { setCurrentPage } from '../../redux/slices/filterSlice';
+// import { setCartLS ,setAddItem} from '../../redux/slices/cartSlice';
 import CatBlock from '../../components/CatsBlock/CatBlock';
 import Sort from '../../components/Sort/Sort';
 import CartButton from '../../components/CartBlock/CartButton/CartButton';
@@ -17,10 +18,13 @@ import Checkpoint from '../../components/CheckpointBlock/Checkpoint';
 function Home() {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = React.useState(true);
+  // const cartMounted = React.useRef(false);
+  // const favoriteMounted = React.useRef(false);
   const sortType = useSelector((state) => state.filterSlice.sort.sortProperty);
   const currentPage = useSelector((state) => state.filterSlice.currentPage);
   const cats = useSelector((state) => state.catsSlice.items);
-
+  const cart = useSelector((state) => state.cartSlice.items);
+  // const favorite = useSelector((state) => state.favoriteSlice.items);
   const sell = useSelector((state) => state.filterSlice.sell);
 
   // const status = useSelector((state) => state.catsSlice.status);
@@ -30,10 +34,31 @@ function Home() {
   //   dispatch(setIsSell(index));
   // }, [dispatch]);
 
-
   const onChangePageHandler = (number) => {
     dispatch(setCurrentPage(number));
   };
+
+  // React.useEffect(() => {
+  //   if (cartMounted.current) {
+  //     // При первом рендере будет FALSE, те не отработает сохранение
+  //     const json = JSON.stringify(cart);
+  //     // console.log(json)
+  //     localStorage.setItem('cart', json);
+  //     //  window.localStorage.getItem('cart');
+  //   }
+  //   cartMounted.current = true;
+  // }, [cart]);
+
+  // React.useEffect(() => {
+  //   if (favoriteMounted.current) {
+  //     // При первом рендере будет FALSE, те не отработает сохранение
+  //     const json = JSON.stringify(favorite);
+  //     console.log(json);
+  //     localStorage.setItem('favorite', json);
+  //     //  window.localStorage.getItem('favorite');
+  //   }
+  //   favoriteMounted.current = true;
+  // }, [favorite]);
 
   const getCats = async () => {
     const sortBy = sortType.replace('-', ''); //убираем минус
@@ -53,7 +78,7 @@ function Home() {
   React.useEffect(() => {
     getCats();
     setIsLoading(false);
-  }, [sortType, currentPage,sell]);
+  }, [sortType, currentPage, sell]);
 
   const catsArray = cats.map((items, id) => <CatBlock key={id} {...items} />);
 
@@ -77,12 +102,10 @@ function Home() {
             </div>
           </Link>
           <div className={styles.checkpoint}>
-            <Checkpoint 
-            />
+            <Checkpoint />
           </div>
         </div>
         <div className={styles.body}>
-
           <div className={styles.content}>{isLoading ? skeletons : catsArray}</div>
         </div>
 

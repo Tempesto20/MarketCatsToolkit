@@ -14,7 +14,7 @@ import star from './star.png';
 function Profile() {
   const skillsFrontend = [
     'TypeScript, JavaScript (ES6+)',
-    'ReactJS, Redux Toolkit',
+    'ReactJS, Redux Toolkit, Redux-Persist',
     'Formik, Yup, React Hook Form',
     'Hooks: {useState, useEffect, useReduser, useContext, useRef}',
     'react-router-dom: {BrowserRouter, Link, useNavigate, useParams}',

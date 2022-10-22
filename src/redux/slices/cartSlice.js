@@ -2,21 +2,41 @@ import { createSlice } from '@reduxjs/toolkit';
 // import { calcTotalPrice } from '../../utils/calcTotalPrice';
 // import { getCartFromLocalStorage } from '../../utils/getCartFromLocalStorage';
 
+// const data = localStorage.getItem('cart');
+// const getCartFromLocalStorage = () => {
+//   const data = localStorage.getItem('cart');
+//   const items = data ? JSON.parse(data) : [];
+//   // return data ? JSON.parse(data) : [];
+//   // const totalPrice = calcTotalPrice(items);
+//   return {
+//     items,
+//     // totalPrice,
+//   };
+// };
+// const cartData = getCartFromLocalStorage();
+
 // первоначальное состояние
 const initialState = {
   totalPrice: 0,
+  // items: JSON.parse(localStorage.getItem('cart')) || [],
   items: [],
   // totalPrice: cartData.totalPrice,
   // items: cartData.items,
+  // items: getCartFromLocalStorage(),
 };
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    // setCartLS(state, action) {
+    //   state.items = action.payload;
+    // },
     setAddItem(state, action) {
       // const findItem = state.items.find((object) => object.id === action.payload.id);
       const findItem = state.items.find((object) => object.id === action.payload.id);
+      // const data = localStorage.getItem('cart');
+      // const itemsLS = data ? JSON.parse(data) : [];
       //console.log(findItem.items);
       //поиск объекта в массиве
       if (findItem) {
@@ -31,6 +51,7 @@ export const cartSlice = createSlice({
           count: 1,
         });
       }
+      // state.items = itemsLS.action.payload.items;
       // state.totalPrice = calcTotalPrice(state.items);
       state.totalPrice = state.items.reduce((sum, obj) => {
         return obj.price * obj.count + sum;
@@ -57,7 +78,7 @@ export const cartSlice = createSlice({
 
 //console.log(counterSlice.actions);
 
-export const { setAddItem, setRemoveItem, setClearItems } = cartSlice.actions;
+export const { setAddItem, setRemoveItem, setClearItems, setCartLS } = cartSlice.actions;
 // необходимо для импортирования этой переменной в дром файле
 // чтобы вытащить какие-либо ACTIONS, те reducers = actions;
 
