@@ -19,8 +19,9 @@ function Checkpoint() {
 
 
   const checkboxHandler = (event) => {
-    // console.log(event.target.value);
+    // console.log(event.target.checked);
     dispatch(setIsSell(event.target.value));
+    // dispatch(setIsSell(event.target.value));
   };
 
  
@@ -37,13 +38,15 @@ function Checkpoint() {
           >
             {checkpointList.map((item, index) => {
               return (
-                <label className={styles.eventTitle} key={index} >
+                <label className={styles.eventTitle} key={index} htmlFor={item.name}>
                   <input
                     type="radio"
                     name="radio"
                     value={item.value}
                     onChange={checkboxHandler}
                     checked={sell === item.value ? true : sell}
+                    // checked={sell === index ? true : false}
+                    // checked={check.isGoing}
                     className={styles.subtitle}
                   />
                   {item.name}
