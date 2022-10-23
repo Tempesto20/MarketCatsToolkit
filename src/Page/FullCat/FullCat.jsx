@@ -13,7 +13,7 @@ const fullBottom = [
   {
     link: '/',
     img: home,
-    text: 'Перейти в главное меню',
+    text: 'Перейти в меню',
   },
   {
     link: '/favorite',

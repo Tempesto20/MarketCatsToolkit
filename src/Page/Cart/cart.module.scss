@@ -11,18 +11,21 @@
 .container {
   padding: 60px 20px;
 }
-.clearContent {
-  display: flex;
-  border: 1px solid #000000;
-  border-radius: 50px;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-  padding: 10px;
-  background-color: rgb(180, 196, 196);
-  max-width: 200px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  cursor: pointer;
+.preview{
+  padding-bottom: 20px;
 }
+// .clearContent {
+//   display: flex;
+//   border: 1px solid #000000;
+//   border-radius: 50px;
+//   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+//   padding: 10px;
+//   background-color: rgb(180, 196, 196);
+//   max-width: 200px;
+//   margin-top: 20px;
+//   margin-bottom: 30px;
+//   cursor: pointer;
+// }
 .clear {
   cursor: pointer;
   max-width: 30px;
@@ -31,6 +34,7 @@
 .clearText {
   cursor: pointer;
   padding-top: 10px;
+  padding-left: 10px;
 }
 
 // .back {

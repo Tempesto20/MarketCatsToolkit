@@ -15,7 +15,7 @@ const fullBottom = [
   {
     link: '/',
     img: home,
-    text: 'Перейти в главное меню',
+    text: 'Перейти в меню',
   },
   {
     link: '/cart',
@@ -50,11 +50,11 @@ const FavoriteCats = () => {
         <div className={styles.container}>
           <div className={styles.header}>
             <h2 className={styles.preview}>Выбранные Вами фавориты</h2>
-            <div className={styles.clearContent} onClick={handlerClearItems}>
+            <ButtonMenu className={styles.clearContent} onClick={handlerClearItems}>
               <img src={clear} alt="" className={styles.clear} />
 
               <p className={styles.clearText}>Удалить фаворитов</p>
-            </div>
+            </ButtonMenu>
           </div>
           <div className="content__items">
             {items.map((item) => (
