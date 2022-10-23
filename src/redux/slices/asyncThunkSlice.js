@@ -3,19 +3,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 // Это бизнес-логика, вынес из UI - в редакс, те це UX
 //Чтобы была возможно повторного использования или исключения
-export const fetchCats = createAsyncThunk('cats/fetchCatsStatus', async (params) => {
-  const {
-    sortBy,
-    order,
-    currentPage,
-    // checkpointBuy,
-    isSell,
-  } = params;
-  const { data } = await axios.get(
-    `https://633db211f2b0e623dc79b585.mockapi.io/cats?page=${currentPage}&limit=6&${isSell}&sortBy=${sortBy}&order=${order}`,
-  );
-
-  //console.log(response.data);
+export const axiosCats = createAsyncThunk('asyncThunkSlice/axiosCatsStatus', async () => {
+  const { data } = await axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`);
+  console.log(data);
   return data;
 });
 
@@ -26,8 +16,8 @@ const initialState = {
   status: 'loading', // loading | success | error
 };
 
-const catsSlice = createSlice({
-  name: 'cats',
+const asyncThunkSlice = createSlice({
+  name: 'asyncThunkSlice',
   initialState,
   reducers: {
     setCats(state, action) {
@@ -36,25 +26,25 @@ const catsSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder.addCase(fetchCats.pending, (state, action) => {
+    builder.addCase(axiosCats.pending, (state, action) => {
       //console.log(state + 'идёт отправка');
       state.status = 'loading';
       state.items = [];
     });
-    builder.addCase(fetchCats.fulfilled, (state, action) => {
-      // console.log(state + 'выполнилось');
+    builder.addCase(axiosCats.fulfilled, (state, action) => {
+      //   console.log(state + 'выполнилось');
       state.items = action.payload;
       state.status = 'success';
     });
-    builder.addCase(fetchCats.rejected, (state, action) => {
+    builder.addCase(axiosCats.rejected, (state, action) => {
       //console.log('была ошибка');
       state.status = 'error';
       state.items = [];
     });
   },
 });
-export const {} = catsSlice.actions;
+export const {} = asyncThunkSlice.actions;
 // необходимо для импортирования этой переменной в дром файле
 // чтобы вытащить какие-либо ACTIONS, те reducers = actions;
 
-export default catsSlice.reducer;
+export default asyncThunkSlice.reducer;

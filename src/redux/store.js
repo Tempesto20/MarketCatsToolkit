@@ -11,11 +11,11 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
-
 import filterSlice from './slices/filterSlice';
 import cartSlice from './slices/cartSlice';
 import catsSlice from './slices/catsSlice';
 import favoriteSlice from './slices/favoriteSlice';
+import asyncThunkSlice from './slices/asyncThunkSlice';
 
 // combineReducers - неолбходим для подключения нескольких слайсов
 const rootReducer = combineReducers({
@@ -23,6 +23,7 @@ const rootReducer = combineReducers({
   cartSlice,
   catsSlice,
   favoriteSlice,
+  asyncThunkSlice,
 });
 
 // Конфиг - ключ / знаечний, временное хранилище

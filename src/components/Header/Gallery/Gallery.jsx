@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { axiosCats } from '../../../redux/slices/asyncThunkSlice';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,8 +11,8 @@ import ButtonMenu from '../../Custom/ButtonMenu/ButtonMenu';
 import homeMenu from '../../../assets/img/homeMenu.png';
 import cartMenu from '../../../assets/img/cartMenu.png';
 import likeMenu from '../../../assets/img/likeMenu.png';
+import Skeleton from './Skeleton';
 import styles from './gallery.module.scss';
-
 
 const controlMenu = [
   {
@@ -30,25 +32,31 @@ const controlMenu = [
   },
 ];
 
-
 const Gallery = () => {
   var settings = {
     dots: true,
   };
 
-  const [catImg, setCatImg] = React.useState([]);
+  const dispatch = useDispatch();
+
+  const catImg = useSelector((state) => state.asyncThunkSlice.items);
+  const status = useSelector((state) => state.asyncThunkSlice.status);
+  console.log(catImg);
+  console.log(status);
+
+  const getCats = async () => {
+    dispatch(axiosCats());
+  };
 
   React.useEffect(() => {
-    try {
-      axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
-        const data = resp.data;
-        console.log(data);
-        setCatImg(data);
-      });
-    } catch (error) {
-      console.log(error + 'Header');
-    }
+    getCats();
   }, []);
+
+  // @ts-ignore
+  const imgArray = catImg.map((items, id) => <GalleryItem key={id} {...items} />);
+
+  // @ts-ignore
+  const skeletons = [...new Array(1)].map((_, index) => <Skeleton key={index} />);
 
   return (
     <div className={styles.background}>
@@ -61,31 +69,40 @@ const Gallery = () => {
           </h3>
         </div>
         <div className={styles.container}>
-          <Slider {...settings}>
-            {catImg.map((items, index) => (
-              // @ts-ignore
-              <GalleryItem key={index} {...items} />
-            ))}
-          </Slider>
+          <Slider {...settings}>{status === 'loading' ? skeletons : imgArray}</Slider>
         </div>
         <div className={styles.bottom}>
           При нажатии на картинку, можно получить детальную информацию по котику.
         </div>
         <div className={styles.buttonBottom}>
-            {controlMenu.map((item, index) => {
-              return (
-                <Link to={item.link} key={index}>
-                  <ButtonMenu className={styles.buttonTitle}>
-                    <img src={item.img} alt="" className={styles.imgBottom} />
-                    <div className={styles.buttonSubtitle}>{item.text}</div>
-                  </ButtonMenu>
-                </Link>
-              );
-            })}
-          </div>
+          {controlMenu.map((item, index) => {
+            return (
+              <Link to={item.link} key={index}>
+                <ButtonMenu className={styles.buttonTitle}>
+                  <img src={item.img} alt="" className={styles.imgBottom} />
+                  <div className={styles.buttonSubtitle}>{item.text}</div>
+                </ButtonMenu>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 };
 
 export default Gallery;
+
+// const [catImg, setCatImg] = React.useState([]);
+
+// React.useEffect(() => {
+//   try {
+//     axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
+//       const data = resp.data;
+//       // console.log(data);
+//       setCatImg(data);
+//     });
+//   } catch (error) {
+//     console.log(error + 'Header');
+//   }
+// }, []);

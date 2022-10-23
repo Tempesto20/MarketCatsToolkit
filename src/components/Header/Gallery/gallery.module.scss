@@ -4,27 +4,26 @@
   background: #e5e5e5;
 }
 
-.wrapper{
+.wrapper {
   position: relative;
-    max-width: 1280px;
-    margin: 0 auto;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.header{
-    margin: 0 auto;
-    // text-align: center;
-    font-weight: bold;
-    font-size: 20px;
+.header {
+  margin: 0 auto;
+  // text-align: center;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.introduction{
+.introduction {
   text-align: center;
   font-size: 22px;
   padding-top: 30px;
 }
 
-
-.clarification{
+.clarification {
   text-align: center;
   font-weight: normal;
   font-size: 18px;
@@ -33,27 +32,25 @@
 
 .container {
   position: relative;
+  margin: 0 auto;
   padding: 40px;
   // background: #419be0;
-  margin: 0 auto;
   // .slick-prev{
   //   color:red;
   //   background-color: red;
   // }
-  button.slick-arrow.slick-prev{
-
+  button.slick-arrow.slick-prev {
     .slick-prev {
-      left:   25px;
+      left: 25px;
+    }
   }
-
+  button {
   }
-  button{}
-  .slick-slider.slick-initialized{
+  .slick-slider.slick-initialized {
   }
 }
 
-
-.bottom{
+.bottom {
   margin: 0 auto;
   text-align: center;
   padding: 30px 20px;
@@ -66,21 +63,21 @@
   justify-content: space-between;
   margin: 0 auto;
   padding-top: 40px;
-  padding-bottom:80px;
+  padding-bottom: 80px;
   @media (max-width: $lg) {
     display: block;
     padding-top: 0px;
   }
 }
 
-.imgBottom{
-    max-width: 40px;
+.imgBottom {
+  max-width: 40px;
 }
 
-.buttonSubtitle{
-    text-align: center;
-    padding-top: 20px;
-    padding-left: 10px;
+.buttonSubtitle {
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 10px;
 }
 
 // .arrow {

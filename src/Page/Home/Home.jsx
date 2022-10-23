@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCats } from '../../redux/slices/catsSlice';
 import { setCurrentPage } from '../../redux/slices/filterSlice';
-// import { setCartLS ,setAddItem} from '../../redux/slices/cartSlice';
 import CatBlock from '../../components/CatsBlock/CatBlock';
 import Sort from '../../components/Sort/Sort';
 import CartButton from '../../components/CartBlock/CartButton/CartButton';
@@ -25,7 +23,7 @@ function Home() {
   const sell = useSelector((state) => state.filterSlice.sell);
 
   const status = useSelector((state) => state.catsSlice.status);
-  console.log(status)
+  // console.log(status)
 
   // const onCategoriesHandler = React.useCallback((index) => {
   //   dispatch(setIsSell(index));
@@ -52,7 +50,6 @@ function Home() {
 
   React.useEffect(() => {
     getCats();
-    // setIsLoading(false);
   }, [sortType, currentPage, sell]);
 
 
