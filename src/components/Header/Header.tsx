@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import logoSvg from '../../assets/img/svg/logo.svg';
-import { useSelector } from 'react-redux';
+import logoSvg from '../../assets/svg/logo.svg';
+// import { useSelector } from 'react-redux';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import './header.scss';
 
