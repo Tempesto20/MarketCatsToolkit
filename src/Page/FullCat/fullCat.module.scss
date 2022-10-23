@@ -26,9 +26,6 @@
   }
 }
 
-.imgCat {
-}
-
 .img {
   max-width: 1000px;
   height: 100%;
@@ -50,7 +47,6 @@
   padding-right: 20px;
   @media (max-width: $lg) {
     padding-left: 0px;
-    // padding-right: 20px;
   }
 }
 .name {
@@ -58,7 +54,6 @@
   font-weight: bold;
   @media (max-width: $lg) {
     padding-top: 10px;
-    // padding-right: 20px;
   }
 }
 .breed {
@@ -108,19 +103,6 @@
     padding-top: 0px;
   }
 }
-// .buttonTitle{
-//     display: flex;
-//     border: 1px solid #000000;
-//     border-radius: 50px;
-//     box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-//     padding: 10px;
-//     background-color: rgb(180, 196, 196);
-//     max-width: 260px;
-//     @media (max-width: $lg) {
-//         margin-top: 20px;
-//         margin-left: 20px;
-//       }
-// }
 
 .imgBottom{
     max-width: 40px;
