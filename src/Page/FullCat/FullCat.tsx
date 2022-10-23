@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import home from './home.png';
-import cart from './cart.png';
-import like from './like.png';
+import like from '../../assets/img/likeMenu.png';
+import home from '../../assets/img/homeMenu.png';
+import cart from '../../assets/img/cartMenu.png';
 import styles from './fullCat.module.scss';
 import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
 
@@ -27,22 +27,29 @@ const controlMenu = [
   },
 ];
 
-const FullCat = () => {
-  // const [pizza, setPizza] = React.useState<{
-  //   img: string;
-  //   name: string;
-  //   price: number;
-  // }>({
-  //   img: '',
-  //   name: '',
-  //   price: 0,
-  // });
+const FullCat: React.FC = () => {
 
-  const [cat, setCat] = React.useState({});
-  const { id } = useParams();
+  const { id } = useParams();  
+  const navigate = useNavigate();
+
   //const params = useParams();
   //console.log(params);
-  const navigate = useNavigate();
+
+
+  const [cat, setCat] = React.useState<{
+    img: string;
+    name: string;
+    breed: string;
+    description: string;
+    price: number;
+  }>({
+    img: '',
+    name: '',
+    breed: '',
+    description: '',
+    price: 0,
+  });
+
 
   React.useEffect(() => {
     async function fetchCat() {
@@ -61,7 +68,6 @@ const FullCat = () => {
     //если пицца ещё не загрузилась, ничего не выводи
     return <> Загрузка...</>;
   }
-
 
   return (
     <div className={styles.background}>
@@ -98,33 +104,3 @@ const FullCat = () => {
 };
 
 export default FullCat;
-
-// const linkBottom = ["/", "/favorite", "/cart" ];
-// const imgBottom = [{home}, {like}, {cart}];
-// const imgBottom = ["./home.png", "./cart.png", "./like.png"];
-// const textBottom = ["Перейти в главное меню", "Перейти в фавориты", "Перейти в корзину"];
-
-// const lol = [{home}, {cart}, {like}];
-
-{
-  /* 
-
-          <Link to="/">
-            <div className={styles.buttonHome}>
-              <img src={home} alt="" className={styles.home} />
-              <div className={styles.backMenu}>Перейти в главное меню</div>
-            </div>
-          </Link>
-          <Link to="/favorite">
-            <div className={styles.buttonLike}>
-              <img src={like} alt="" className={styles.like} />
-              <div className={styles.backFavorite}>Перейти в фавориты</div>
-            </div>
-          </Link>
-          <Link to="/cart">
-            <div className={styles.buttonCart}>
-              <img src={cart} alt="" className={styles.cart} />
-              <div className={styles.backCart}>Перейти в корзину</div>
-            </div>
-          </Link> */
-}

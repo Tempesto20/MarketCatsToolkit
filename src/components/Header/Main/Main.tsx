@@ -70,7 +70,7 @@
 
 import React from "react";
 
-function Main() {
+const Main: React.FC =()=> {
   return <div>Main</div>;
 }
 

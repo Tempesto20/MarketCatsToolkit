@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setRemoveItem } from '../../../redux/slices/cartSlice';
-
 import { setAddLike, setRemoveLike, setLike } from '../../../redux/slices/favoriteSlice';
-import notLike from '../../../assets/img/svg/like.svg';
-import Like from '../../../assets/img/svg/like2.svg';
-import clear from './clear.svg';
+import notLike from '../../../assets/svg/like.svg';
+import Like from '../../../assets/svg/like2.svg';
+import clearCart from '../../../assets/svg/clearCart.svg';
 import styles from './cartItem.module.scss';
+
 //import { CartItemSlice } from '../redux/slices/cartSlice';
 /* type CartItemProps = {
   id: string;
@@ -90,7 +90,7 @@ const CartItem = ({ id, name, price, img, count, discount }) => {
             </div>
 
             <div className={styles.clearContent} onClick={handlerRemoveItem}>
-              <img src={clear} alt="" className={styles.clear} />
+              <img src={clearCart} alt="" className={styles.clear} />
 
               <p className={styles.clearText}>Удалить из корзины</p>
             </div>

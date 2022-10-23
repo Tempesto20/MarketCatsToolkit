@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { setAddItem } from '../../../redux/slices/cartSlice';
 import { setAddLike, setRemoveLike, setLike } from '../../../redux/slices/favoriteSlice';
-import notLike from '../../../assets/img/svg/like.svg';
-import Like from '../../../assets/img/svg/like2.svg';
-import cart from './cart.png';
+import notLike from '../../../assets/svg/like.svg';
+import Like from '../../../assets/svg/like2.svg';
+import cart from '../../../assets/img/cartMenu.png';
 
 import styles from './favoriteItem.module.scss';
 //import { CartItemSlice } from '../redux/slices/cartSlice';
@@ -113,12 +113,12 @@ const FavoriteItem = ({ id, name, price, img, count, discount, buy }) => {
             </div>
             {buy !== 'Продан' ? (
               <div
-                className={styles.clearContent}
+                className={styles.addContent}
                 // className={` ${buy !== 'Продан' ? (styles.clearContent) : (' ')}`}
                 onClick={handlerAddItems}>
                 <img src={cart} alt="" className={styles.cart} />
 
-                <p className={styles.clearText}>Добавить в корзину</p>
+                <p className={styles.addText}>Добавить в корзину</p>
               </div>
             ) : (
               ''

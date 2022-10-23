@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import CartIcon from './CartIcon';
-import cart from './cartB.png';
+import cart from '../../../assets/img/cartCat.png';
 import styles from './сartButton.module.scss';
    
 

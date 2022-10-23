@@ -61,7 +61,27 @@
   font-size: 20px;
 }
 
+.buttonBottom {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom:80px;
+  @media (max-width: $lg) {
+    display: block;
+    padding-top: 0px;
+  }
+}
 
+.imgBottom{
+    max-width: 40px;
+}
+
+.buttonSubtitle{
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 10px;
+}
 
 // .arrow {
 //   position: absolute;

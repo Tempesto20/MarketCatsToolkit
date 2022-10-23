@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import like from './likeIcon.svg';
+import like from '../../../assets/svg/likeIcon.svg';
 import styles from './favoriteButton.module.scss';
 
 const FavoriteButton = () => {

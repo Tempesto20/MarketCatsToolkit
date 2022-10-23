@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom';
 import logoSvg from '../../assets/img/svg/logo.svg';
 import { useSelector } from 'react-redux';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
-//import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import './header.scss';
 
-//import CatBlock from '../../context/CatBlock';
 const headerList = ['Main', 'Gallery', 'News', 'Profile'];
 const listLinks = ['/', '/gallery', '/news', '/profile'];
 
-function Header() {
+const Header: React.FC = () => {
   const [catLength, setCatLength] = React.useState([]);
 
   React.useEffect(() => {

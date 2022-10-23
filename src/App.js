@@ -10,7 +10,7 @@ import Cart from './Page/Cart/Cart';
 import FavoriteCats from './Page/FavoriteCats/FavoriteCats';
 import FullCat from './Page/FullCat/FullCat';
 import Home from './Page/Home/Home';
-import NotFound from './Page/NotFound';
+import NotFound from './Page/NotFound/NotFound';
 import Bottom from './components/Bottom/Bottom';
 
 function App() {

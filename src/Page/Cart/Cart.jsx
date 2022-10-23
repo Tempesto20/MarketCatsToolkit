@@ -4,16 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setClearItems } from '../../redux/slices/cartSlice';
 import CartItem from '../../components/CartBlock/CartItem/CartItem';
 import CartEmpty from '../../components/CartBlock/CartEmpty/CartEmpty';
-
-// import CartEmpty from '../components/CartEmpty';
-// import { RootState } from '../redux/store';
-// import { CartItemSlice } from '../redux/slices/cartSlice';
-import clear from './clear.svg';
-// import back from './back.svg';
-import home from './home.png';
-import cart from './cart.png';
-import styles from './cart.module.scss';
 import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
+import clear from '../../assets/svg/clearCart.svg';
+import home from '../../assets/img/homeMenu.png';
+import cart from '../../assets/img/cartMenu.png';
+import styles from './cart.module.scss';
 
 const controlMenu = [
   {
@@ -96,19 +91,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-{
-  /* <Link to="/">
-                <div className={styles.buttonHome}>
-                  <img src={home} alt="" className={styles.home} />
-                  <div className={styles.backHome}>Перейти в главное меню</div>
-                </div>
-              </Link>
-
-              <Link to="/">
-                <div className={styles.buttonCart}>
-                  <img src={cart} alt="" className={styles.cart} />
-                  <div className={styles.backCart}>Оплатить сейчас</div>
-                </div>
-              </Link> */
-}

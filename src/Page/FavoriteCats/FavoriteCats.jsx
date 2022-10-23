@@ -4,10 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setClearLikes } from '../../redux/slices/favoriteSlice';
 import FavoriteEmpty from '../../components/FavoriteBlock/FavoriteEmpty/FavoriteEmpty';
 import FavoriteItem from '../../components/FavoriteBlock/FavoriteItem/FavoriteItem';
-import clear from './clear.svg';
-// import back from './back.svg';
-import home from './home.png';
-import cart from './cart.png';
+import clear from '../../assets/svg/clearCart.svg';
+import home from '../../assets/img/homeMenu.png';
+import cart from '../../assets/img/cartMenu.png';
 import styles from './favoriteCats.module.scss';
 import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
 

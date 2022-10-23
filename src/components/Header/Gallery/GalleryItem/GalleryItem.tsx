@@ -5,7 +5,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './galleryItem.module.scss';
 
-function GalleryItem({ id, img }) {
+type GalleryItemProps = {
+  id: string;
+  img: string;
+};
+
+const GalleryItem: React.FC<GalleryItemProps> =({ id, img })=> {
   //   var settings = {
   //     dots: true,
   //   };
