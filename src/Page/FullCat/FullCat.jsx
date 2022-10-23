@@ -8,6 +8,24 @@ import styles from './fullCat.module.scss';
 
 // Детальный данный по котику по id
 
+const fullBottom = [
+  {
+    link: '/',
+    img: home,
+    text: 'Перейти в главное меню',
+  },
+  {
+    link: '/favorite',
+    img: like,
+    text: 'Перейти в фавориты',
+  },
+  {
+    link: '/cart',
+    img: cart,
+    text: 'Перейти в корзину',
+  },
+];
+
 const FullCat = () => {
   // const [pizza, setPizza] = React.useState<{
   //   img: string;
@@ -42,8 +60,8 @@ const FullCat = () => {
     //если пицца ещё не загрузилась, ничего не выводи
     return <> Загрузка...</>;
   }
-  // "breed": "Девон-рекс",
-  // "description"
+
+
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
@@ -62,6 +80,34 @@ const FullCat = () => {
           </div>
         </div>
         <div className={styles.buttonBottom}>
+          {fullBottom.map((item, index) => {
+            return (
+              <Link to={item.link} key={index}>
+                <div className={styles.buttonTitle}>
+                  <img src={item.img} alt="" className={styles.imgBottom} />
+                  <div className={styles.buttonSubtitle}>{item.text}</div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FullCat;
+
+// const linkBottom = ["/", "/favorite", "/cart" ];
+// const imgBottom = [{home}, {like}, {cart}];
+// const imgBottom = ["./home.png", "./cart.png", "./like.png"];
+// const textBottom = ["Перейти в главное меню", "Перейти в фавориты", "Перейти в корзину"];
+
+// const lol = [{home}, {cart}, {like}];
+
+{
+  /* 
+
           <Link to="/">
             <div className={styles.buttonHome}>
               <img src={home} alt="" className={styles.home} />
@@ -79,11 +125,5 @@ const FullCat = () => {
               <img src={cart} alt="" className={styles.cart} />
               <div className={styles.backCart}>Перейти в корзину</div>
             </div>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default FullCat;
+          </Link> */
+}

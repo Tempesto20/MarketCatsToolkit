@@ -9,18 +9,15 @@ import Like from '../../assets/img/svg/like2.svg';
 import line from '../../assets/img/svg/line.svg';
 import './catBlock.scss';
 
-function CatBlock({ id, img, name, price, age, discount, buy, isFavorite,isSell }) {
+function CatBlock({ id, img, name, price, age, discount, buy, isFavorite, isSell }) {
   const dispatch = useDispatch();
 
   const cartItem = useSelector((state) => state.cartSlice.items);
   // console.log(cartItem.length);
 
-  const likeItem = useSelector((state) => state.favoriteSlice.items).find(
-      (obj) => obj.id === id);
-      //писк по конкретной id при добавлении в фавориты
+  const likeItem = useSelector((state) => state.favoriteSlice.items).find((obj) => obj.id === id);
+  //писк по конкретной id при добавлении в фавориты
   // console.log(likeItem);
-
-
 
   const handlerLikeYes = () => {
     const item = {
@@ -42,7 +39,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite,isSell 
 
   const handlerLikeNo = () => {
     // setLike(false);// при использовании useState
-    dispatch(setLike(false));  
+    dispatch(setLike(false));
     dispatch(setRemoveLike(id));
     //console.log(item)
   };
@@ -133,29 +130,23 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite,isSell 
 
 export default CatBlock;
 
+// const [like, setLike] = React.useState(isFavorite);
 
+// console.log(like)
+// const chengeLikeYes = () => {
+//   setLike(true);
+// };
 
-
-
-  // const [like, setLike] = React.useState(isFavorite);
-
-  // console.log(like)
-  // const chengeLikeYes = () => {
-  //   setLike(true);
-  // };
-
-  // const chengeLikeNo = () => {
-  //   setLike(false);
-  // };
-  // console.log(id + ' ' + like);
-
-
+// const chengeLikeNo = () => {
+//   setLike(false);
+// };
+// console.log(id + ' ' + like);
 
 // for(let i=0; i<likeItem.length; i++){
 //   console.log('start id' + ' ' + likeItem[i].id)
 //   console.log('start isFavorite' + ' ' +likeItem[i].isFavorite)
 //   console.log('lol-1')
-  
+
 //   if(likeItem[i].id === id){
 //     console.log('lol-2')
 //     likeItem[i].isFavorite = true;
@@ -163,19 +154,11 @@ export default CatBlock;
 //     console.log('finish isFavorite')
 //     dispatch(setLike(true));
 //   } else {
-//   console.log('lol-3') 
+//   console.log('lol-3')
 //   likeItem[i].isFavorite = true;
 //   console.log('finish isFavorite' + ' ' +likeItem[i].isFavorite)
 //  } return
 // }
-
-
-
-
-
-
-
-
 
 //  {discount !== 0 ? cardDiscount : cardDiscountNone}
 

@@ -80,6 +80,8 @@ function Home() {
     setIsLoading(false);
   }, [sortType, currentPage, sell]);
 
+
+
   const catsArray = cats.map((items, id) => <CatBlock key={id} {...items} />);
 
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);

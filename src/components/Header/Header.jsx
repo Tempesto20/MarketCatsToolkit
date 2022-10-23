@@ -2,35 +2,36 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import logoSvg from '../../assets/img/svg/logo.svg';
-import {useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 //import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import './header.scss';
 
 //import CatBlock from '../../context/CatBlock';
 const headerList = ['Main', 'Gallery', 'News', 'Profile'];
-const listLinks =["/","/gallery","/news","/profile" ]
+const listLinks = ['/', '/gallery', '/news', '/profile'];
 
 function Header() {
+  const [catLength, setCatLength] = React.useState([]);
 
-const [catLength, setCatLength] = React.useState([])
-
-React.useEffect(()=>{
- axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
-  const data = resp.data.length;
-  setCatLength(data);
-})
-},[]);
+  React.useEffect(() => {
+    try {
+      axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
+        const data = resp.data.length;
+        setCatLength(data);
+      });
+    } catch (error) {
+      console.log(error + 'Header');
+    }
+  }, []);
 
   return (
-    
     <header className="header">
-            <BurgerMenu />
+      <BurgerMenu />
       <div className="header__background">
         <div className="header__rgda">
           <div className="header_max">
             <div className="header__container">
-              
               <Link to="/" className="header__logo">
                 <img src={logoSvg} alt="" className="header__logo-1"></img>
               </Link>
@@ -54,7 +55,7 @@ React.useEffect(()=>{
                 </div>
               </div>
             </div>
-            
+
             <div className="header__block">
               <div className="header__search">
                 <div className="header__found">
@@ -71,18 +72,15 @@ React.useEffect(()=>{
 
 export default Header;
 
-
-// Не могу брать длину массива, тк установил лимит на макс.4 на странице, те динамически бует отображаться не корректно 
-  // const itemsCat = useSelector((state)=>state.catsSlice.items )
-  // const itemsCatLength = itemsCat.length;
-  // console.log(itemsCatLength)
-
-
+// Не могу брать длину массива, тк установил лимит на макс.4 на странице, те динамически бует отображаться не корректно
+// const itemsCat = useSelector((state)=>state.catsSlice.items )
+// const itemsCatLength = itemsCat.length;
+// console.log(itemsCatLength)
 
 //https://tempesto20.github.io/Summary.github.io-/
 
-
-{/* <li className="header__nav-item">
+{
+  /* <li className="header__nav-item">
 <a href="#main" className="header__nav-link">
   Main
 </a>
@@ -105,4 +103,5 @@ export default Header;
   {' '}
   Profile
 </a>
-</li> */}
+</li> */
+}

@@ -8,10 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import styles from './gallery.module.scss';
 import GalleryItem from './GalleryItem/GalleryItem';
 
-
-
 const Gallery = () => {
-
   var settings = {
     dots: true,
   };
@@ -19,11 +16,15 @@ const Gallery = () => {
   const [catImg, setCatImg] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
-      const data = resp.data;
-      console.log(data);
-      setCatImg(data);
-    });
+    try {
+      axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
+        const data = resp.data;
+        console.log(data);
+        setCatImg(data);
+      });
+    } catch (error) {
+      console.log(error + 'Header');
+    }
   }, []);
 
   return (
@@ -31,7 +32,10 @@ const Gallery = () => {
       <div className={styles.wrapper}>
         <div className={styles.header}>
           <h2 className={styles.introduction}>Приветствую в разделе Gallery</h2>
-          <h3 className={styles.clarification}>В данном разделе у Вас имеется возможность рассмотреть люимцев, которые представлены на сайте.</h3>
+          <h3 className={styles.clarification}>
+            В данном разделе у Вас имеется возможность рассмотреть люимцев, которые представлены на
+            сайте.
+          </h3>
         </div>
         <div className={styles.container}>
           <Slider {...settings}>
@@ -49,8 +53,6 @@ const Gallery = () => {
 };
 
 export default Gallery;
-
-
 
 {
   /* <div>

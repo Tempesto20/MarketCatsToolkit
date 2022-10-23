@@ -13,6 +13,20 @@ import clear from './clear.svg';
 import home from './home.png';
 import cart from './cart.png';
 import styles from './cart.module.scss';
+
+const fullBottom = [
+  {
+    link: '/',
+    img: home,
+    text: 'Перейти в главное меню',
+  },
+  {
+    link: '/cart',
+    img: cart,
+    text: 'Оплатить сейчас',
+  },
+];
+
 const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cartSlice.items);
@@ -62,7 +76,28 @@ const Cart = () => {
               </div>
             </div>
             <div className={styles.buttonBottom}>
-              <Link to="/">
+              {fullBottom.map((item, index) => {
+                return (
+                  <Link to={item.link} key={index}>
+                    <div className={styles.buttonTitle}>
+                      <img src={item.img} alt="" className={styles.imgBottom} />
+                      <div className={styles.buttonSubtitle}>{item.text}</div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Cart;
+
+{
+  /* <Link to="/">
                 <div className={styles.buttonHome}>
                   <img src={home} alt="" className={styles.home} />
                   <div className={styles.backHome}>Перейти в главное меню</div>
@@ -74,13 +109,5 @@ const Cart = () => {
                   <img src={cart} alt="" className={styles.cart} />
                   <div className={styles.backCart}>Оплатить сейчас</div>
                 </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Cart;
+              </Link> */
+}
