@@ -33,16 +33,7 @@
   padding-top: 10px;
 }
 
-// .back {
-//   cursor: pointer;
-//   width: 20px;
-// }
 
-.details {
-  // display: flex;
-  // padding-top: 20px;
-  // font-size: 18px;
-}
 .detailsInfo {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -91,22 +82,22 @@
 }
 
 
-.buttonTitle{
-  display: flex;
-  border: 1px solid #000000;
-  border-radius: 50px;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-  padding: 10px;
-  background-color: rgb(180, 196, 196);
-  max-width: 260px;
-  @media (max-width: $lg) {
-      margin-top: 20px;
-      margin-left: 20px;
-    }
-    @media (max-width: $ssm) {
-      margin-left: 0px;
-    }
-}
+// .buttonTitle{
+//   display: flex;
+//   border: 1px solid #000000;
+//   border-radius: 50px;
+//   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+//   padding: 10px;
+//   background-color: rgb(180, 196, 196);
+//   max-width: 260px;
+//   @media (max-width: $lg) {
+//       margin-top: 20px;
+//       margin-left: 20px;
+//     }
+//     @media (max-width: $ssm) {
+//       margin-left: 0px;
+//     }
+// }
 
 .imgBottom{
   max-width: 40px;
@@ -123,67 +114,3 @@
 
 
 
-
-
-
-
-
-
-// .buttonHome {
-//   display: flex;
-//   border: 1px solid #000000;
-//   border-radius: 50px;
-//   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-//   padding: 10px;
-//   background-color: rgb(180, 196, 196);
-//   max-width: 260px;
-//   cursor: pointer;
-//   @media (max-width: $lg) {
-//     margin-top: 20px;
-//     margin-left: 20px;
-//   }
-//   @media (max-width: $ssm) {
-//     margin-left: 0px;
-//   }
-// }
-
-// .home {
-//   max-width: 40px;
-//   height: 100%;
-// }
-// .backHome {
-//   text-align: center;
-//   padding-top: 20px;
-//   padding-left: 10px;
-// }
-
-// .buttonCart {
-//   display: flex;
-//   margin-left: 200px;
-//   border: 1px solid #000000;
-//   border-radius: 50px;
-//   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-//   padding: 10px;
-//   background-color: rgb(180, 196, 196);
-//   max-width: 260px;
-//   cursor: pointer;
-//   @media (max-width: $xl) {
-//     margin-left: 100px;
-//   }
-//   @media (max-width: $lg) {
-//     margin-top: 20px;
-//     margin-left: 20px;
-//   }
-//   @media (max-width: $ssm) {
-//     margin-left: 0px;
-//   }
-// }
-// .cart {
-//   max-width: 40px;
-//   height: 100%;
-//   //   padding-left: 40px;
-// }
-// .backCart {
-//   padding-top: 20px;
-//   padding-left: 10px;
-// }

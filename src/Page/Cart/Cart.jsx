@@ -13,6 +13,7 @@ import clear from './clear.svg';
 import home from './home.png';
 import cart from './cart.png';
 import styles from './cart.module.scss';
+import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
 
 const fullBottom = [
   {
@@ -79,10 +80,10 @@ const Cart = () => {
               {fullBottom.map((item, index) => {
                 return (
                   <Link to={item.link} key={index}>
-                    <div className={styles.buttonTitle}>
+                    <ButtonMenu className={styles.buttonTitle}>
                       <img src={item.img} alt="" className={styles.imgBottom} />
                       <div className={styles.buttonSubtitle}>{item.text}</div>
-                    </div>
+                    </ButtonMenu>
                   </Link>
                 );
               })}
