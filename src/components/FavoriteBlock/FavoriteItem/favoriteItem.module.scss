@@ -98,6 +98,11 @@
         margin-top: 20px;
       }
 }
+.clearContent:hover,
+.clearContent:active {
+  background-color: rgba(243, 239, 172, 0.989);
+}
+
 .cart {
   max-width: 30px;
   height: 100%;

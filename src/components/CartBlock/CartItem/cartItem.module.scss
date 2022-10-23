@@ -99,6 +99,10 @@
         margin-top: 20px;
       }
 }
+.clearContent:hover,
+.clearContent:active {
+  background-color: rgba(146, 10, 10, 0.2);
+}
 .clear {
   max-width: 30px;
   height: 100%;

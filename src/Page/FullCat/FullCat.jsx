@@ -9,7 +9,7 @@ import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
 
 // Детальный данный по котику по id
 
-const fullBottom = [
+const controlMenu = [
   {
     link: '/',
     img: home,
@@ -81,7 +81,7 @@ const FullCat = () => {
           </div>
         </div>
         <div className={styles.buttonBottom}>
-          {fullBottom.map((item, index) => {
+          {controlMenu.map((item, index) => {
             return (
               <Link to={item.link} key={index}>
                 <ButtonMenu className={styles.buttonTitle}>

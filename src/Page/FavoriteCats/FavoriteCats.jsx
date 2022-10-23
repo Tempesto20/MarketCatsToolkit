@@ -11,7 +11,7 @@ import cart from './cart.png';
 import styles from './favoriteCats.module.scss';
 import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
 
-const fullBottom = [
+const controlMenu = [
   {
     link: '/',
     img: home,
@@ -73,7 +73,7 @@ const FavoriteCats = () => {
               </div>
             </div>
             <div className={styles.buttonBottom}>
-              {fullBottom.map((item, index) => {
+              {controlMenu.map((item, index) => {
                 return (
                   <Link to={item.link} key={index}>
                     <ButtonMenu className={styles.buttonTitle}>
