@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { axiosCats } from '../../../redux/slices/asyncThunkSlice';
@@ -41,8 +40,8 @@ const Gallery: React.FC = () => {
 
   const catImg = useSelector((state: any) => state.asyncThunkSlice.items);
   const status = useSelector((state: any) => state.asyncThunkSlice.status);
-  console.log(catImg);
-  console.log(status);
+  // console.log(catImg);
+  // console.log(status);
 
   const getCats = async () => {
     // @ts-ignore

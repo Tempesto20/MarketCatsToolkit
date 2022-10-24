@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { axiosCats } from '../../redux/slices/asyncThunkSlice';
 import logoSvg from '../../assets/svg/logo.svg';
-// import { useSelector } from 'react-redux';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import './header.scss';
 
@@ -10,17 +10,21 @@ const headerList = ['Main', 'Gallery', 'News', 'Profile'];
 const listLinks = ['/', '/gallery', '/news', '/profile'];
 
 const Header: React.FC = () => {
-  const [catLength, setCatLength] = React.useState([]);
+  const dispatch = useDispatch();
+  
+  const cats = useSelector((state: any) => state.asyncThunkSlice.items);
+  // console.log(cats);
+const catLength = cats.length;
+// console.log(catLength);
+
+
+  const getCats = async () => {
+    // @ts-ignore
+    dispatch(axiosCats());
+  };
 
   React.useEffect(() => {
-    try {
-      axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
-        const data = resp.data.length;
-        setCatLength(data);
-      });
-    } catch (error) {
-      console.log(error + 'Header');
-    }
+    getCats();
   }, []);
 
   return (
@@ -69,6 +73,29 @@ const Header: React.FC = () => {
 }
 
 export default Header;
+
+
+//import axios from 'axios';
+
+
+  // const [catLength, setCatLength] = React.useState([]);
+
+  // React.useEffect(() => {
+  //   try {
+  //     axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
+  //       const data = resp.data.length;
+  //       setCatLength(data);
+  //     });
+  //   } catch (error) {
+  //     console.log(error + 'Header');
+  //   }
+  // }, []);
+
+
+
+
+
+
 
 // Не могу брать длину массива, тк установил лимит на макс.4 на странице, те динамически бует отображаться не корректно
 // const itemsCat = useSelector((state)=>state.catsSlice.items )
