@@ -12,7 +12,7 @@ const checkpointList = [
 function Checkpoint() {
   const dispatch = useDispatch();
   // const [value, setValue] = React.useState(0);
-  const sell = useSelector((state) => state.filterSlice.sell.value);
+  const sell = useSelector((state) => state.filterSlice.sell);
   // console.log(checked);
   // const arr = useSelector((state) => state.catsSlice.items);
   // console.log(arr);
@@ -21,7 +21,10 @@ function Checkpoint() {
   const checkboxHandler = (event) => {
     // console.log(event.target.checked);
     dispatch(setIsSell(event.target.value));
-    // dispatch(setIsSell(event.target.value));
+    // dispatch(setIsSell({
+    //   ...sell,
+    //   [sell.value] : event.target.value
+    // }));
   };
 
  
@@ -44,7 +47,8 @@ function Checkpoint() {
                     name="radio"
                     value={item.value}
                     onChange={checkboxHandler}
-                    checked={sell === item.value ? true : sell}
+                    checked={sell.value === item.value ? true : sell.value}
+                    // checked={sell.value === item.value}
                     // checked={sell === index ? true : false}
                     // checked={check.isGoing}
                     className={styles.subtitle}
