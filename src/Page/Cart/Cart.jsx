@@ -33,9 +33,9 @@ const Cart = () => {
   // console.log(totalPrice + ' ' + totalCount);
 
   const handlerClearItems = () => {
-    if (window.confirm('Отчисть корзину ?')) {
+    // if (window.confirm('Отчисть корзину ?')) {
       dispatch(setClearItems());
-    }
+    // }
   };
 
   if (!totalPrice) {

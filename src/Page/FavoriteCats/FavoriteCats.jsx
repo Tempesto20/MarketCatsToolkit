@@ -33,9 +33,9 @@ const FavoriteCats = () => {
   // console.log(totalPrice + ' ' + totalCount);
 
   const handlerClearItems = () => {
-    if (window.confirm('Отчисть список фаворитов ?')) {
+    // if (window.confirm('Отчисть список фаворитов ?')) {
       dispatch(setClearLikes());
-    }
+    // }
   };
 
   if (!totalPrice) {

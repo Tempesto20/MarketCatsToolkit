@@ -29,7 +29,7 @@ const controlMenu = [
   },
 ];
 
-const FullCat = () => {
+const FullCat: React.FC = () => {
   const dispatch = useDispatch();
   const { id } = useParams();  
   // const navigate = useNavigate();
@@ -37,8 +37,8 @@ const FullCat = () => {
   //const params = useParams();
   //console.log(params);
 
-  const cat = useSelector((state) => state.fullCatSlice.items);
-  const status = useSelector((state) => state.fullCatSlice.status);
+  const cat = useSelector((state: any) => state.fullCatSlice.items);
+  const status = useSelector((state: any) => state.fullCatSlice.status);
   console.log(cat);
   console.log(status);
 
