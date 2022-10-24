@@ -32,19 +32,20 @@ const controlMenu = [
   },
 ];
 
-const Gallery = () => {
+const Gallery: React.FC = () => {
   var settings = {
     dots: true,
   };
 
   const dispatch = useDispatch();
 
-  const catImg = useSelector((state) => state.asyncThunkSlice.items);
-  const status = useSelector((state) => state.asyncThunkSlice.status);
+  const catImg = useSelector((state: any) => state.asyncThunkSlice.items);
+  const status = useSelector((state: any) => state.asyncThunkSlice.status);
   console.log(catImg);
   console.log(status);
 
   const getCats = async () => {
+    // @ts-ignore
     dispatch(axiosCats());
   };
 

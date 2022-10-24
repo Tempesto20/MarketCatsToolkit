@@ -5,7 +5,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 //Чтобы была возможно повторного использования или исключения
 export const axiosCats = createAsyncThunk('asyncThunkSlice/axiosCatsStatus', async () => {
   const { data } = await axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`);
-  console.log(data);
+  // console.log(data);
   return data;
 });
 
