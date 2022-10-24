@@ -16,6 +16,7 @@ import cartSlice from './slices/cartSlice';
 import catsSlice from './slices/catsSlice';
 import favoriteSlice from './slices/favoriteSlice';
 import asyncThunkSlice from './slices/asyncThunkSlice';
+import fullCatSlice from './slices/fullCatSlice';
 
 // combineReducers - неолбходим для подключения нескольких слайсов
 const rootReducer = combineReducers({
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   catsSlice,
   favoriteSlice,
   asyncThunkSlice,
+  fullCatSlice,
 });
 
 // Конфиг - ключ / знаечний, временное хранилище

@@ -1,12 +1,14 @@
 import React from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Link, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { axiosFullCat } from '../../redux/slices/fullCatSlice';
+// import axios from 'axios';
 import like from '../../assets/img/likeMenu.png';
 import home from '../../assets/img/homeMenu.png';
 import cart from '../../assets/img/cartMenu.png';
-import styles from './fullCat.module.scss';
 import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
-
+import Skeleton from './Skeleton';
+import styles from './fullCat.module.scss';
 // Детальный данный по котику по id
 
 const controlMenu = [
@@ -27,54 +29,35 @@ const controlMenu = [
   },
 ];
 
-const FullCat: React.FC = () => {
-
+const FullCat = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();  
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   //const params = useParams();
   //console.log(params);
 
+  const cat = useSelector((state) => state.fullCatSlice.items);
+  const status = useSelector((state) => state.fullCatSlice.status);
+  console.log(cat);
+  console.log(status);
 
-  const [cat, setCat] = React.useState<{
-    img: string;
-    name: string;
-    breed: string;
-    description: string;
-    price: number;
-  }>({
-    img: '',
-    name: '',
-    breed: '',
-    description: '',
-    price: 0,
-  });
-
+  const getCats = async () => {
+    // @ts-ignore
+    dispatch(axiosFullCat({id}));
+  };
 
   React.useEffect(() => {
-    async function fetchCat() {
-      try {
-        const { data } = await axios.get('https://633db211f2b0e623dc79b585.mockapi.io/cats/' + id);
-        setCat(data);
-      } catch (error) {
-        console.log(error + 'FullCat');
-        navigate('/'); // для перехода на главную страницу, если пицца не нашлась
-      }
-    }
-    fetchCat();
-  }, [id, navigate]);
-
-  if (!cat) {
-    //если пицца ещё не загрузилась, ничего не выводи
-    return <> Загрузка...</>;
-  }
-
+    getCats();
+  }, [id]);
+  const skeletons = [...new Array(1)].map((_, index) => <Skeleton key={index} />);
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
         <div className={styles.preview}>
           В данном разделе представлена информация по интереющему Вас котику
         </div>
+        {status === 'loading' ? skeletons :(
         <div className={styles.container}>
           <div className={styles.imgCat}>
             <img src={cat.img} alt="" className={styles.img} />
@@ -85,8 +68,9 @@ const FullCat: React.FC = () => {
             <h2 className={styles.description}>{cat.description}</h2>
             <h4 className={styles.price}>{cat.price} P</h4>
           </div>
-        </div>
-        <div className={styles.buttonBottom}>
+        </div>)
+
+}        <div className={styles.buttonBottom}>
           {controlMenu.map((item, index) => {
             return (
               <Link to={item.link} key={index}>
@@ -104,3 +88,37 @@ const FullCat: React.FC = () => {
 };
 
 export default FullCat;
+
+
+
+  // const [cat, setCat] = React.useState<{
+  //   img: string;
+  //   name: string;
+  //   breed: string;
+  //   description: string;
+  //   price: number;
+  // }>({
+  //   img: '',
+  //   name: '',
+  //   breed: '',
+  //   description: '',
+  //   price: 0,
+  // });
+
+  // React.useEffect(() => {
+  //   async function fetchCat() {
+  //     try {
+  //       const { data } = await axios.get('https://633db211f2b0e623dc79b585.mockapi.io/cats/' + id);
+  //       setCat(data);
+  //     } catch (error) {
+  //       console.log(error + 'FullCat');
+  //       navigate('/'); // для перехода на главную страницу, если пицца не нашлась
+  //     }
+  //   }
+  //   fetchCat();
+  // }, [id, navigate]);
+
+  // if (!cat) {
+  //   //если пицца ещё не загрузилась, ничего не выводи
+  //   return <> Загрузка...</>;
+  // }
