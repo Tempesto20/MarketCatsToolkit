@@ -35,10 +35,12 @@ function Checkpoint() {
         
           <p>Группировать по:</p>
 
+
           <div
             className={styles.eventList}
             // onChange={checkboxHandler}
           >
+            
             {checkpointList.map((item, index) => {
               return (
                 <label className={styles.eventTitle} key={index} htmlFor={item.name}>
