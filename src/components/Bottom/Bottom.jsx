@@ -20,12 +20,14 @@ const Bottom = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset, // для отчистки поля после ввода корретного емейла
+    formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(SignupSchema),
   });
   const onSubmit = (data) => {
     console.log(JSON.stringify(data));
+    reset(); // для отчистки поля после ввода корретного емейла
   };
 
   return (
@@ -49,8 +51,8 @@ const Bottom = () => {
                 </div>
 
                 <div className="bottom__button">
-                  <div className="button__batton">
-                    <button type="submit" className="bottom__button-text but ">
+                  <div className="button__batton"  >
+                    <button type="submit" className="bottom__button-text but" >
                       <p className="button-text"> Подписаться</p>
                     </button>
                   </div>
