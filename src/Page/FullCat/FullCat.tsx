@@ -48,7 +48,7 @@ const FullCat: React.FC = () => {
   //console.log(params);
 
   const cat = useSelector((state: any) => state.fullCatSlice.items);
-  const status = useSelector((state: any) => state.fullCatSlice.status);
+  const status = useSelector((state: RootState) => state.fullCatSlice.status);
   console.log(cat);
   console.log(status);
 

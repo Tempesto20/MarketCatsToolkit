@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { RootState, useAppDispatch } from '../../redux/store';
 import { axiosCats } from '../../redux/slices/asyncThunkSlice';
 import logoSvg from '../../assets/svg/logo.svg';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
@@ -10,16 +11,15 @@ const headerList = ['Main', 'Gallery', 'News', 'Profile'];
 const listLinks = ['/', '/gallery', '/news', '/profile'];
 
 const Header: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   
-  const cats = useSelector((state: any) => state.asyncThunkSlice.items);
+  const cats = useSelector((state: RootState) => state.asyncThunkSlice.items);
   // console.log(cats);
 const catLength = cats.length;
 // console.log(catLength);
 
 
   const getCats = async () => {
-    // @ts-ignore
     dispatch(axiosCats());
   };
 

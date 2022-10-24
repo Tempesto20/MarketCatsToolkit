@@ -20,7 +20,7 @@ const CartItem: React.FC <CartItemSlice> = ({ id, name, price, img, count, disco
     }
   };
 
-  const likeItem = useSelector((state:RootState) => state.favoriteSlice.items).find((obj: any) => obj.id === id);
+  const likeItem = useSelector((state:RootState) => state.favoriteSlice.items).find((obj) => obj.id === id);
   //писк по конкретной id
   // console.log(likeItem);
 

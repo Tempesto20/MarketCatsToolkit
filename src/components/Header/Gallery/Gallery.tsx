@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { RootState, useAppDispatch } from '../../../redux/store';
 import { axiosCats } from '../../../redux/slices/asyncThunkSlice';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -13,7 +14,14 @@ import likeMenu from '../../../assets/img/likeMenu.png';
 import Skeleton from './Skeleton';
 import styles from './gallery.module.scss';
 
-const controlMenu = [
+
+type ControlMenu = {
+  link: string;
+  img: string;
+  text: string;
+};
+
+const controlMenu:ControlMenu[]  = [
   {
     link: '/',
     img: homeMenu,
@@ -36,26 +44,23 @@ const Gallery: React.FC = () => {
     dots: true,
   };
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const catImg = useSelector((state: any) => state.asyncThunkSlice.items);
-  const status = useSelector((state: any) => state.asyncThunkSlice.status);
+  const catImg = useSelector((state: RootState) => state.asyncThunkSlice.items);
+  const status = useSelector((state: RootState) => state.asyncThunkSlice.status);
   // console.log(catImg);
   // console.log(status);
 
   const getCats = async () => {
-    // @ts-ignore
     dispatch(axiosCats());
   };
 
   React.useEffect(() => {
     getCats();
   }, []);
-
-  // @ts-ignore
+// @ts-ignore
   const imgArray = catImg.map((items, id) => <GalleryItem key={id} {...items} />);
 
-  // @ts-ignore
   const skeletons = [...new Array(1)].map((_, index) => <Skeleton key={index} />);
 
   return (
