@@ -8,7 +8,13 @@ import likeMenu from '../../assets/img/likeMenu.png';
 
 import styles from './NotFoundBlock.module.scss';
 
-const controlMenu = [
+type ControlMenu = {
+  link: string;
+  img: string;
+  text: string;
+};
+
+const controlMenu:ControlMenu[]  = [
   {
     link: '/',
     img: homeMenu,

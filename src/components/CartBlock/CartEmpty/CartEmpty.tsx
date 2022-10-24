@@ -7,7 +7,14 @@ import cartMenu from '../../../assets/img/cartMenu.png';
 import likeMenu from '../../../assets/img/likeMenu.png';
 import styles from './cartEmpty.module.scss';
 
-const controlMenu = [
+
+type ControlMenu = {
+  link: string;
+  img: string;
+  text: string;
+};
+
+const controlMenu:ControlMenu[]  = [
   {
     link: '/',
     img: homeMenu,

@@ -1,14 +1,24 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { SellProps } from './filterSlice';
+
+export type SearchCatsParams ={ 
+  // id:string;
+  sortBy: string;
+  order: string; 
+  currentPage: number;
+  isSell: string;
+  // isSell: SellProps;
+ };
+
 
 // Это бизнес-логика, вынес из UI - в редакс, те це UX
 //Чтобы была возможно повторного использования или исключения
-export const fetchCats = createAsyncThunk('cats/fetchCatsStatus', async (params) => {
+export const fetchCats = createAsyncThunk('cats/fetchCatsStatus', async (params:SearchCatsParams) => {
   const {
     sortBy,
     order,
     currentPage,
-    // checkpointBuy,
     isSell,
   } = params;
   const { data } = await axios.get(
@@ -16,12 +26,36 @@ export const fetchCats = createAsyncThunk('cats/fetchCatsStatus', async (params)
   );
 
   //console.log(response.data);
-  return data;
+  return data as CatsItems[];
 });
+
+type  CatsItems = {
+  id: string;
+  img: string;
+  name: string; 
+  buy: string;
+  breed: string;
+  description: string;
+  discount: number;
+  price: number;
+  age: number;
+  isSell: number;
+  isFavorite: boolean;
+
+};
+
+
+
+interface CatsSliceState {
+  items: CatsItems[];
+  status: 'loading' | 'success' | 'error' ;
+}
+
+
 
 // первоначальное состояние
 //Сохранение пицц в реакте
-const initialState = {
+const initialState: CatsSliceState = {
   items: [],
   status: 'loading', // loading | success | error
 };
@@ -53,7 +87,7 @@ const catsSlice = createSlice({
     });
   },
 });
-export const {} = catsSlice.actions;
+export const {setCats} = catsSlice.actions;
 // необходимо для импортирования этой переменной в дром файле
 // чтобы вытащить какие-либо ACTIONS, те reducers = actions;
 

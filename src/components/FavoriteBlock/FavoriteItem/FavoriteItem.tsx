@@ -1,46 +1,39 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { setRemoveItem } from '../../../redux/slices/cartSlice';
+import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from '../../../redux/store';
+import { CartItemSlice, setAddItem } from '../../../redux/slices/cartSlice';
 import { setAddLike, setRemoveLike, setLike } from '../../../redux/slices/favoriteSlice';
 import notLike from '../../../assets/svg/like.svg';
 import Like from '../../../assets/svg/like2.svg';
-import clearCart from '../../../assets/svg/clearCart.svg';
-import styles from './cartItem.module.scss';
+import cart from '../../../assets/img/cartMenu.png';
 
-//import { CartItemSlice } from '../redux/slices/cartSlice';
-/* type CartItemProps = {
-  id: string;
-  name: string; 
-  price: number;
-  img: string;
-  type: string;
-  count: number;
-  size: number;
-}; */
+import styles from './favoriteItem.module.scss';
 
-const CartItem = ({ id, name, price, img, count, discount }) => {
-  const dispatch = useDispatch();
-
-  const handlerRemoveItem = () => {
-    if (window.confirm('Вы действительно хотите удалить котёнка из корзины?')) {
-      dispatch(setRemoveItem(id));
-    }
-  };
-
-  const likeItem = useSelector((state) => state.favoriteSlice.items).find((obj) => obj.id === id);
+const FavoriteItem: React.FC<CartItemSlice> = ({ id, name, price, img, count, discount, buy }) => {
+  const dispatch = useAppDispatch();
+  console.log(buy);
+  const cartItem = useSelector((state:RootState) => state.cartSlice.items);
+  // console.log(cartItem.length);
+  const likeItem = useSelector((state:RootState) => state.favoriteSlice.items).find((obj) => obj.id === id);
   //писк по конкретной id
   // console.log(likeItem);
 
   const handlerLikeYes = () => {
-    const item = {
+    const item: CartItemSlice = {
       id,
       name,
       price,
       img,
       isFavorite: true,
       count: 0,
+      buy: '',
+      breed: '',
+      description: '',
+      discount: 0,
+      age: 0,
+      isSell: 0
     };
     // setLike(true); // при использовании useState
     dispatch(setLike(true));
@@ -56,6 +49,38 @@ const CartItem = ({ id, name, price, img, count, discount }) => {
     }
     // dispatch(setRemoveLike(id));
     //console.log(item)
+  };
+
+  const handlerAddItems = () => {
+    for (let i = 0; i < cartItem.length; i++) {
+      //console.log(cartItem[i].id);
+      if (cartItem[i].id !== id) {
+        //если такой id ещё НЕ имеется корзине, то добавлять
+        //console.log('если такой id ещё НЕ имеется корзине, то добавлять');
+      } else {
+        //если такой id ИМЕЕТСЯ корзине, то не добавлять
+        //console.log('не добавлять')
+        return;
+      }
+    }
+    const item: CartItemSlice = {
+      id,
+      name,
+      price,
+      img,
+      discount,
+      buy,
+      count: 0,
+      breed: '',
+      description: '',
+      age: 0,
+      isSell: 0,
+      isFavorite: false
+    };
+    // if (window.confirm('Добавить котёнка в корзину?')) {
+    dispatch(setAddItem(item));
+    //console.log(item)
+    // }
   };
 
   return (
@@ -88,12 +113,18 @@ const CartItem = ({ id, name, price, img, count, discount }) => {
             <div className={styles.price}>
               <p className={styles.priceText}>{price * count} ₽</p>
             </div>
+            {buy !== 'Продан' ? (
+              <div
+                className={styles.addContent}
+                // className={` ${buy !== 'Продан' ? (styles.clearContent) : (' ')}`}
+                onClick={handlerAddItems}>
+                <img src={cart} alt="" className={styles.cart} />
 
-            <div className={styles.clearContent} onClick={handlerRemoveItem}>
-              <img src={clearCart} alt="" className={styles.clear} />
-
-              <p className={styles.clearText}>Удалить из корзины</p>
-            </div>
+                <p className={styles.addText}>Добавить в корзину</p>
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </div>
@@ -101,4 +132,4 @@ const CartItem = ({ id, name, price, img, count, discount }) => {
   );
 };
 
-export default CartItem;
+export default FavoriteItem;

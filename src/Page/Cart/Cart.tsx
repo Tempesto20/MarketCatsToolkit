@@ -1,16 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { setClearLikes } from '../../redux/slices/favoriteSlice';
-import FavoriteEmpty from '../../components/FavoriteBlock/FavoriteEmpty/FavoriteEmpty';
-import FavoriteItem from '../../components/FavoriteBlock/FavoriteItem/FavoriteItem';
+import { RootState, useAppDispatch } from '../../redux/store';
+import { setClearItems } from '../../redux/slices/cartSlice';
+import CartItem from '../../components/CartBlock/CartItem/CartItem';
+import CartEmpty from '../../components/CartBlock/CartEmpty/CartEmpty';
+import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
 import clear from '../../assets/svg/clearCart.svg';
 import home from '../../assets/img/homeMenu.png';
 import cart from '../../assets/img/cartMenu.png';
-import styles from './favoriteCats.module.scss';
-import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
+import styles from './cart.module.scss';
 
-const controlMenu = [
+
+type ControlMenu = {
+  link: string;
+  img: string;
+  text: string;
+};
+
+const controlMenu:ControlMenu[]  = [
   {
     link: '/',
     img: home,
@@ -19,28 +27,28 @@ const controlMenu = [
   {
     link: '/cart',
     img: cart,
-    text: 'Перейти в корзину',
+    text: 'Оплатить сейчас',
   },
 ];
 
-const FavoriteCats = () => {
-  const dispatch = useDispatch();
-  const items = useSelector((state) => state.favoriteSlice.items);
+const Cart: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const items = useSelector((state:RootState) => state.cartSlice.items);
   // console.log(items);
-  const totalPrice = useSelector((state) => state.favoriteSlice.totalPrice);
+  const totalPrice = useSelector((state:RootState) => state.cartSlice.totalPrice);
   // console.log(totalPrice)
-  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+  const totalCount = items.reduce((sum:number, item:any) => sum + item.count, 0);
   // console.log(totalPrice + ' ' + totalCount);
 
   const handlerClearItems = () => {
-    // if (window.confirm('Отчисть список фаворитов ?')) {
-      dispatch(setClearLikes());
+    // if (window.confirm('Отчисть корзину ?')) {
+      dispatch(setClearItems());
     // }
   };
 
   if (!totalPrice) {
     //условный рендер, те если ничего не имеетв корзине, будет рендериться CartEmpty
-    return <FavoriteEmpty />;
+    return <CartEmpty />;
   }
 
   return (
@@ -48,16 +56,16 @@ const FavoriteCats = () => {
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.header}>
-            <h2 className={styles.preview}>Выбранные Вами фавориты</h2>
+            <h2 className={styles.preview}>Корзина</h2>
             <ButtonMenu className={styles.clearContent} onClick={handlerClearItems}>
               <img src={clear} alt="" className={styles.clear} />
 
-              <p className={styles.clearText}>Удалить фаворитов</p>
+              <p className={styles.clearText}>Очистить корзину</p>
             </ButtonMenu>
           </div>
           <div className="content__items">
-            {items.map((item) => (
-              <FavoriteItem key={item.id} {...item} />
+            {items.map((item:any) => (
+              <CartItem key={item.id} {...item} />
             ))}
           </div>
           <div className={styles.details}>
@@ -90,25 +98,4 @@ const FavoriteCats = () => {
   );
 };
 
-export default FavoriteCats;
-
-
-
-
-              {/* <Link to="/">
-                <div className={styles.buttonHome}>
-                  <img src={home} alt="" className={styles.home} />
-                  <div className={styles.backHome}>Перейти в главное меню</div>
-                </div>
-              </Link>
-
-              <Link to="/cart">
-                <div className={styles.buttonCart}>
-                  <img src={cart} alt="" className={styles.cart} />
-                  <div className={styles.backCart}>Перейти в корзину</div>
-                </div>
-              </Link> */}
-
-
-
-
+export default Cart;

@@ -1,8 +1,34 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice,PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
-  totalPrice: 0,
+
+export type FavoriteItemSlice = {
+  //type - можно передать что угодно, как константа для TS
+  id: string;
+  img: string;
+  name: string; 
+  buy: string;
+  breed: string;
+  description: string;
+  discount: number;
+  price: number;
+  age: number;
+  isSell: number;
+  count: number;
+  isFavorite: boolean;
+};
+
+
+interface FavoriteSliceState {
+  //interface - типизирует только объект {}
+  totalPrice: number;
+  items: FavoriteItemSlice[];
+  isFavorite: boolean;
+}
+
+
+const initialState:FavoriteSliceState = {
   items: [],
+  totalPrice: 0,
   isFavorite: false,
   // totalPrice: cartData.totalPrice,
   // items: cartData.items,
@@ -13,10 +39,10 @@ export const favoriteSlice = createSlice({
   name: 'favorite',
   initialState,
   reducers: {
-    setLike(state, action) {
+    setLike(state, action: PayloadAction<boolean>) {
       state.isFavorite = action.payload;
     },
-    setAddLike(state, action) {
+    setAddLike(state, action: PayloadAction<FavoriteItemSlice>) {
       const findItem = state.items.find((object) => object.id === action.payload.id);
       //console.log(findItem.items);
       //поиск объекта в массиве
@@ -38,7 +64,7 @@ export const favoriteSlice = createSlice({
       }, 0);
     },
 
-    setRemoveLike(state, action) {
+    setRemoveLike(state, action: PayloadAction<string>) {
       // console.log('state ' + ' ' + state);
       // console.log('action ' + ' ' + action);
       state.items = state.items.filter((object) => object.id !== action.payload);

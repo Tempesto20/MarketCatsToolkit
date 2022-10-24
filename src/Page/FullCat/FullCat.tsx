@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { RootState, useAppDispatch } from '../../redux/store';
 import { axiosFullCat } from '../../redux/slices/fullCatSlice';
 // import axios from 'axios';
 import like from '../../assets/img/likeMenu.png';
@@ -9,9 +10,18 @@ import cart from '../../assets/img/cartMenu.png';
 import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
 import Skeleton from './Skeleton';
 import styles from './fullCat.module.scss';
+
+
+
 // Детальный данный по котику по id
 
-const controlMenu = [
+type ControlMenu = {
+  link: string;
+  img: string;
+  text: string;
+};
+
+const controlMenu:ControlMenu[]  = [
   {
     link: '/',
     img: home,
@@ -30,7 +40,7 @@ const controlMenu = [
 ];
 
 const FullCat: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { id } = useParams();  
   // const navigate = useNavigate();
 
@@ -43,7 +53,6 @@ const FullCat: React.FC = () => {
   console.log(status);
 
   const getCats = async () => {
-    // @ts-ignore
     dispatch(axiosFullCat({id}));
   };
 

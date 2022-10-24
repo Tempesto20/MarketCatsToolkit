@@ -16,7 +16,7 @@ const SignupSchema = yup.object().shape({
     .email('Введите пожалуйста свой Email'),
 });
 
-const Bottom = () => {
+const Bottom: React.FC = () => {
   const {
     register,
     handleSubmit,
@@ -25,7 +25,7 @@ const Bottom = () => {
   } = useForm({
     resolver: yupResolver(SignupSchema),
   });
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     console.log(JSON.stringify(data));
     reset(); // для отчистки поля после ввода корретного емейла
   };
@@ -42,12 +42,13 @@ const Bottom = () => {
                 <div className="bottom__email">
                   <input
                     placeholder="Введите ваш e-mail"
+                    // @ts-ignore
                     name="email"
                     type="text"
                     {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
                     className={clsx(errors.email ? ' bottom__email_red' : 'bottom__email-2')}
                   />
-                  <div className="comments">{errors.email?.message}</div>
+                  {/* <div className="comments">{errors.email?.message}</div> */}
                 </div>
 
                 <div className="bottom__button">

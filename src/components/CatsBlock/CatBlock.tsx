@@ -2,25 +2,26 @@ import React from 'react';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { setAddItem } from '../../redux/slices/cartSlice';
+import { RootState, useAppDispatch } from '../../redux/store';
+import { CartItemSlice, setAddItem } from '../../redux/slices/cartSlice';
 import { setAddLike, setRemoveLike, setLike } from '../../redux/slices/favoriteSlice';
 import notLike from '../../assets/svg/like.svg';
 import Like from '../../assets/svg/like2.svg';
 import line from '../../assets/svg/line.svg';
 import './catBlock.scss';
 
-function CatBlock({ id, img, name, price, age, discount, buy, isFavorite, isSell }) {
-  const dispatch = useDispatch();
+const CatBlock: React.FC <CartItemSlice> =({ id, img, name, price, age, discount, buy, isFavorite, isSell }) => {
+  const dispatch = useAppDispatch();
 
-  const cartItem = useSelector((state) => state.cartSlice.items);
+  const cartItem = useSelector((state:RootState) => state.cartSlice.items);
   // console.log(cartItem.length);
 
-  const likeItem = useSelector((state) => state.favoriteSlice.items).find((obj) => obj.id === id);
+  const likeItem = useSelector((state:RootState) => state.favoriteSlice.items).find((obj) => obj.id === id);
   //писк по конкретной id при добавлении в фавориты
   // console.log(likeItem);
 
   const handlerLikeYes = () => {
-    const item = {
+    const item: CartItemSlice = {
       id,
       name,
       price,
@@ -30,6 +31,9 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite, isSell
       buy,
       isSell,
       count: 0,
+      breed: '',
+      description: '',
+      age: 0
     };
     // setLike(true); // при использовании useState
     dispatch(setLike(true));
@@ -56,7 +60,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite, isSell
         return;
       }
     }
-    const item = {
+    const item: CartItemSlice = {
       id,
       name,
       price,
@@ -65,6 +69,10 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite, isSell
       buy,
       isSell,
       count: 0,
+      breed: '',
+      description: '',
+      age: 0,
+      isFavorite: false
     };
     dispatch(setAddItem(item));
     //console.log(item)
@@ -73,7 +81,7 @@ function CatBlock({ id, img, name, price, age, discount, buy, isFavorite, isSell
   return (
     <div className="cards__cat">
       <div className="card">
-        <div className="card__img" alt="">
+        <div className="card__img" >
           <Link to={`/cat/${id}`} key={id}>
             <img src={img} alt="" className="card__cat-img" />
           </Link>

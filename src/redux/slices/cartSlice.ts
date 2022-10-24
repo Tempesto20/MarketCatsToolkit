@@ -1,28 +1,34 @@
-import { createSlice } from '@reduxjs/toolkit';
-// import { calcTotalPrice } from '../../utils/calcTotalPrice';
-// import { getCartFromLocalStorage } from '../../utils/getCartFromLocalStorage';
+import { createSlice,PayloadAction } from '@reduxjs/toolkit';
 
-// const data = localStorage.getItem('cart');
-// const getCartFromLocalStorage = () => {
-//   const data = localStorage.getItem('cart');
-//   const items = data ? JSON.parse(data) : [];
-//   // return data ? JSON.parse(data) : [];
-//   // const totalPrice = calcTotalPrice(items);
-//   return {
-//     items,
-//     // totalPrice,
-//   };
-// };
-// const cartData = getCartFromLocalStorage();
+
+export type CartItemSlice = {
+  //type - можно передать что угодно, как константа для TS
+  id: string;
+  img: string;
+  name: string; 
+  buy: string;
+  breed: string;
+  description: string;
+  discount: number;
+  price: number;
+  age: number;
+  isSell: number;
+  count: number;
+  isFavorite: boolean;
+};
+
+
+interface CartSliceState {
+  //interface - типизирует только объект {}
+  totalPrice: number;
+  items: CartItemSlice[];
+}
+
 
 // первоначальное состояние
-const initialState = {
+const initialState:CartSliceState = {
   totalPrice: 0,
-  // items: JSON.parse(localStorage.getItem('cart')) || [],
   items: [],
-  // totalPrice: cartData.totalPrice,
-  // items: cartData.items,
-  // items: getCartFromLocalStorage(),
 };
 
 export const cartSlice = createSlice({
@@ -32,7 +38,7 @@ export const cartSlice = createSlice({
     // setCartLS(state, action) {
     //   state.items = action.payload;
     // },
-    setAddItem(state, action) {
+    setAddItem(state, action: PayloadAction<CartItemSlice>) {
       // const findItem = state.items.find((object) => object.id === action.payload.id);
       const findItem = state.items.find((object) => object.id === action.payload.id);
       // const data = localStorage.getItem('cart');
@@ -58,7 +64,7 @@ export const cartSlice = createSlice({
       }, 0);
     },
 
-    setRemoveItem(state, action) {
+    setRemoveItem(state, action: PayloadAction<string>) {
       // console.log('state ' + ' ' + state);
       // console.log('action ' + ' ' + action);
       state.items = state.items.filter((object) => object.id !== action.payload);
@@ -78,7 +84,7 @@ export const cartSlice = createSlice({
 
 //console.log(counterSlice.actions);
 
-export const { setAddItem, setRemoveItem, setClearItems, setCartLS } = cartSlice.actions;
+export const { setAddItem, setRemoveItem, setClearItems } = cartSlice.actions;
 // необходимо для импортирования этой переменной в дром файле
 // чтобы вытащить какие-либо ACTIONS, те reducers = actions;
 

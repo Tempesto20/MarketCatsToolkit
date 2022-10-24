@@ -1,5 +1,5 @@
-// import { configureStore } from '@reduxjs/toolkit';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 import {
   persistStore,
   persistReducer,
@@ -49,6 +49,17 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
+export type RootState = ReturnType<typeof store.getState>;
+// RootState - нужен для получение всех значений их хранилища для типизации
+
+type AppDispatch = typeof store.dispatch;
+export const useAppDispatch=()=>useDispatch<AppDispatch>();
+
+
+
+
+
 
 // export default store;
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { RootState, useAppDispatch } from '../../redux/store';
 import { fetchCats } from '../../redux/slices/catsSlice';
 import { setCurrentPage } from '../../redux/slices/filterSlice';
 import CatBlock from '../../components/CatsBlock/CatBlock';
@@ -13,23 +14,23 @@ import FavoriteButton from '../../components/FavoriteBlock/FavoriteButton/Favori
 import Pagination from '../../components/Pagination/Pagination';
 import Checkpoint from '../../components/CheckpointBlock/Checkpoint';
 
-function Home() {
-  const dispatch = useDispatch();
-  const sortType = useSelector((state) => state.filterSlice.sort.sortProperty);
-  const currentPage = useSelector((state) => state.filterSlice.currentPage);
-  const cats = useSelector((state) => state.catsSlice.items);
-  const cart = useSelector((state) => state.cartSlice.items);
+const Home: React.FC = () =>{
+  const dispatch = useAppDispatch();
+  const sortType = useSelector((state:RootState) => state.filterSlice.sort.sortProperty);
+  const currentPage = useSelector((state:RootState) => state.filterSlice.currentPage);
+  const cats = useSelector((state:RootState) => state.catsSlice.items);
+  const cart = useSelector((state:RootState) => state.cartSlice.items);
   // const favorite = useSelector((state) => state.favoriteSlice.items);
-  const sell = useSelector((state) => state.filterSlice.sell);
+  const sell = useSelector((state:RootState) => state.filterSlice.sell.value);
 
-  const status = useSelector((state) => state.catsSlice.status);
+  const status = useSelector((state:RootState) => state.catsSlice.status);
   // console.log(status)
 
   // const onCategoriesHandler = React.useCallback((index) => {
   //   dispatch(setIsSell(index));
   // }, [dispatch]);
 
-  const onChangePageHandler = (number) => {
+  const onChangePageHandler = (number:number) => {
     dispatch(setCurrentPage(number));
   };
 
@@ -54,7 +55,7 @@ function Home() {
 
 
 
-  const catsArray = cats.map((items, id) => <CatBlock key={id} {...items} />);
+  const catsArray = cats.map((items, id) => <CatBlock count={0} key={id} {...items} />);
 
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
 

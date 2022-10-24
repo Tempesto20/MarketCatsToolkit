@@ -1,6 +1,7 @@
 import React from 'react';
 // import Form from 'react-bootstrap/Form';
 import { useSelector, useDispatch } from 'react-redux';
+import { RootState, useAppDispatch } from '../../redux/store';
 import { setSortType } from '../../redux/slices/filterSlice';
 import arrowBottom from '../../assets/img/arrowBottom.png';
 import arrowTop from '../../assets/img/arrowTop.png';
@@ -8,7 +9,14 @@ import moneyBottom from '../../assets/img/moneyBottom.png';
 import moneyTop from '../../assets/img/moneyTop.png';
 import './sort.scss';
 
-const sortList = [
+type SortItem = {
+  name: string;
+  sortProperty: string;
+  img: string;
+};
+
+
+const sortList:SortItem[] = [
   { name: 'сначала взрослые', sortProperty: 'age', img: arrowTop },
   { name: 'сначала юные', sortProperty: '-age', img: arrowBottom },
   { name: 'сначала дорогие', sortProperty: 'price', img: moneyTop },
@@ -16,11 +24,12 @@ const sortList = [
 ];
 
 const Sort: React.FC = () => {
+  
+  const dispatch = useAppDispatch();
   const [sortIsActive, setSortIsActive] = React.useState(false);
 
   const [arrowActive, setArrowActive] = React.useState(false);
-  const dispatch = useDispatch();
-  const sortType = useSelector((state:any) => state.filterSlice.sort);
+  const sortType = useSelector((state:RootState) => state.filterSlice.sort);
 
   const changeHandler = () => {
     setSortIsActive((sortIsActive) => !sortIsActive); //чтобы открывать и закрывать

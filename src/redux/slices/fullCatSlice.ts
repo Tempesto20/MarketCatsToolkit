@@ -1,19 +1,48 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+export type SearchCatsParams ={ 
+  id:string | undefined;
+  // sortBy: string;
+  // order: string; 
+  // currentPage: number;
+  // isSell: string;
+ };
+
+
 // Это бизнес-логика, вынес из UI - в редакс, те це UX
 //Чтобы была возможно повторного использования или исключения
-export const axiosFullCat = createAsyncThunk('fullCatSlice/axiosFullCatStatus', async (params) => {
+export const axiosFullCat = createAsyncThunk('fullCatSlice/axiosFullCatStatus', async (params: SearchCatsParams) => {
   const { id } = params;
   const { data } = await axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats/` + id);
   console.log(data);
   //   console.log(id);
-  return data;
+  return data as CatsItems[];
 });
+
+type  CatsItems = {
+  id: string;
+  img: string;
+  name: string; 
+  buy: string;
+  breed: string;
+  description: string;
+  discount: number;
+  price: number;
+  age: number;
+  isSell: number;
+  isFavorite: boolean;
+};
+
+
+interface CatsSliceState {
+  items: CatsItems[];
+  status: 'loading' | 'success' | 'error' ;
+}
 
 // первоначальное состояние
 //Сохранение пицц в реакте
-const initialState = {
+const initialState: CatsSliceState = {
   items: [],
   status: 'loading', // loading | success | error
 };
