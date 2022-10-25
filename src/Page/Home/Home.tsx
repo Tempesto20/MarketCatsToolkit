@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch  } from 'react-redux';
 import { RootState, useAppDispatch } from '../../redux/store';
 import { fetchCats } from '../../redux/slices/catsSlice';
 import { setCurrentPage } from '../../redux/slices/filterSlice';
@@ -21,10 +21,10 @@ const Home: React.FC = () =>{
   const cats = useSelector((state:RootState) => state.catsSlice.items);
   const cart = useSelector((state:RootState) => state.cartSlice.items);
   // const favorite = useSelector((state) => state.favoriteSlice.items);
-  const sell = useSelector((state:RootState) => state.filterSlice.sell.value);
+  const sell = useSelector((state:RootState) => state.filterSlice.sell);
 
   const status = useSelector((state:RootState) => state.catsSlice.status);
-  // console.log(status)
+  console.log(sell)
 
   // const onCategoriesHandler = React.useCallback((index) => {
   //   dispatch(setIsSell(index));
@@ -38,6 +38,7 @@ const Home: React.FC = () =>{
   const getCats = async () => {
     const sortBy = sortType.replace('-', ''); //убираем минус
     const order = sortType.includes('-') ? 'asc' : 'desc'; // если есть то -, то выбираем 1 пункт
+    // const isSell = sell.value > 0 ? `isSell=${sell}` : ''; //сортировка
     const isSell = sell > 0 ? `isSell=${sell}` : ''; //сортировка
     dispatch(
       fetchCats({

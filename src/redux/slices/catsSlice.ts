@@ -7,7 +7,7 @@ export type SearchCatsParams ={
   sortBy: string;
   order: string; 
   currentPage: number;
-  isSell: string;
+  isSell: string | number;
   // isSell: SellProps;
  };
 
@@ -25,7 +25,7 @@ export const fetchCats = createAsyncThunk('cats/fetchCatsStatus', async (params:
     `https://633db211f2b0e623dc79b585.mockapi.io/cats?page=${currentPage}&limit=6&${isSell}&sortBy=${sortBy}&order=${order}`,
   );
 
-  //console.log(response.data);
+  // console.log(data);
   return data as CatsItems[];
 });
 
