@@ -54,12 +54,7 @@ export type RootState = ReturnType<typeof store.getState>;
 // RootState - нужен для получение всех значений их хранилища для типизации
 
 type AppDispatch = typeof store.dispatch;
-export const useAppDispatch=()=>useDispatch<AppDispatch>();
-
-
-
-
-
+export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 // export default store;
 

@@ -1,73 +1,69 @@
 @import '../../scss/config';
 
-.sort{
-    position: absolute;
-    left: 300px;
-    z-index: 2;
-    @media (max-width: $xl) {
-      margin-top: 90px;
-    }
-    @media (max-width: $sm) {
-      left: 20px;
-      margin-top: 250px;
-    }
+.sort {
+  position: absolute;
+  left: 300px;
+  z-index: 2;
+  @media (max-width: $xl) {
+    margin-top: 90px;
+  }
+  @media (max-width: $sm) {
+    left: 20px;
+    margin-top: 250px;
+  }
 }
-  
 
+.transform {
+  transform: rotate(180deg);
+}
+.sort {
+  &__label {
+    display: block;
 
-.transform{
-    transform: rotate(180deg);
+    svg {
+      margin-right: 8px;
     }
-    .sort {
-      &__label {
-        display: block;
-    
-        svg {
-          margin-right: 8px;
+
+    b {
+      margin-right: 8px;
+    }
+
+    span {
+      color: blue($color: #000000);
+      border-bottom: 1px dashed;
+      cursor: pointer;
+    }
+  }
+
+  &__popup {
+    position: relative;
+    background: #ffffff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 220px;
+
+    ul {
+      overflow: hidden;
+      li {
+        padding: 12px 20px;
+        cursor: pointer;
+
+        &.active,
+        &:hover {
+          background: rgba(254, 95, 30, 0.05);
         }
-    
-        b {
-          margin-right: 8px;
-        }
-    
-        span {
-          color: blue($color: #000000);
-          border-bottom: 1px dashed;
-          cursor: pointer;
-        }
-      }
-    
-      &__popup {
-        position: relative;
-        background: #ffffff;
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
-        border-radius: 10px;
-        overflow: hidden;
-        max-width: 220px;
-    
-        ul {
-          overflow: hidden;
-          li {
-            padding: 12px 20px;
-            cursor: pointer;
-    
-            &.active,
-            &:hover {
-              background: rgba(254, 95, 30, 0.05);  
-            }
-    
-            &.active {
-              font-weight: bold;
-            }
-          }
+
+        &.active {
+          font-weight: bold;
         }
       }
     }
-    
-    .arrow{
-      width: 22px;
-      padding-top: 8px;
-      margin-left: 10px;
-    }
+  }
+}
 
-
+.arrow {
+  width: 22px;
+  padding-top: 8px;
+  margin-left: 10px;
+}

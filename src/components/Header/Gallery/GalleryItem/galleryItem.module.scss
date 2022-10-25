@@ -1,23 +1,22 @@
 @import '../../../../scss/config';
 
-
-.imgCat{
+.imgCat {
   max-width: 800px;
   height: 100%;
   margin: 0 auto;
   @media (max-width: $lg) {
     max-width: 600px;
     padding-bottom: 40px;
-}
-@media (max-width: $md) {
-  max-width: 480px;
-}
-@media (max-width: $sm) {
-  max-width: 300px;
-}
-@media (max-width: $ssm) {
-  max-width: 200px;
-}
+  }
+  @media (max-width: $md) {
+    max-width: 480px;
+  }
+  @media (max-width: $sm) {
+    max-width: 300px;
+  }
+  @media (max-width: $ssm) {
+    max-width: 200px;
+  }
 }
 
 // .arrow {

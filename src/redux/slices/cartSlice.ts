@@ -1,11 +1,10 @@
-import { createSlice,PayloadAction } from '@reduxjs/toolkit';
-
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type CartItemSlice = {
   //type - можно передать что угодно, как константа для TS
   id: string;
   img: string;
-  name: string; 
+  name: string;
   buy: string;
   breed: string;
   description: string;
@@ -17,16 +16,14 @@ export type CartItemSlice = {
   isFavorite: boolean;
 };
 
-
 interface CartSliceState {
   //interface - типизирует только объект {}
   totalPrice: number;
   items: CartItemSlice[];
 }
 
-
 // первоначальное состояние
-const initialState:CartSliceState = {
+const initialState: CartSliceState = {
   totalPrice: 0,
   items: [],
 };

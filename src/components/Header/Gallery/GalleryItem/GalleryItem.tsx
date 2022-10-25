@@ -10,20 +10,18 @@ type GalleryItemProps = {
   img: string;
 };
 
-const GalleryItem: React.FC<GalleryItemProps> =({ id, img })=> {
+const GalleryItem: React.FC<GalleryItemProps> = ({ id, img }) => {
   //   var settings = {
   //     dots: true,
   //   };
   // console.log(img)
   return (
-
-      <div>
-        <Link to={`/cat/${id}`} key={id}>
+    <div>
+      <Link to={`/cat/${id}`} key={id}>
         <img src={img} className={styles.imgCat} />
-        </Link>
-      </div>
-
+      </Link>
+    </div>
   );
-}
+};
 
 export default GalleryItem;

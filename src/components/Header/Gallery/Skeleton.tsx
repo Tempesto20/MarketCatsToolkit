@@ -12,7 +12,7 @@ const Skeleton = () => (
     backgroundColor="#f3f1f1"
     foregroundColor="#ecebeb"
     // className={styles.skeleton}
-    >
+  >
     <rect x="0" y="-1" rx="0" ry="0" width="1200" height="480" />
 
     <circle cx="285" cy="506" r="4" />
@@ -25,7 +25,7 @@ const Skeleton = () => (
     <circle cx="565" cy="506" r="4" />
 
     <circle cx="605" cy="506" r="4" />
-    
+
     <circle cx="645" cy="506" r="4" />
     <circle cx="685" cy="506" r="4" />
     <circle cx="725" cy="506" r="4" />

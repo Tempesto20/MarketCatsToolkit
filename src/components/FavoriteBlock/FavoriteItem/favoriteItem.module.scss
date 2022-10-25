@@ -1,102 +1,97 @@
 @import '../../../scss/config';
 
-.wrapper{
-    position: relative;
-    margin: 0 auto;
-    max-width: 1200px;
-
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
 }
-.background{
-    padding: 40px 20px;
-    @media (max-width: $md) {
-       padding-left: 0px;
-      }
-    
+.background {
+  padding: 40px 20px;
+  @media (max-width: $md) {
+    padding-left: 0px;
+  }
 }
-.container{
-    display: flex;
-    @media (max-width: $sm) {
-        display: block;
-       }
+.container {
+  display: flex;
+  @media (max-width: $sm) {
+    display: block;
+  }
 }
-.img{
-    position: relative;
-    cursor: pointer;
-    max-width: 450px;
-    height: 100%;
-    @media (max-width: $md) {
-        max-width: 300px;
-      }
-      @media (max-width: $sm) {
-        max-width: 350px;
-      }
-      @media (max-width: $ssm) {
-        max-width: 250px;
-      }
+.img {
+  position: relative;
+  cursor: pointer;
+  max-width: 450px;
+  height: 100%;
+  @media (max-width: $md) {
+    max-width: 300px;
+  }
+  @media (max-width: $sm) {
+    max-width: 350px;
+  }
+  @media (max-width: $ssm) {
+    max-width: 250px;
+  }
 }
 
 .like {
-    position: absolute;
-    cursor: pointer;
-    // color: red;
-    top: 37px;
-    left: 380px;    
-    @media (max-width: $xl) {
-      top: 10px;
-    }
-    @media (max-width: $lg) {
-      top: 30px;
-    }
-    @media (max-width: $md) {
-        left: 240px;
-      }
-      @media (max-width: $sm) {
-        top: 10px;
-        left: 280px;
-      }
-      @media (max-width: $ssm) {
-        left: 190px;
-      }
+  position: absolute;
+  cursor: pointer;
+  // color: red;
+  top: 37px;
+  left: 380px;
+  @media (max-width: $xl) {
+    top: 10px;
+  }
+  @media (max-width: $lg) {
+    top: 30px;
+  }
+  @media (max-width: $md) {
+    left: 240px;
+  }
+  @media (max-width: $sm) {
+    top: 10px;
+    left: 280px;
+  }
+  @media (max-width: $ssm) {
+    left: 190px;
+  }
 }
-.info{
-    padding-left: 40px;
-    @media (max-width: $md) {
-        padding-left: 10px;
-      }
+.info {
+  padding-left: 40px;
+  @media (max-width: $md) {
+    padding-left: 10px;
+  }
 }
-.nameText{
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.priceText{
-
-    font-size: 18px;
-    font-weight: bold;
-    padding-top: 20px;
-
-}
-.removeInfo{
-    cursor: pointer;
-    padding-top: 220px;
+.nameText {
+  font-size: 22px;
+  font-weight: bold;
 }
 
+.priceText {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 20px;
+}
+.removeInfo {
+  cursor: pointer;
+  padding-top: 220px;
+}
 
-.addContent{
-    display: flex;
-    border: 1px solid #000000;
-    border-radius: 50px;
-    box-shadow: 12px 12px 2px 1px rgba(220, 210, 22, 0.2);
-    padding: 20px;
-    background-color: #e5e5e5;
-    max-width: 220px;
+.addContent {
+  display: flex;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  box-shadow: 12px 12px 2px 1px rgba(220, 210, 22, 0.2);
+  padding: 20px;
+  background-color: #e5e5e5;
+  max-width: 220px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-top: 160px;
+  cursor: pointer;
+  @media (max-width: $md) {
     margin-top: 20px;
-    margin-bottom: 30px;
-    margin-top: 160px;
-    cursor: pointer;
-    @media (max-width: $md) {
-        margin-top: 20px;
-      }
+  }
 }
 .addContent:hover,
 .addContent:active {
@@ -112,16 +107,6 @@
   padding-left: 10px;
   white-space: nowrap;
 }
-
-
-
-
-
-
-
-
-
-
 
 // .wrapper{
 

@@ -11,14 +11,13 @@ import home from '../../assets/img/homeMenu.png';
 import cart from '../../assets/img/cartMenu.png';
 import styles from './cart.module.scss';
 
-
 type ControlMenu = {
   link: string;
   img: string;
   text: string;
 };
 
-const controlMenu:ControlMenu[]  = [
+const controlMenu: ControlMenu[] = [
   {
     link: '/',
     img: home,
@@ -33,16 +32,16 @@ const controlMenu:ControlMenu[]  = [
 
 const Cart: React.FC = () => {
   const dispatch = useAppDispatch();
-  const items = useSelector((state:RootState) => state.cartSlice.items);
+  const items = useSelector((state: RootState) => state.cartSlice.items);
   // console.log(items);
-  const totalPrice = useSelector((state:RootState) => state.cartSlice.totalPrice);
+  const totalPrice = useSelector((state: RootState) => state.cartSlice.totalPrice);
   // console.log(totalPrice)
-  const totalCount = items.reduce((sum:number, item) => sum + item.count, 0);
+  const totalCount = items.reduce((sum: number, item) => sum + item.count, 0);
   // console.log(totalPrice + ' ' + totalCount);
 
   const handlerClearItems = () => {
     // if (window.confirm('Отчисть корзину ?')) {
-      dispatch(setClearItems());
+    dispatch(setClearItems());
     // }
   };
 

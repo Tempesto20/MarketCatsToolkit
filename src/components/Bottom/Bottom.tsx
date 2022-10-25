@@ -52,8 +52,8 @@ const Bottom: React.FC = () => {
                 </div>
 
                 <div className="bottom__button">
-                  <div className="button__batton"  >
-                    <button type="submit" className="bottom__button-text but" >
+                  <div className="button__batton">
+                    <button type="submit" className="bottom__button-text but">
                       <p className="button-text"> Подписаться</p>
                     </button>
                   </div>

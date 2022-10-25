@@ -5,8 +5,8 @@ import like from '../../../assets/svg/likeIcon.svg';
 import styles from './favoriteButton.module.scss';
 
 const FavoriteButton: React.FC = () => {
-  const items = useSelector((state:RootState) => state.favoriteSlice.items);
-  const totalCount = items.reduce((sum:number, item:any) => sum + item.count, 0);
+  const items = useSelector((state: RootState) => state.favoriteSlice.items);
+  const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0);
   return (
     <div className={styles.wrapper}>
       <div className={styles.cardImg}>

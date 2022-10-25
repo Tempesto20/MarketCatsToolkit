@@ -1,11 +1,10 @@
-import { createSlice,PayloadAction } from '@reduxjs/toolkit';
-
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type FavoriteItemSlice = {
   //type - можно передать что угодно, как константа для TS
   id: string;
   img: string;
-  name: string; 
+  name: string;
   buy: string;
   breed: string;
   description: string;
@@ -17,7 +16,6 @@ export type FavoriteItemSlice = {
   isFavorite: boolean;
 };
 
-
 interface FavoriteSliceState {
   //interface - типизирует только объект {}
   totalPrice: number;
@@ -25,8 +23,7 @@ interface FavoriteSliceState {
   isFavorite: boolean;
 }
 
-
-const initialState:FavoriteSliceState = {
+const initialState: FavoriteSliceState = {
   items: [],
   totalPrice: 0,
   isFavorite: false,

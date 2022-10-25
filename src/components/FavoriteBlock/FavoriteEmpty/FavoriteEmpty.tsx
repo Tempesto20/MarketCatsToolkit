@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import ButtonMenu from '../../Custom/ButtonMenu/ButtonMenu';
 import cartEmpty from '../../../assets/img/emptyFavorite.png';
 import homeMenu from '../../../assets/img/homeMenu.png';
 import cartMenu from '../../../assets/img/cartMenu.png';
 import likeMenu from '../../../assets/img/likeMenu.png';
 import styles from './favoriteEmpty.module.scss';
-
 
 type ControlMenu = {
   link: string;
@@ -32,7 +31,7 @@ const controlMenu: ControlMenu[] = [
   },
 ];
 
-const FavoriteEmpty: React.FC =()=> {
+const FavoriteEmpty: React.FC = () => {
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
@@ -42,7 +41,8 @@ const FavoriteEmpty: React.FC =()=> {
           <div className={styles.header}>
             <p className={styles.title}>Вероятней всего, вы не выбрали себе любимца.</p>
             <p className={styles.subtitle}>
-            Для того, чтобы выбрать любимца, перейди на главную страницу и нажмите на лайк по понравившемуся котику.
+              Для того, чтобы выбрать любимца, перейди на главную страницу и нажмите на лайк по
+              понравившемуся котику.
             </p>
           </div>
           <img src={cartEmpty} alt="Empty cart" className={styles.cartEmpty} />
@@ -63,6 +63,6 @@ const FavoriteEmpty: React.FC =()=> {
       </div>
     </div>
   );
-}
+};
 
 export default FavoriteEmpty;

@@ -4,33 +4,24 @@ import { RootState, useAppDispatch } from '../../redux/store';
 import { setIsSell } from '../../redux/slices/filterSlice';
 import styles from './checkpoint.module.scss';
 
-// type checkpoinImem ={
-//   name:string;
-//   value: number;
-// }
-
-// const checkpointList: checkpoinImem[] = [
-//   { name: 'Все', value: 0 },
-//   { name: 'В наличии', value: 1 },
-//   { name: 'Отсутсвуют в продаже', value: 2 },
-// ];
 const checkpointList = ['Все', 'В наличии', 'Отсутсвуют в продаже'];
 const Checkpoint: React.FC = () => {
   const dispatch = useAppDispatch();
   // const [value, setValue] = React.useState(0);
   const sell = useSelector((state: any) => state.filterSlice.sell);
-  console.log(sell);
+  console.log('sell' + ' ' + sell);
   // const arr = useSelector((state) => state.catsSlice.items);
   // console.log(arr);
 
   const checkboxHandler = (event: any) => {
-    // console.log(event.target.value);
+    console.log('event' + ' ' + event.target.value);
     dispatch(setIsSell(event.target.value));
     // dispatch(setIsSell({
     //   ...sell,
-    //   [sell.value] : event.target.value
+    //   sell : event.target.value
     // }));
   };
+  // const isRadioSelected = (value: number): boolean => sell === value;
 
   return (
     <div className={styles.background}>
@@ -49,18 +40,40 @@ const Checkpoint: React.FC = () => {
                     name="radio"
                     value={index}
                     onChange={checkboxHandler}
-                    // checked={sell === value}
+                    // checked={isRadioSelected(sell)}
+                    // checked={sell === index ? true : false}
+                    // checked={sell === index ? true : sell}
                     // checked={sell.value === index ? true : sell.value}
                     // checked={sell.value === item.value}
                     // checked={sell === index ? true : false}
-                    // checked={check.isGoing}
                     className={styles.subtitle}
                   />
                   {item}
                 </label>
               );
             })}
-            {/* {checkpointList.map((item, index) => {
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Checkpoint;
+
+// type checkpoinImem ={
+//   name:string;
+//   value: number;
+// }
+
+// const checkpointList: checkpoinImem[] = [
+//   { name: 'Все', value: 0 },
+//   { name: 'В наличии', value: 1 },
+//   { name: 'Отсутсвуют в продаже', value: 2 },
+// ];
+
+{
+  /* {checkpointList.map((item, index) => {
               return (
                 <label className={styles.eventTitle} key={index} htmlFor={item.name}>
                   <input
@@ -78,15 +91,8 @@ const Checkpoint: React.FC = () => {
                   {item.name}
                 </label>
               );
-            })} */}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Checkpoint;
+            })} */
+}
 
 {
   /* <label htmlFor={item.name} className={styles.subtitle}>{item.name}</label> */

@@ -33,15 +33,15 @@
 .headerSubtitle {
   padding-top: 20px;
   padding-bottom: 10px;
-  ul{
-      display: flex;
-      li{
-          font-size: 18px;
-          padding-left: 10px;
-      }
+  ul {
+    display: flex;
+    li {
+      font-size: 18px;
+      padding-left: 10px;
+    }
   }
 }
-.point{
+.point {
   max-width: 10px;
   height: 100%;
   padding-top: 6px;
@@ -97,12 +97,12 @@
 .middleContent {
   padding-top: 20px;
   padding-bottom: 10px;
-  ul{
-      display: flex;
-      li{
-          font-size: 18px;
-          padding-left: 10px;
-      }
+  ul {
+    display: flex;
+    li {
+      font-size: 18px;
+      padding-left: 10px;
+    }
   }
   @media (max-width: $lg) {
     padding-left: 20px;

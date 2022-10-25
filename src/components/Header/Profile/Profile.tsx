@@ -49,8 +49,6 @@ const contactsMe = [
 ];
 
 const Profile: React.FC = () => {
-
-
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>

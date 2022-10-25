@@ -4,8 +4,7 @@ import catNews from '../../../assets/img/catNews.jpg';
 import point from '../../../assets/img/pointNews.png';
 import styles from './news.module.scss';
 
-
-const News: React.FC =()=> {
+const News: React.FC = () => {
   const headerSubtitle = [
     'Переходы по страницам сайта без перезагрузки страниц',
     'Сохранение выбранных параметров после перезагрузки сайта',
@@ -86,7 +85,7 @@ const News: React.FC =()=> {
       </div>
     </div>
   );
-}
+};
 
 export default News;
 

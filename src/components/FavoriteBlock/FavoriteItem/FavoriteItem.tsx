@@ -14,9 +14,11 @@ import styles from './favoriteItem.module.scss';
 const FavoriteItem: React.FC<CartItemSlice> = ({ id, name, price, img, count, discount, buy }) => {
   const dispatch = useAppDispatch();
   console.log(buy);
-  const cartItem = useSelector((state:RootState) => state.cartSlice.items);
+  const cartItem = useSelector((state: RootState) => state.cartSlice.items);
   // console.log(cartItem.length);
-  const likeItem = useSelector((state:RootState) => state.favoriteSlice.items).find((obj) => obj.id === id);
+  const likeItem = useSelector((state: RootState) => state.favoriteSlice.items).find(
+    (obj) => obj.id === id,
+  );
   //писк по конкретной id
   // console.log(likeItem);
 
@@ -33,7 +35,7 @@ const FavoriteItem: React.FC<CartItemSlice> = ({ id, name, price, img, count, di
       description: '',
       discount: 0,
       age: 0,
-      isSell: 0
+      isSell: 0,
     };
     // setLike(true); // при использовании useState
     dispatch(setLike(true));
@@ -75,7 +77,7 @@ const FavoriteItem: React.FC<CartItemSlice> = ({ id, name, price, img, count, di
       description: '',
       age: 0,
       isSell: 0,
-      isFavorite: false
+      isFavorite: false,
     };
     // if (window.confirm('Добавить котёнка в корзину?')) {
     dispatch(setAddItem(item));

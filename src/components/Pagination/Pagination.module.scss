@@ -1,6 +1,6 @@
 .root {
   //display: flex;
-padding: 20px 20px;
+  padding: 20px 20px;
   li {
     display: inline-block;
 
@@ -17,19 +17,18 @@ padding: 20px 20px;
       color: #0105fc;
 
       &:hover {
-        background-color: #6EBBD3;
+        background-color: #6ebbd3;
         color: #fff;
       }
     }
   }
 
-  :global{
-    .selected{
-        a{
-
-            background-color: #6EBBD3;
-            color: #fff;
-        }
+  :global {
+    .selected {
+      a {
+        background-color: #6ebbd3;
+        color: #fff;
+      }
     }
-}
+  }
 }

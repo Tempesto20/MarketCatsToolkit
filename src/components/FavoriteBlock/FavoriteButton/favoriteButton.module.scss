@@ -1,41 +1,39 @@
 @import '../../../scss/config';
-.wrapper{
-    position: absolute;
-    right: 310px;
-    padding-top: 10px;
-    @media (max-width: $xl) {
-        left: 300px;
-      }
-      @media (max-width: $ssm) {
-        left: 250px;
-        
-      }
+.wrapper {
+  position: absolute;
+  right: 310px;
+  padding-top: 10px;
+  @media (max-width: $xl) {
+    left: 300px;
+  }
+  @media (max-width: $ssm) {
+    left: 250px;
+  }
 }
 
-.cardImg{
-    position: relative;
+.cardImg {
+  position: relative;
 }
 
-
-.icon{
-    max-width: 40px;
+.icon {
+  max-width: 40px;
 }
 
-.count{
-    position: absolute;
-    top: 2px;
-    left: 26px;
+.count {
+  position: absolute;
+  top: 2px;
+  left: 26px;
 }
-.totalCount{
-    display: inline-flex;
-    font-size: 12px;
-    height: 20px;
-    min-width: 20px;
-    text-align: center;
-    align-items: center;
-    font-weight: bolder;
-    color: white;
-    border-radius: 20px;
-    padding: 0px 5px;
-    background-color: #47035d;
+.totalCount {
+  display: inline-flex;
+  font-size: 12px;
+  height: 20px;
+  min-width: 20px;
+  text-align: center;
+  align-items: center;
+  font-weight: bolder;
+  color: white;
+  border-radius: 20px;
+  padding: 0px 5px;
+  background-color: #47035d;
 }

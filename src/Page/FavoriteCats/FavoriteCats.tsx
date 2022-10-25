@@ -11,14 +11,13 @@ import cart from '../../assets/img/cartMenu.png';
 import styles from './favoriteCats.module.scss';
 import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
 
-
 type ControlMenu = {
   link: string;
   img: string;
   text: string;
 };
 
-const controlMenu:ControlMenu[]  = [
+const controlMenu: ControlMenu[] = [
   {
     link: '/',
     img: home,
@@ -33,16 +32,16 @@ const controlMenu:ControlMenu[]  = [
 
 const FavoriteCats: React.FC = () => {
   const dispatch = useAppDispatch();
-  const items = useSelector((state:RootState) => state.favoriteSlice.items);
+  const items = useSelector((state: RootState) => state.favoriteSlice.items);
   // console.log(items);
-  const totalPrice = useSelector((state:RootState) => state.favoriteSlice.totalPrice);
+  const totalPrice = useSelector((state: RootState) => state.favoriteSlice.totalPrice);
   // console.log(totalPrice)
-  const totalCount = items.reduce((sum:number, item) => sum + item.count, 0);
+  const totalCount = items.reduce((sum: number, item) => sum + item.count, 0);
   // console.log(totalPrice + ' ' + totalCount);
 
   const handlerClearItems = () => {
     // if (window.confirm('Отчисть список фаворитов ?')) {
-      dispatch(setClearLikes());
+    dispatch(setClearLikes());
     // }
   };
 
@@ -100,10 +99,8 @@ const FavoriteCats: React.FC = () => {
 
 export default FavoriteCats;
 
-
-
-
-              {/* <Link to="/">
+{
+  /* <Link to="/">
                 <div className={styles.buttonHome}>
                   <img src={home} alt="" className={styles.home} />
                   <div className={styles.backHome}>Перейти в главное меню</div>
@@ -115,8 +112,5 @@ export default FavoriteCats;
                   <img src={cart} alt="" className={styles.cart} />
                   <div className={styles.backCart}>Перейти в корзину</div>
                 </div>
-              </Link> */}
-
-
-
-
+              </Link> */
+}

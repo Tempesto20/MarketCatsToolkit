@@ -14,7 +14,7 @@ type ControlMenu = {
   text: string;
 };
 
-const controlMenu:ControlMenu[]  = [
+const controlMenu: ControlMenu[] = [
   {
     link: '/',
     img: homeMenu,

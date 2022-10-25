@@ -12,12 +12,11 @@ const listLinks = ['/', '/gallery', '/news', '/profile'];
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
-  
+
   const cats = useSelector((state: RootState) => state.asyncThunkSlice.items);
   // console.log(cats);
-const catLength = cats.length;
-// console.log(catLength);
-
+  const catLength = cats.length;
+  // console.log(catLength);
 
   const getCats = async () => {
     dispatch(axiosCats());
@@ -70,32 +69,24 @@ const catLength = cats.length;
       </div>
     </header>
   );
-}
+};
 
 export default Header;
 
-
 //import axios from 'axios';
 
+// const [catLength, setCatLength] = React.useState([]);
 
-  // const [catLength, setCatLength] = React.useState([]);
-
-  // React.useEffect(() => {
-  //   try {
-  //     axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
-  //       const data = resp.data.length;
-  //       setCatLength(data);
-  //     });
-  //   } catch (error) {
-  //     console.log(error + 'Header');
-  //   }
-  // }, []);
-
-
-
-
-
-
+// React.useEffect(() => {
+//   try {
+//     axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`).then((resp) => {
+//       const data = resp.data.length;
+//       setCatLength(data);
+//     });
+//   } catch (error) {
+//     console.log(error + 'Header');
+//   }
+// }, []);
 
 // Не могу брать длину массива, тк установил лимит на макс.4 на странице, те динамически бует отображаться не корректно
 // const itemsCat = useSelector((state)=>state.catsSlice.items )

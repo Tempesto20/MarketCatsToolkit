@@ -15,8 +15,7 @@ type SortItem = {
   img: string;
 };
 
-
-const sortList:SortItem[] = [
+const sortList: SortItem[] = [
   { name: 'сначала взрослые', sortProperty: 'age', img: arrowTop },
   { name: 'сначала юные', sortProperty: '-age', img: arrowBottom },
   { name: 'сначала дорогие', sortProperty: 'price', img: moneyTop },
@@ -24,18 +23,17 @@ const sortList:SortItem[] = [
 ];
 
 const Sort: React.FC = () => {
-  
   const dispatch = useAppDispatch();
   const [sortIsActive, setSortIsActive] = React.useState(false);
 
   const [arrowActive, setArrowActive] = React.useState(false);
-  const sortType = useSelector((state:RootState) => state.filterSlice.sort);
+  const sortType = useSelector((state: RootState) => state.filterSlice.sort);
 
   const changeHandler = () => {
     setSortIsActive((sortIsActive) => !sortIsActive); //чтобы открывать и закрывать
     setArrowActive((arrow) => !arrow);
   };
-  const onChangeSortType = (items:any) => {
+  const onChangeSortType = (items: any) => {
     dispatch(setSortType(items));
   };
 

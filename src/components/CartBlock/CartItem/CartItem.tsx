@@ -10,17 +10,18 @@ import Like from '../../../assets/svg/like2.svg';
 import clearCart from '../../../assets/svg/clearCart.svg';
 import styles from './cartItem.module.scss';
 
-
-const CartItem: React.FC <CartItemSlice> = ({ id, name, price, img, count, discount }) => {
+const CartItem: React.FC<CartItemSlice> = ({ id, name, price, img, count, discount }) => {
   const dispatch = useAppDispatch();
 
   const handlerRemoveItem = () => {
-    if (window.confirm('Вы действительно хотите удалить котёнка из корзины?')) {
-      dispatch(setRemoveItem(id));
-    }
+    // if (window.confirm('Вы действительно хотите удалить котёнка из корзины?')) {
+    dispatch(setRemoveItem(id));
+    // }
   };
 
-  const likeItem = useSelector((state:RootState) => state.favoriteSlice.items).find((obj) => obj.id === id);
+  const likeItem = useSelector((state: RootState) => state.favoriteSlice.items).find(
+    (obj) => obj.id === id,
+  );
   //писк по конкретной id
   // console.log(likeItem);
 
@@ -37,7 +38,7 @@ const CartItem: React.FC <CartItemSlice> = ({ id, name, price, img, count, disco
       description: '',
       discount: 0,
       age: 0,
-      isSell: 0
+      isSell: 0,
     };
     // setLike(true); // при использовании useState
     dispatch(setLike(true));

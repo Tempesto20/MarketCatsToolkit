@@ -10,13 +10,25 @@ import Like from '../../assets/svg/like2.svg';
 import line from '../../assets/svg/line.svg';
 import './catBlock.scss';
 
-const CatBlock: React.FC <CartItemSlice> =({ id, img, name, price, age, discount, buy, isFavorite, isSell }) => {
+const CatBlock: React.FC<CartItemSlice> = ({
+  id,
+  img,
+  name,
+  price,
+  age,
+  discount,
+  buy,
+  isFavorite,
+  isSell,
+}) => {
   const dispatch = useAppDispatch();
 
-  const cartItem = useSelector((state:RootState) => state.cartSlice.items);
+  const cartItem = useSelector((state: RootState) => state.cartSlice.items);
   // console.log(cartItem.length);
 
-  const likeItem = useSelector((state:RootState) => state.favoriteSlice.items).find((obj) => obj.id === id);
+  const likeItem = useSelector((state: RootState) => state.favoriteSlice.items).find(
+    (obj) => obj.id === id,
+  );
   //писк по конкретной id при добавлении в фавориты
   // console.log(likeItem);
 
@@ -33,7 +45,7 @@ const CatBlock: React.FC <CartItemSlice> =({ id, img, name, price, age, discount
       count: 0,
       breed: '',
       description: '',
-      age: 0
+      age: 0,
     };
     // setLike(true); // при использовании useState
     dispatch(setLike(true));
@@ -72,7 +84,7 @@ const CatBlock: React.FC <CartItemSlice> =({ id, img, name, price, age, discount
       breed: '',
       description: '',
       age: 0,
-      isFavorite: false
+      isFavorite: false,
     };
     dispatch(setAddItem(item));
     //console.log(item)
@@ -81,7 +93,7 @@ const CatBlock: React.FC <CartItemSlice> =({ id, img, name, price, age, discount
   return (
     <div className="cards__cat">
       <div className="card">
-        <div className="card__img" >
+        <div className="card__img">
           <Link to={`/cat/${id}`} key={id}>
             <img src={img} alt="" className="card__cat-img" />
           </Link>
@@ -134,7 +146,7 @@ const CatBlock: React.FC <CartItemSlice> =({ id, img, name, price, age, discount
       </div>
     </div>
   );
-}
+};
 
 export default CatBlock;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector,useDispatch  } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState, useAppDispatch } from '../../redux/store';
 import { fetchCats } from '../../redux/slices/catsSlice';
 import { setCurrentPage } from '../../redux/slices/filterSlice';
@@ -14,26 +14,25 @@ import FavoriteButton from '../../components/FavoriteBlock/FavoriteButton/Favori
 import Pagination from '../../components/Pagination/Pagination';
 import Checkpoint from '../../components/CheckpointBlock/Checkpoint';
 
-const Home: React.FC = () =>{
+const Home: React.FC = () => {
   const dispatch = useAppDispatch();
-  const sortType = useSelector((state:RootState) => state.filterSlice.sort.sortProperty);
-  const currentPage = useSelector((state:RootState) => state.filterSlice.currentPage);
-  const cats = useSelector((state:RootState) => state.catsSlice.items);
-  const cart = useSelector((state:RootState) => state.cartSlice.items);
+  const sortType = useSelector((state: RootState) => state.filterSlice.sort.sortProperty);
+  const currentPage = useSelector((state: RootState) => state.filterSlice.currentPage);
+  const cats = useSelector((state: RootState) => state.catsSlice.items);
+  const cart = useSelector((state: RootState) => state.cartSlice.items);
   // const favorite = useSelector((state) => state.favoriteSlice.items);
-  const sell = useSelector((state:RootState) => state.filterSlice.sell);
+  const sell = useSelector((state: RootState) => state.filterSlice.sell);
 
-  const status = useSelector((state:RootState) => state.catsSlice.status);
-  console.log(sell)
+  const status = useSelector((state: RootState) => state.catsSlice.status);
+  // console.log(sell)
 
   // const onCategoriesHandler = React.useCallback((index) => {
   //   dispatch(setIsSell(index));
   // }, [dispatch]);
 
-  const onChangePageHandler = (number:number) => {
+  const onChangePageHandler = (number: number) => {
     dispatch(setCurrentPage(number));
   };
-
 
   const getCats = async () => {
     const sortBy = sortType.replace('-', ''); //убираем минус
@@ -54,12 +53,9 @@ const Home: React.FC = () =>{
     getCats();
   }, [sortType, currentPage, sell]);
 
-
-
   const catsArray = cats.map((items, id) => <CatBlock count={0} key={id} {...items} />);
 
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
-
 
   return (
     <div className={styles.background}>
@@ -90,36 +86,34 @@ const Home: React.FC = () =>{
       </div>
     </div>
   );
-}
+};
 
 export default Home;
-
 
 // https://633db211f2b0e623dc79b585.mockapi.io/cats
 
 //style={{backgroundColor: '#161617'}}
 
+// const cartMounted = React.useRef(false);
+// const favoriteMounted = React.useRef(false);
+// React.useEffect(() => {
+//   if (cartMounted.current) {
+//     // При первом рендере будет FALSE, те не отработает сохранение
+//     const json = JSON.stringify(cart);
+//     // console.log(json)
+//     localStorage.setItem('cart', json);
+//     //  window.localStorage.getItem('cart');
+//   }
+//   cartMounted.current = true;
+// }, [cart]);
 
-  // const cartMounted = React.useRef(false);
-  // const favoriteMounted = React.useRef(false);
-  // React.useEffect(() => {
-  //   if (cartMounted.current) {
-  //     // При первом рендере будет FALSE, те не отработает сохранение
-  //     const json = JSON.stringify(cart);
-  //     // console.log(json)
-  //     localStorage.setItem('cart', json);
-  //     //  window.localStorage.getItem('cart');
-  //   }
-  //   cartMounted.current = true;
-  // }, [cart]);
-
-  // React.useEffect(() => {
-  //   if (favoriteMounted.current) {
-  //     // При первом рендере будет FALSE, те не отработает сохранение
-  //     const json = JSON.stringify(favorite);
-  //     console.log(json);
-  //     localStorage.setItem('favorite', json);
-  //     //  window.localStorage.getItem('favorite');
-  //   }
-  //   favoriteMounted.current = true;
-  // }, [favorite]);
+// React.useEffect(() => {
+//   if (favoriteMounted.current) {
+//     // При первом рендере будет FALSE, те не отработает сохранение
+//     const json = JSON.stringify(favorite);
+//     console.log(json);
+//     localStorage.setItem('favorite', json);
+//     //  window.localStorage.getItem('favorite');
+//   }
+//   favoriteMounted.current = true;
+// }, [favorite]);

@@ -4,8 +4,6 @@
   position: relative;
 }
 
-
-
 .header__background {
   background: url(../../assets/img/fon1.jpg);
   background-repeat: no-repeat;
@@ -18,15 +16,12 @@
   }
 }
 
-
-
 .header__rgda {
   background: rgba(31, 32, 33, 0.79);
 }
 
-.header_max{
+.header_max {
   max-width: 1280px;
-
 }
 
 .header__container {
@@ -42,7 +37,6 @@
   //   display: block;
   // }
 }
-
 
 .header__logo {
   z-index: 1;
@@ -74,7 +68,7 @@
 }
 
 .header__nav {
-padding-left: 160px;
+  padding-left: 160px;
 }
 
 .header__nav-list {
@@ -96,13 +90,12 @@ padding-left: 160px;
   @media (max-width: $lg) {
     display: none;
   }
-
 }
 
 .header__nav-link {
   font-size: 18px;
   line-height: 22px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
   padding: 8px;
   white-space: nowrap;
@@ -129,24 +122,24 @@ padding-left: 160px;
     display: flex;
     flex-direction: column-reverse;
     margin-top: 0px;
-  } 
+  }
   @media (max-width: $sm) {
     margin-top: 0px;
-  } 
+  }
 }
 
-.header__number { 
+.header__number {
   position: absolute; /* Фиксированное положение */
   font-weight: bold;
   font-size: 24px;
   line-height: 29px;
-  color: #FFFFFF;
+  color: #ffffff;
   white-space: nowrap;
   margin: 46px 0px 4px 0px;
   right: 20px;
 
   @media (max-width: $md) {
-    position:relative;  
+    position: relative;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
@@ -154,7 +147,7 @@ padding-left: 160px;
     margin-top: 0px;
     padding-top: 0px;
     padding-left: 30px;
-  }  
+  }
   // @media (max-width: $sm) {
   //   right: auto;
   //   margin-top: 0px;
@@ -170,13 +163,13 @@ padding-left: 160px;
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  color: #FFFFFF;
+  color: #ffffff;
   white-space: nowrap;
   right: 20px;
   margin: 0px;
-// color: red;
+  // color: red;
   @media (max-width: $md) {
-    position:relative;
+    position: relative;
     font-weight: bold;
     font-size: 24px;
     line-height: 29px;
@@ -191,25 +184,21 @@ padding-left: 160px;
   //   padding-top: 0px;
   //   padding-left: 30px;
   //  }
-  
-
 }
-.header__block{
-
+.header__block {
 }
 .header__search {
   display: flex;
-
 }
 
 .header__found {
   font-weight: bold;
   font-size: 38px;
   line-height: 46px;
-  color: #FFFFFF;
+  color: #ffffff;
   white-space: nowrap;
   margin: 50px 0px 66px 120px;
-  
+
   @media (max-width: $xl) {
     font-size: 26px;
     line-height: 32px;

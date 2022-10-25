@@ -14,14 +14,13 @@ import likeMenu from '../../../assets/img/likeMenu.png';
 import Skeleton from './Skeleton';
 import styles from './gallery.module.scss';
 
-
 type ControlMenu = {
   link: string;
   img: string;
   text: string;
 };
 
-const controlMenu:ControlMenu[]  = [
+const controlMenu: ControlMenu[] = [
   {
     link: '/',
     img: homeMenu,
@@ -58,7 +57,7 @@ const Gallery: React.FC = () => {
   React.useEffect(() => {
     getCats();
   }, []);
-// @ts-ignore
+  // @ts-ignore
   const imgArray = catImg.map((items, id) => <GalleryItem key={id} {...items} />);
 
   const skeletons = [...new Array(1)].map((_, index) => <Skeleton key={index} />);

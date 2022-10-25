@@ -84,10 +84,10 @@
   font-size: 18px;
   font-weight: bold;
   padding-top: 40px;
-  @media (max-width: $xl) { 
+  @media (max-width: $xl) {
     padding-top: 10px;
   }
-  @media (max-width: $lg) { 
+  @media (max-width: $lg) {
     padding-top: 40px;
   }
 }
@@ -97,27 +97,19 @@
   justify-content: space-between;
   margin: 0 auto;
   padding-top: 40px;
-  padding-bottom:80px;
+  padding-bottom: 80px;
   @media (max-width: $lg) {
     display: block;
     padding-top: 0px;
   }
 }
 
-.imgBottom{
-    max-width: 40px;
+.imgBottom {
+  max-width: 40px;
 }
 
-.buttonSubtitle{
-    text-align: center;
-    padding-top: 20px;
-    padding-left: 10px;
+.buttonSubtitle {
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 10px;
 }
-
-
-
-
-
-
-
-

@@ -11,8 +11,6 @@ import ButtonMenu from '../../components/Custom/ButtonMenu/ButtonMenu';
 import Skeleton from './Skeleton';
 import styles from './fullCat.module.scss';
 
-
-
 // Детальный данный по котику по id
 
 type ControlMenu = {
@@ -21,7 +19,7 @@ type ControlMenu = {
   text: string;
 };
 
-const controlMenu:ControlMenu[]  = [
+const controlMenu: ControlMenu[] = [
   {
     link: '/',
     img: home,
@@ -41,7 +39,7 @@ const controlMenu:ControlMenu[]  = [
 
 const FullCat: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { id } = useParams();  
+  const { id } = useParams();
   // const navigate = useNavigate();
 
   //const params = useParams();
@@ -53,7 +51,7 @@ const FullCat: React.FC = () => {
   console.log(status);
 
   const getCats = async () => {
-    dispatch(axiosFullCat({id}));
+    dispatch(axiosFullCat({ id }));
   };
 
   React.useEffect(() => {
@@ -66,20 +64,22 @@ const FullCat: React.FC = () => {
         <div className={styles.preview}>
           В данном разделе представлена информация по интереющему Вас котику
         </div>
-        {status === 'loading' ? skeletons :(
-        <div className={styles.container}>
-          <div className={styles.imgCat}>
-            <img src={cat.img} alt="" className={styles.img} />
+        {status === 'loading' ? (
+          skeletons
+        ) : (
+          <div className={styles.container}>
+            <div className={styles.imgCat}>
+              <img src={cat.img} alt="" className={styles.img} />
+            </div>
+            <div className={styles.title}>
+              <h2 className={styles.name}>{cat.name}</h2>
+              <h2 className={styles.breed}>{cat.breed}</h2>
+              <h2 className={styles.description}>{cat.description}</h2>
+              <h4 className={styles.price}>{cat.price} P</h4>
+            </div>
           </div>
-          <div className={styles.title}>
-            <h2 className={styles.name}>{cat.name}</h2>
-            <h2 className={styles.breed}>{cat.breed}</h2>
-            <h2 className={styles.description}>{cat.description}</h2>
-            <h4 className={styles.price}>{cat.price} P</h4>
-          </div>
-        </div>)
-
-}        <div className={styles.buttonBottom}>
+        )}{' '}
+        <div className={styles.buttonBottom}>
           {controlMenu.map((item, index) => {
             return (
               <Link to={item.link} key={index}>
@@ -98,36 +98,34 @@ const FullCat: React.FC = () => {
 
 export default FullCat;
 
+// const [cat, setCat] = React.useState<{
+//   img: string;
+//   name: string;
+//   breed: string;
+//   description: string;
+//   price: number;
+// }>({
+//   img: '',
+//   name: '',
+//   breed: '',
+//   description: '',
+//   price: 0,
+// });
 
+// React.useEffect(() => {
+//   async function fetchCat() {
+//     try {
+//       const { data } = await axios.get('https://633db211f2b0e623dc79b585.mockapi.io/cats/' + id);
+//       setCat(data);
+//     } catch (error) {
+//       console.log(error + 'FullCat');
+//       navigate('/'); // для перехода на главную страницу, если пицца не нашлась
+//     }
+//   }
+//   fetchCat();
+// }, [id, navigate]);
 
-  // const [cat, setCat] = React.useState<{
-  //   img: string;
-  //   name: string;
-  //   breed: string;
-  //   description: string;
-  //   price: number;
-  // }>({
-  //   img: '',
-  //   name: '',
-  //   breed: '',
-  //   description: '',
-  //   price: 0,
-  // });
-
-  // React.useEffect(() => {
-  //   async function fetchCat() {
-  //     try {
-  //       const { data } = await axios.get('https://633db211f2b0e623dc79b585.mockapi.io/cats/' + id);
-  //       setCat(data);
-  //     } catch (error) {
-  //       console.log(error + 'FullCat');
-  //       navigate('/'); // для перехода на главную страницу, если пицца не нашлась
-  //     }
-  //   }
-  //   fetchCat();
-  // }, [id, navigate]);
-
-  // if (!cat) {
-  //   //если пицца ещё не загрузилась, ничего не выводи
-  //   return <> Загрузка...</>;
-  // }
+// if (!cat) {
+//   //если пицца ещё не загрузилась, ничего не выводи
+//   return <> Загрузка...</>;
+// }

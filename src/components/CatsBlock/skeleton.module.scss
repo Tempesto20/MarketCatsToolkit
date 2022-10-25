@@ -1,7 +1,7 @@
 @import '../../scss/config';
-.skeleton{
-    padding-right: 30px;
-    @media (max-width: $sm) {
-        padding-right: 0px;
-    }
+.skeleton {
+  padding-right: 30px;
+  @media (max-width: $sm) {
+    padding-right: 0px;
+  }
 }

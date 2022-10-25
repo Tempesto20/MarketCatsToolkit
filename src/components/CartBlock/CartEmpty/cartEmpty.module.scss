@@ -1,59 +1,57 @@
 @import '../../../scss/config';
 
-
-.background{
-    background: #e5e5e5;
+.background {
+  background: #e5e5e5;
 }
 
-.wrapper{
-    max-width: 1280px;
-    margin: 0 auto;
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
 }
-.container{
-    margin: 0 auto;
-    text-align: center;
-    padding: 100px 100px;
-    @media (max-width: $md) {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-      @media (max-width: $ssm) {
-        padding-right: 0px;
-      }
+.container {
+  margin: 0 auto;
+  text-align: center;
+  padding: 100px 100px;
+  @media (max-width: $md) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (max-width: $ssm) {
+    padding-right: 0px;
+  }
 }
-.preview{
-    
-    font-weight: bold;
-    font-size: 22px;
+.preview {
+  font-weight: bold;
+  font-size: 22px;
 }
-.header{
-padding-top: 40px;
+.header {
+  padding-top: 40px;
 }
-.title{
-    font-size: 20px;
+.title {
+  font-size: 20px;
 }
-.subtitle{
-    font-size: 20px;
-    font-weight: bold;
-    padding-top: 10px;
-    padding-bottom: 30px;
+.subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 
-.cartEmpty{
-    max-width: 800px;
-    height: 100%;
-    @media (max-width: $lg) {
-        max-width: 600px;
-      }
-      @media (max-width: $md) {
-        max-width: 460px;
-      }
-      @media (max-width: $sm) {
-        max-width: 360px;
-      }
-      @media (max-width: $sm) {
-        max-width: 260px;
-      }
+.cartEmpty {
+  max-width: 800px;
+  height: 100%;
+  @media (max-width: $lg) {
+    max-width: 600px;
+  }
+  @media (max-width: $md) {
+    max-width: 460px;
+  }
+  @media (max-width: $sm) {
+    max-width: 360px;
+  }
+  @media (max-width: $sm) {
+    max-width: 260px;
+  }
 }
 
 .buttonBottom {
@@ -61,19 +59,19 @@ padding-top: 40px;
   justify-content: space-between;
   margin: 0 auto;
   padding-top: 40px;
-  padding-bottom:80px;
+  padding-bottom: 80px;
   @media (max-width: $lg) {
     display: block;
     padding-top: 0px;
   }
 }
 
-.imgBottom{
-    max-width: 40px;
+.imgBottom {
+  max-width: 40px;
 }
 
-.buttonSubtitle{
-    text-align: center;
-    padding-top: 20px;
-    padding-left: 10px;
+.buttonSubtitle {
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 10px;
 }
