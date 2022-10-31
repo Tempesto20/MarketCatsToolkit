@@ -57,7 +57,7 @@ const News: React.FC = () => {
             </div>
           </div>
           <h3 className={styles.middlePreview}>
-            В сборке были задействованны следующие компаненты
+            В сборке были задействованны следующие компоненты
           </h3>
           <div className={styles.middle}>
             <div className="">

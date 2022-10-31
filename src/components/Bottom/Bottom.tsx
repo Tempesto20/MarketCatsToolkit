@@ -42,8 +42,6 @@ const Bottom: React.FC = () => {
                 <div className="bottom__email">
                   <input
                     placeholder="Введите ваш e-mail"
-                    // @ts-ignore
-                    name="email"
                     type="text"
                     {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
                     className={clsx(errors.email ? ' bottom__email_red' : 'bottom__email-2')}
