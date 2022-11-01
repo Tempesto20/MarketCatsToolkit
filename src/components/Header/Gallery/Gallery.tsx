@@ -57,7 +57,7 @@ const Gallery: React.FC = () => {
   React.useEffect(() => {
     getCats();
   }, []);
-  // @ts-ignore
+  
   const imgArray = catImg.map((items, id) => <GalleryItem key={id} {...items} />);
 
   const skeletons = [...new Array(1)].map((_, index) => <Skeleton key={index} />);

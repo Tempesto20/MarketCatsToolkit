@@ -6,12 +6,31 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const axiosCats = createAsyncThunk('asyncThunkSlice/axiosCatsStatus', async () => {
   const { data } = await axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats`);
   // console.log(data);
-  return data;
+  return data  as CatsItems[];
 });
+
+export type CatsItems = {
+  id: string;
+  img: string;
+  name: string;
+  buy: string;
+  breed: string;
+  description: string;
+  discount: number;
+  price: number;
+  age: number;
+  isSell: number;
+  isFavorite: boolean;
+};
+
+interface CatsSliceState {
+  items: CatsItems[];
+  status: 'loading' | 'success' | 'error';
+}
 
 // первоначальное состояние
 //Сохранение пицц в реакте
-const initialState = {
+const initialState: CatsSliceState = {
   items: [],
   status: 'loading', // loading | success | error
 };

@@ -8,7 +8,7 @@ const checkpointList = ['Все', 'В наличии', 'Отсутсвуют в 
 const Checkpoint: React.FC = () => {
   const dispatch = useAppDispatch();
   // const [value, setValue] = React.useState(0);
-  const sell = useSelector((state: any) => state.filterSlice.sell);
+  const sell = useSelector((state: RootState) => state.filterSlice.sell);
   console.log('sell' + ' ' + sell);
   // const arr = useSelector((state) => state.catsSlice.items);
   // console.log(arr);
