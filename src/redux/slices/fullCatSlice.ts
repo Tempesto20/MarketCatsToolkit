@@ -3,10 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export type SearchCatsParams = {
   id: string | undefined;
-  // sortBy: string;
-  // order: string;
-  // currentPage: number;
-  // isSell: string;
 };
 
 // Это бизнес-логика, вынес из UI - в редакс, те це UX
@@ -18,26 +14,27 @@ export const axiosFullCat = createAsyncThunk(
     const { data } = await axios.get(`https://633db211f2b0e623dc79b585.mockapi.io/cats/` + id);
     console.log(data);
     //   console.log(id);
-    return data as CatsItems[];
+    return data as FullCatsItems[];
   },
 );
 
-type CatsItems = {
-  id: string;
-  img: string;
-  name: string;
-  buy: string;
+export type FullCatsItems = {
+  age: number;
   breed: string;
+  buy: string;
   description: string;
   discount: number;
-  price: number;
-  age: number;
-  isSell: number;
+  id: string;
+  img: string;
   isFavorite: boolean;
-};
+  isSell: number;
+  name: string;
+  price: number;
+}
+;
 
 interface CatsSliceState {
-  items: CatsItems[];
+  items: FullCatsItems[];
   status: 'loading' | 'success' | 'error';
 }
 
