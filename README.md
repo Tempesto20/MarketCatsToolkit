@@ -1,6 +1,7 @@
-В сборке испольловаласась версия v14.16.1 - Node.js
+**В сборке использовалось:**
+Node.js - v14.16.1
 
-Frontend:
+**Frontend:**
 
 • TypeScript, JavaScript (ES6+).
 • ReactJS, Redux, Redux Toolkit, Redux-Persist.
@@ -16,8 +17,8 @@ Frontend:
 • Git / GitHub.
 • CLSX.
 
-Backend:
-- MocAPI
+**Backend:**
+• MocAPI
 
 
 1. Получаем данные с бэка по API.
