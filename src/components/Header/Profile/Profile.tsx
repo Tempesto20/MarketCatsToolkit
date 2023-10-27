@@ -39,7 +39,7 @@ const contactsMe = [
     img: github,
   },
   {
-    link: 'https://ekaterinburg.hh.ru/resume/8904f75eff09a7e0400039ed1f743069326f33',
+    link: 'https://ekaterinburg.hh.ru/resume/27eb74d2ff0c8819f80039ed1f7775796b5143?hhtmFrom=resume_list',
     img: hh,
   },
   {
